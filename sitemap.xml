@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>/project/</loc>
     <lastmod>2019-05-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -175,6 +175,10 @@
   
   <url>
     <loc>/archive/</loc>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
   </url>
   
 </urlset>
