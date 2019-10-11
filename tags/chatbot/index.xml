@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chatbot on Cloud | DevOps | Data | Travel | Exhibition | Shows</title>
+    <link>/tags/chatbot/</link>
+    <description>Recent content in Chatbot on Cloud | DevOps | Data | Travel | Exhibition | Shows</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/chatbot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Twilio Message Bot 📟</title>
+      <link>/posts/twilio-message-bot/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/twilio-message-bot/</guid>
+      <description>So you want a personal chatbot to handle your messages. Let&amp;rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&amp;rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</description>
+    </item>
+    
+  </channel>
+</rss>
