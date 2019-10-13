@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Spreadsheets on Cloud | DevOps | Data | Travel | Exhibition | Shows</title>
+    <link>/tags/google-spreadsheets/</link>
+    <description>Recent content in Google Spreadsheets on Cloud | DevOps | Data | Travel | Exhibition | Shows</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/google-spreadsheets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Spreadsheets Paper Test</title>
+      <link>/posts/papertest/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/papertest/</guid>
+      <description>I was aspired by the alpaca&amp;rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&amp;rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
+I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp.</description>
+    </item>
+    
+  </channel>
+</rss>

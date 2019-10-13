@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>text mining on Cloud | DevOps | Data | Travel | Exhibition | Shows</title>
+    <link>/tags/text-mining/</link>
+    <description>Recent content in text mining on Cloud | DevOps | Data | Travel | Exhibition | Shows</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web Scraper</title>
+      <link>/posts/web-scraper/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/web-scraper/</guid>
+      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&amp;rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mmcdole/gofeed&amp;quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;quot;http://feeds.reuters.com/reuters/UKTopNews&amp;quot;) if err != nil { panic(err) } for _, item := range feed.</description>
+    </item>
+    
+  </channel>
+</rss>

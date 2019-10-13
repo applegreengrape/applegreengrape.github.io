@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>amazon s3 :: Cloud | DevOps | Data | Travel | Exhibition | Shows — Pingzhou | 平舟 ⛵️</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace."/>
+<meta name="keywords" content="Cloud | DevOps | Data | Travel | Exhibition | Shows"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/aws-s3-command/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="amazon s3"/>
+<meta name="twitter:description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace."/>
+
+
+
+<meta property="og:title" content="amazon s3" />
+<meta property="og:description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/aws-s3-command/" />
+
+<meta property="og:image" content="/" />
+<meta property="article:published_time" content="2019-08-12T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-12T00:00:00&#43;00:00"/><meta property="og:site_name" content="Cloud | DevOps | Data | Travel | Exhibition | Shows" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid Sans" type="text/css" media="all" />
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Mono" type="text/css" media="all" />
+
+
+<style>
+  body {
+  font-family: 'Droid Sans';
+  }
+  code {
+  font-family: 'Fira Mono'; 
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1HV0FGVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1HV0FGVY3');
+</script>
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/archive">Posts</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/projects">Projects</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/archive">Posts</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/aws-s3-command/">amazon s3</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-08-12
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/bash/">bash</a>&nbsp;
+        
+          #<a href="/tags/aws/">AWS</a>&nbsp;
+        
+          #<a href="/tags/amazon-s3/">amazon-s3</a>&nbsp;
+        
+          #<a href="/tags/cloud-admin/">cloud admin</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<p>aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between <code>aws s3 sync</code>  and <code>aws s3 cp --recursive</code>.</p>
+
+<h3 id="escape-the-whitespace-in-your-file-name">escape the whitespace in your file name</h3>
+
+<p>When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace. Something like this:</p>
+
+<pre><code class="language-bash">.
+├── test1.txt
+├── test2.txt
+├── test3.txt
+└── test4.txt
+
+$ for i in $(ls); do echo $1 &amp;&amp; aws s3 cp ./$i s3://your_s3bucket_name/$i; done
+</code></pre>
+
+<p>However, sometimes it is slightly more complicated when it comes to filenames with whitespace. There is also one command handy - <code>basename</code>. Something like this:</p>
+
+<pre><code class="language-bash">$ tree .
+.
+├── s3.sh
+├── test\ 1.txt
+├── test\ 2.txt
+└── test3.txt
+
+0 directories, 4 files
+$ basename &quot;$(ls)&quot;
+s3.sh
+test 1.txt
+test 2.txt
+test3.txt
+</code></pre>
+
+<p>So if we put it into a bash script loop, it will be something like this:</p>
+
+<pre><code class="language-bash">#!/bin/sh
+
+find .  -type file -name &quot;*&quot; -print0 | while IFS= read -r -d '' file; do
+#    echo $file
+    KEY=$(basename &quot;$file&quot;)
+    echo $KEY
+    echo aws s3api put-object --bucket your_s3_bucket --key '&quot;'$KEY'&quot;' --body $file
+    aws s3api put-object --bucket your_s3_bucket --key '&quot;'$KEY'&quot;' --body $file
+done
+</code></pre>
+
+<h3 id="delete-all-versions-of-all-files-in-a-versioned-s3-bucket">delete all versions of all files in a versioned s3 bucket</h3>
+
+<p>When it comes to delete a versioned s3 bucket, you will need to delete all versions of s3 bucket objects before you can delete the s3 bucket. So let&rsquo;s wrap a simple script to do it. You will use <code>aws s3</code> command and <code>jq</code>. If you don&rsquo;t know anything about jq. You can check my last post on <a href="/posts/useful-jq-commands">jq</a>.</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+bucket=$1
+
+set -e
+
+echo &quot;Removing all versions from $bucket&quot;
+
+versions=`aws s3api list-object-versions --bucket $bucket |jq '.Versions'`
+markers=`aws s3api list-object-versions --bucket $bucket |jq '.DeleteMarkers'`
+let count=`echo $versions |jq 'length'`-1
+
+if [ $count -gt -1 ]; then
+        echo &quot;removing files&quot;
+        for i in $(seq 0 $count); do
+                key=`echo $versions | jq .[$i].Key |sed -e 's/\&quot;//g'`
+                versionId=`echo $versions | jq .[$i].VersionId |sed -e 's/\&quot;//g'`
+                cmd=&quot;aws s3api delete-object --bucket $bucket --key $key --version-id $versionId&quot;
+                echo $cmd
+                $cmd
+        done
+fi
+
+let count=`echo $markers |jq 'length'`-1
+
+if [ $count -gt -1 ]; then
+        echo &quot;removing delete markers&quot;
+
+        for i in $(seq 0 $count); do
+                key=`echo $markers | jq .[$i].Key |sed -e 's/\&quot;//g'`
+                versionId=`echo $markers | jq .[$i].VersionId |sed -e 's/\&quot;//g'`
+                cmd=&quot;aws s3api delete-object --bucket $bucket --key $key --version-id $versionId&quot;
+                echo $cmd
+                $cmd
+        done
+fi
+</code></pre>
+
+      
+      <div align="center">
+      <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
+      
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      
+      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/3k2CeYTrb"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:10px;">Buy me a coffee</span></a>
+    </div>
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="/posts/papertest/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Google Spreadsheets Paper Test</span>
+              </a>
+            </span>
+          
+          
+            <span class="button next">
+              <a href="/posts/useful-jq-commands/">
+                <span class="button__text">jq examples</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-applegreengrape-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2753999921028307",
+    enable_page_level_ads: true
+  });
+</script>
+      
+    </div>
+
+    
+  </body>
+</html>
