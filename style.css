@@ -11,8 +11,16 @@
     --dark-header:#252627;--dark-color:#a9a9b3;
     --dark-color-secondary:#73747b;
     --dark-border-color:#4a4b50;
-    --phoneWidth:(max-width:684px);
+    --phoneWidth:(max-width: 375px);
     --tabletWidth:(max-width:900px)
+}
+
+.posts{
+    max-width: 95%;
+}
+
+.header{
+    width: 100%;
 }
 
 body {
