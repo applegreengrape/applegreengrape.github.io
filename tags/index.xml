@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Cloud | DevOps | Data | Travel | Exhibition | Shows</title>
+    <title>Tags on DevOps | Golang | Python | Travel</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Cloud | DevOps | Data | Travel | Exhibition | Shows</description>
+    <description>Recent content in Tags on DevOps | Golang | Python | Travel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
