@@ -119,6 +119,12 @@
   </url>
   
   <url>
+    <loc>/tags/project/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/twilio/</loc>
     <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -168,16 +174,21 @@
   </url>
   
   <url>
+    <loc>/posts/cagliari/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>/archive/</loc>
   </url>
   
   <url>
-    <loc>/archive/</loc>
+    <loc>/tags/travel/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

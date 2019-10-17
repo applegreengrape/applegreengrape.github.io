@@ -72,5 +72,14 @@ func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &am
 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mmcdole/gofeed&amp;quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;quot;http://feeds.reuters.com/reuters/UKTopNews&amp;quot;) if err != nil { panic(err) } for _, item := range feed.</description>
     </item>
     
+    <item>
+      <title>Cagliari, Sardinia</title>
+      <link>/posts/cagliari/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/cagliari/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
