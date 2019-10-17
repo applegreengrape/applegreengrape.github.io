@@ -1,0 +1,70 @@
+:root{
+    --light-background:#e6e6e6;
+    --light-background-secondary:#e6e6e6;
+    --light-header:#fafafa;
+    --light-color:#222;
+    --light-color-secondary:#999;
+    --light-border-color:#dcdcdc;
+    
+    --dark-background:#292a2d;
+    --dark-background-secondary:#3b3d42;
+    --dark-header:#252627;--dark-color:#a9a9b3;
+    --dark-color-secondary:#73747b;
+    --dark-border-color:#4a4b50;
+    --phoneWidth:(max-width:684px);
+    --tabletWidth:(max-width:900px)
+}
+
+body {
+    font-size: 0.85rem;
+    font-weight: 100;
+    line-height: 1.25;
+    background-color: #fff;
+    background-color: var(--light-background);
+    color: #222;
+    color: var(--light-color);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+}
+
+.post-content {
+    margin-top: 0px;
+}
+
+.post-title {
+    font-size: 1.85rem;
+    margin: 0 0 5px;
+    font-weight: normal;
+}
+
+.post-meta {
+    font-size: 0.86rem;
+    margin-bottom: 5px;
+    font-weight: lighter;
+}
+
+.post-tags {
+    display: block;
+    margin-bottom: 0px;
+    font-size: smaller;
+    font-weight: lighter;
+    opacity: .5;
+}
+
+.post-content {
+    margin-top: 10px;
+    font-size: medium;
+    font-weight: normal;
+}
+
+a.read-more, a.read-more:active, a.read-more:hover {
+    display: inline-flex;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 10px 0;
+    font-weight: lighter;
+    font-size: smaller;
+}
