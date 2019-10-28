@@ -7,8 +7,8 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="For the Golang version please check here.
-Well, everyone else is using python. So I played around with Golang now I&amp;rsquo;m switching to Python.
-&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser."/>
+And here is a python version:
+&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/web-scraper-python/" />
@@ -29,15 +29,15 @@ Well, everyone else is using python. So I played around with Golang now I&amp;rs
 
 <meta name="twitter:title" content="Web Scraper | Python"/>
 <meta name="twitter:description" content="For the Golang version please check here.
-Well, everyone else is using python. So I played around with Golang now I&rsquo;m switching to Python.
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser."/>
+And here is a python version:
+&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
 
 
 
 <meta property="og:title" content="Web Scraper | Python" />
 <meta property="og:description" content="For the Golang version please check here.
-Well, everyone else is using python. So I played around with Golang now I&rsquo;m switching to Python.
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser." />
+And here is a python version:
+&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/web-scraper-python/" />
 
@@ -206,7 +206,7 @@ Well, everyone else is using python. So I played around with Golang now I&rsquo;
     <div class="post-content">
       <p>For the Golang version please check <a href="/posts/web-scraper/">here</a>.</p>
 
-<p>Well, everyone else is using python. So I played around with Golang now I&rsquo;m switching to Python.</p>
+<p>And here is a python version:</p>
 
 <pre><code class="language-python">
 &quot;&quot;&quot;
@@ -315,6 +315,41 @@ UK minister: PM will abide by pledge to write Brexit delay letter
 Brexit minister says would not countenance short 'technical' delay
 12 no new feeds yet, sleep 60 seconds
 13 no new feeds yet, sleep 60 seconds
+</code></pre>
+
+<p>Then you can <code>BeautifulSoup</code> to parser the html page and extract the texts. You need to set the html page class name. For <a href="https://uk.reuters.com/">reuters news</a>, you can use <code>StandardArticleBody_container</code>. So the html page parse class will be something like this:</p>
+
+<pre><code class="language-python">import requests
+from bs4 import BeautifulSoup
+
+class html_class:
+    def __init__(req, url):
+        req.url = url
+    
+    def parsedHTML(req):
+        try:
+            url = req.url
+            page = requests.get(url)
+
+            soup = BeautifulSoup(page.content, 'html.parser')
+            
+            see_also_section = soup.find('div', attrs={'class': 'StandardArticleBody_container'})
+            result =  see_also_section.find_all(text=True)
+
+            return result
+        
+        except Exception as e:
+            print(e)
+</code></pre>
+
+<p>Now let&rsquo;s combine the rss feed parser with html parser. You can constantly crawl the latest news overtime:</p>
+
+<pre><code class="language-bash">$ python3 google_nlp_entity.py
+title_init: Britain to 'strain every sinew' help finance sector after Brexit
+Britain to 'strain every sinew' help finance sector after Brexit
+['LONDON (Reuters) - Britain will do whatever it can to ensure that its financial sector remains a major global player after Brexit, financial services minister John Glen said on Monday. ', 'FILE PHOTO: The full moon is seen rising behind skyscrapers at Canary Wharf and the London skyline, London, Britain, September 14, 2019. REUTERS/Toby Melville/File Photo', '“This government absolutely believes in the City,” Glen told a conference in London, adding that revenues from finance were key to Britain’s ability to fund healthcare, police and regional development. “We will strain every sinew to help you flourish.” ', 'Financial firms in Britain lose unfettered direct access to investors in the bloc after Brexit and will instead have to rely on the EU’s system of equivalence.  ', 'Under this system, Brussels grants market access if it deems that a foreign financial firm’s home rules are strict enough to ensure that EU customers are well protected. ', 'Glen said that Britain stood ready to start negotiating equivalence in key areas with the EU as soon as Brexit has happened - although when that will be remains unknown. ', 'The EU on Monday agreed a 3-month flexible delay to Britain’s departure, until Jan. 31, after Prime Minister Boris Johnson was driven to request a postponement due to lawmakers rejecting the sequence of the ratification of the divorce deal agreed with Brussels. ', 'If Britain leaves the bloc with a deal, it would have a transition period until the end of 2020, meaning business as usual for the banks.  ', 'Britain has said it does not want to be a permanent “taker” of EU rules to maintain EU financial market access and Glen said the issue was how to find a more “enduring mechanism” that recognizes that changes in rules can occur on both sides. ', '“We have got to weigh the issue up very carefully,” Glen said, adding it was difficult to know “where it would land” until equivalence negotiations with Brussels started. ', '“It will be a carefully designed position that we adopt,” Glen added. ', 'Britain needs to be able to set its own rules and Glen hinted that some of the EU’s capital rules for insurers could be amended, given what he called “pressure” in Britain for changes. ', '“We need an agile and responsive regulatory approach,” Glen said. ', 'Britain sees Brexit as making it possible to negotiating its own trade deals with other countries, and China’s ambassador to Britain, Liu Xiaoming, told the conference that Britain and China were already building foundations for strong future cooperation in financial services. ', '“Britain is at a crucial stage of Brexit, but I am confident the UK will not lose its strength in financial services easily and London will retain its status as an international financial center,” he said. ', 'Fintech could be a key bridge to deeper China-UK cooperation in financial services, he said. ', 'Financial services are more dependent than any other economic sector on being able to hire highly-skilled staff from across the world and Britain would introduce a post-Brexit immigration system that supported competitiveness, Glen said. ', 'Banks, insurers and asset managers in Britain have opened over 300 hubs in the EU to deal with whatever form Brexit takes. ', 'Reporting by Huw Jones; Editing by Peter Graff and Alison Williams', 'Our Standards:', 'The Thomson Reuters Trust Principles.']
+Bitcoin holds ground after China voices support for blockchain
+....
 </code></pre>
 
       

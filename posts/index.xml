@@ -18,8 +18,8 @@
       
       <guid>/posts/web-scraper-python/</guid>
       <description>For the Golang version please check here.
-Well, everyone else is using python. So I played around with Golang now I&amp;rsquo;m switching to Python.
-&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.</description>
+And here is a python version:
+&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed.</description>
     </item>
     
     <item>

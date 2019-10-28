@@ -207,8 +207,8 @@
         
           
             For the Golang version please check here.
-Well, everyone else is using python. So I played around with Golang now I&rsquo;m switching to Python.
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def <strong>init</strong>(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &ldquo; last_modified = &ldquo; title = &rdquo; link = &ldquo; row = &rdquo; result = [] feed = feedparser.
+And here is a python version:
+&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def <strong>init</strong>(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &ldquo; last_modified = &ldquo; title = &rdquo; link = &ldquo; row = &rdquo; result = [] feed = feedparser.parse(url) last_etag = feed.
           
         
       </div>
