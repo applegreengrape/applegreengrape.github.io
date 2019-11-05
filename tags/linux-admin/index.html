@@ -215,6 +215,43 @@ Let&rsquo;s try jq with AWS resources api.
       <div><a class="read-more button" href="/posts/useful-jq-commands/">Read more →</a></div>
     </div>
     
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/bash-script/">Bash Script</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2019-08-05
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/bash/">bash</a>&nbsp;
+          
+            #<a href="/tags/aws/">AWS</a>&nbsp;
+          
+            #<a href="/tags/linux-admin/">linux admin</a>&nbsp;
+          
+            #<a href="/tags/cloud-admin/">cloud admin</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            #!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|&ndash;project-id: gcloud project id # -svs|&ndash;svs-account: gcloud service account name to collect logs # Optional parameters: # -h|&ndash;help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|&ndash;help) PRINT_HELP=true shift ;; -id|&ndash;project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|&ndash;svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/bash-script/">Read more →</a></div>
+    </div>
+    
     <div class="pagination">
   <div class="pagination__buttons">
     

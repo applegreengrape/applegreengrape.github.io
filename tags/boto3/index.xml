@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Boto3 on DevOps | Golang | Python | Travel</title>
+    <link>/tags/boto3/</link>
+    <description>Recent content in Boto3 on DevOps | Golang | Python | Travel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/boto3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS | Boto3 | Python </title>
+      <link>/posts/boto3-python/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/boto3-python/</guid>
+      <description>This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to contact me if you want some customized python modules. 👉📱message my twilio bot (+447479275693). I will come back to you shortly 😃.
+import boto3 import os &amp;quot;&amp;quot;&amp;quot; how to use this class import aws_modules.get_all_sg_rules sg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rules sg_rule_result = sg_rule.</description>
+    </item>
+    
+  </channel>
+</rss>
