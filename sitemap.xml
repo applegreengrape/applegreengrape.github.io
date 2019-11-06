@@ -101,6 +101,11 @@
   </url>
   
   <url>
+    <loc>/posts/papertest-2/</loc>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/paper-test/</loc>
     <lastmod>2019-08-13T00:00:00+00:00</lastmod>
     <priority>0</priority>

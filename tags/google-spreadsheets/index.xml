@@ -21,5 +21,16 @@
 I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp.</description>
     </item>
     
+    <item>
+      <title>Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API</title>
+      <link>/posts/papertest-2/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/papertest-2/</guid>
+      <description>So I have made one post about doing paper test by using google app script. So to do a fully automated paper testing. You can use Google&amp;rsquo;s Spreadsheets API, write down the entries and track your paper test result. So how to do it?
+1. Connect to Google&amp;rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
+package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot; &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.</description>
+    </item>
+    
   </channel>
 </rss>
