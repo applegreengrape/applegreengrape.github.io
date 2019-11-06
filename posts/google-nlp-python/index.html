@@ -2,16 +2,15 @@
 <html lang="en">
   <head>
     
-      <title>Web Scraper | Python :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
+      <title>Text Mining | Google NLP | Python :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="For the Golang version please check here.
-And here is a python version:
-&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
+<meta name="description" content="So I have complained about the Google&amp;rsquo;s Spreadsheets API. So after I crawled the news, I feel like I should do some text mining to play around with it. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
+1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.cloud.language import enums from google.cloud.language import types class nlp: def __init__(req, text): req."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="/posts/web-scraper-python/" />
+<link rel="canonical" href="/posts/google-nlp-python/" />
 
 
 <link rel="stylesheet" href="/assets/style.css">
@@ -27,23 +26,21 @@ And here is a python version:
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
-<meta name="twitter:title" content="Web Scraper | Python"/>
-<meta name="twitter:description" content="For the Golang version please check here.
-And here is a python version:
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
+<meta name="twitter:title" content="Text Mining | Google NLP | Python"/>
+<meta name="twitter:description" content="So I have complained about the Google&rsquo;s Spreadsheets API. So after I crawled the news, I feel like I should do some text mining to play around with it. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
+1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.cloud.language import enums from google.cloud.language import types class nlp: def __init__(req, text): req."/>
 
 
 
-<meta property="og:title" content="Web Scraper | Python" />
-<meta property="og:description" content="For the Golang version please check here.
-And here is a python version:
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed." />
+<meta property="og:title" content="Text Mining | Google NLP | Python" />
+<meta property="og:description" content="So I have complained about the Google&rsquo;s Spreadsheets API. So after I crawled the news, I feel like I should do some text mining to play around with it. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
+1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.cloud.language import enums from google.cloud.language import types class nlp: def __init__(req, text): req." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/web-scraper-python/" />
+<meta property="og:url" content="/posts/google-nlp-python/" />
 
 <meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-09-08T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-09-08T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="article:published_time" content="2019-09-07T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-09-07T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -178,11 +175,11 @@ And here is a python version:
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/web-scraper-python/">Web Scraper | Python</a></h2>
+    <h2 class="post-title"><a href="/posts/google-nlp-python/">Text Mining | Google NLP | Python</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
-            2019-09-08
+            2019-09-07
         </span>
       
       
@@ -194,7 +191,7 @@ And here is a python version:
         
           #<a href="/tags/python/">Python</a>&nbsp;
         
-          #<a href="/tags/web-scraper/">Web Scraper</a>&nbsp;
+          #<a href="/tags/google-nlp/">Google NLP</a>&nbsp;
         
           #<a href="/tags/text-mining/">text mining</a>&nbsp;
         
@@ -204,118 +201,135 @@ And here is a python version:
     
 
     <div class="post-content">
-      <p>For the Golang version please check <a href="/posts/web-scraper/">here</a>.</p>
+      
 
-<p>And here is a python version:</p>
+<p>So I have complained about the <a href="/posts/papertest-2/">Google&rsquo;s Spreadsheets API</a>. So after I <a href="/posts/web-scraper-python/">crawled the news</a>, I feel like I should do some text mining to play around with it. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?</p>
 
-<pre><code class="language-python">
-&quot;&quot;&quot;
-create a rss class to parse the rss feed url anf get the title and link 
-&quot;&quot;&quot;
 
-import feedparser
-import os
+  <img src="https://media.giphy.com/media/2vrGD7BtskWD8HB5BK/giphy.gif"  class="center"  style="width: 50%"  />
 
-class rss:
-    def __init__(req, url):
-        req.url = url
-	def fetchDetails(req):
+
+
+<h3 id="1-let-s-create-a-google-nlp-class">1. let&rsquo;s create a google-nlp class</h3>
+
+<pre><code class="language-python"># Imports the Google Cloud client library
+from google.cloud import language
+from google.cloud.language import enums
+from google.cloud.language import types
+
+class nlp:
+    def __init__(req, text):
+        req.text = text
+    
+    def getEntity(req):
         try:
-            url = req.url
-            
-            last_etag = ''
-            last_modified = ''
-
-            title = ''
-            link = ''
+            text = req.text
             row = ''
-            result = []
-            feed = feedparser.parse(url)
+
+            client = language.LanguageServiceClient()
+            document = types.Document(
+                content=text,
+                type=enums.Document.Type.PLAIN_TEXT
+                )
             
-            last_etag = feed.etag
-            last_modified = feed.modified
+            encoding_type = enums.EncodingType.UTF8
 
-            for entry in feed['entries']:
-                title = entry['title']
-                for link in entry['links']:
-                    link = link['href']
-                    row = [title, link]
-                    result.append(row)
+            response = client.analyze_entities(document, encoding_type=encoding_type)
 
-            return last_etag, last_modified, result
+            for entity in response.entities:
+                row = [entity.name, enums.Entity.Type(entity.type).name]
+                #print(u&quot;Representative name for the entity: {}&quot;.format(entity.name))
+                #print(u&quot;Entity type: {}&quot;.format(enums.Entity.Type(entity.type).name))
+                return row
 
         except Exception as e:
             print(e)
-
 </code></pre>
 
-<p>Now call the python module class that you just created.</p>
+<p><code>response = client.analyze_entities(document, encoding_type=encoding_type)</code> this python module is to create a client and analyse the entities. There are more features you can play with. The most useful one is <a href="https://cloud.google.com/natural-language/docs/basics#tokenization">tokenization</a>. I will tell you later 😉.</p>
 
-<pre><code class="language-python">
-import feedparser
+<h3 id="2-let-s-call-the-class-while-crawling-the-news">2. let&rsquo;s call the class while crawling the news</h3>
+
+<pre><code class="language-python">import feedparser
 import os
-import my_module.rss_feedparser
+import time
+import mr_know_it_all.rss_feedparser
+import mr_know_it_all.parse_html
+import mr_know_it_all.google_nlp
 
-url = '' # the rss feed url that you want to parse
-rss = my_module.rss_feedparser.rss(url)
-result = rss.fetchDetails()[2]
+def getstats(url):
+    try:
+        rss = mr_know_it_all.rss_feedparser.rss(url)
+        result = rss.fetchDetails()
 
-</code></pre>
+        return result      
+    except Exception as e:
+            print(e)
 
-<p>Now keep the title as the <code>title_init</code> and then do a while loop:</p>
+def main():
+    try:
+        url = 'http://feeds.reuters.com/reuters/UKTopNews'
 
-<pre><code>i = 0
+        # url = 'https://feeds.a.dj.com/rss/RSSWorldNews.xml'
+
+        result = getstats(url)
+        title_init = result[0][0]
+        latest_title = result[0][0]
+
+        print(&quot;title_init:&quot;, title_init)
+
+        for r in result:
+            print(r[0])
+            html = mr_know_it_all.parse_html.html_class(r[1])
+            text = html.parsedHTML()
+            print(text)
+
+            for line in text:
+                entity = mr_know_it_all.google_nlp.nlp(line)
+                result = entity.getEntity()
+                print(u&quot;{0}:{1}&quot;.format(result[0], result[1]))
+
+        i = 0
         while latest_title == title_init :
             i += 1 
-            print(i, &quot;no new feeds yet, sleep 2 seconds&quot;)
-            time.sleep(2)
-            result = getstats(url)[2]
+            print(i, &quot;no new feeds yet, sleep 60 seconds&quot;)
+            time.sleep(60)
+            result = getstats(url)
             latest_title = result[0][0]
 
             if latest_title != title_init :
                 print(&quot;new news:&quot;)
-                result = getstats(url)[2]
+                i = 0 
+                result = getstats(url)
                 latest_title = result[0][0]
                 title_init = result[0][0]
                 for r in result:
                     print(r[0])
+                    html = mr_know_it_all.parse_html.html_class(r[1])
+                    text = html.parsedHTML()
+                    print(text)
+                    for line in text:
+                        entity = mr_know_it_all.google_nlp.nlp(line)
+                        result = entity.getEntity()
+                        print(u&quot;{0}:{1}&quot;.format(result[0], result[1]))
             else:
                 continue
+
+    except Exception as e:
+            print(e)
+
+if __name__ == '__main__':
+    main()
 </code></pre>
 
-<p>Then you have a tiny web scraper:</p>
+<p>p.s. you will need to handle the authentication with a google service account</p>
 
-<pre><code class="language-bash">5 no new feeds yet, sleep 60 seconds
-6 no new feeds yet, sleep 60 seconds
-7 no new feeds yet, sleep 60 seconds
-8 no new feeds yet, sleep 60 seconds
-9 no new feeds yet, sleep 60 seconds
-10 no new feeds yet, sleep 60 seconds
-11 no new feeds yet, sleep 60 seconds
-new news:
-Roche lifts 2019 sales view again as Chinese demand soars
-Trump national security adviser jets to Turkey in bid to halt assault
-Irish PM says Brexit issues remain, EU sources report 'standstill'
-Turkey's Erdogan says to re-evaluate upcoming U.S. visit
-UK watchdog opens formal probe of Amazon Deliveroo deal
-Hong Kong leader forced to abandon address, offers no olive branch
-Warming climate puts Austria's hip Gruener Veltliner wine at risk
-U.S. security chief 'heaped pain' on grieving parents of UK teen - lawyer
-Sterling, UK stocks fall on concerns Brexit talks have stalled
-Brexit talks ongoing as PM Johnson seeks to reach a deal - spokesman
-'Number of significant issues to resolve' in Brexit talks - EU's Avramopoulos
-UK Brexit minister: Not aware of 'second letter' plan to thwart EU exit delay
-Euro zone inflation drops more than foreseen, trade surplus widens
-Trading in second Woodford fund suspended - administrator
-UK stocks retreat as market waits for Brexit deal update
-M&amp;S CFO Humphrey Singer to step down at the end of the year
-Sales disappoint at UK homebuilder Barratt
-Clashes erupt in Barcelona as Catalan separatists protest sentences for leaders
-UK minister: PM will abide by pledge to write Brexit delay letter
-Brexit minister says would not countenance short 'technical' delay
-12 no new feeds yet, sleep 60 seconds
-13 no new feeds yet, sleep 60 seconds
-</code></pre>
+
+  <img src="https://media.giphy.com/media/hcpVSCSwDcKju/giphy.gif"  class="center"  />
+
+
+
+<p>Nah, Just joking. I will tell you later in following-up post about how to use grammer with the tokenization, where we can find more interesting insights from those news and text. (like to teach your computer to read news exactly the way you programmed 😎😎😎). Please feel free to 👉📱message my twilio bot (+447479275693) if you want some customized python nlp modules.</p>
 
       
       <div align="center">
@@ -334,10 +348,17 @@ Brexit minister says would not countenance short 'technical' delay
         </div>
         <div class="pagination__buttons">
           
+            <span class="button previous">
+              <a href="/posts/web-scraper-python/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Web Scraper | Python</span>
+              </a>
+            </span>
+          
           
             <span class="button next">
-              <a href="/posts/google-nlp-python/">
-                <span class="button__text">Text Mining | Google NLP | Python</span>
+              <a href="/posts/export-gcp-stackdriver-log-with-filebeat/">
+                <span class="button__text">Export GCP Stackdriver Log With Filebeat</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

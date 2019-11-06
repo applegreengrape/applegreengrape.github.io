@@ -44,6 +44,17 @@
   </url>
   
   <url>
+    <loc>/tags/google-nlp/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/google-nlp-python/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/aws/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>

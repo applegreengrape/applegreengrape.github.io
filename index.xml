@@ -23,6 +23,16 @@ And here is a python version:
     </item>
     
     <item>
+      <title>Text Mining | Google NLP | Python</title>
+      <link>/posts/google-nlp-python/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/google-nlp-python/</guid>
+      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. So after I crawled the news, I feel like I should do some text mining to play around with it. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
+1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.cloud.language import enums from google.cloud.language import types class nlp: def __init__(req, text): req.</description>
+    </item>
+    
+    <item>
       <title>Export GCP Stackdriver Log With Filebeat</title>
       <link>/posts/export-gcp-stackdriver-log-with-filebeat/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
@@ -90,7 +100,7 @@ Let&amp;rsquo;s try jq with AWS resources api.
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/cv/</guid>
-      <description>Pingzhou Liu  +447835217316 applegreengrapeintherain@gmail.com https://github.com/applegreengrape  Professional Summary  I am interested in IT automation, especially creating my own tools. I am a DevOps Engineer and AWS certified (AWS Certified Solutions Architect - Associate 2018). I am keen to learn more about cloud native and IT automation.
+      <description>Pingzhou Liu  👉📱message my twilio bot (+447479275693) applegreengrapeintherain@gmail.com https://github.com/applegreengrape  Professional Summary  I am interested in IT automation, especially creating my own tools. I am a DevOps Engineer and AWS certified (AWS Certified Solutions Architect - Associate 2018). I am keen to learn more about cloud native and IT automation.
 I am also interested in Data analytics. I used to be a Splunk Lead Developer where I developed a network intelligence tool with a supervised decision tree algorithm for virtual network optimization, which has been selected by Splunk .</description>
     </item>
     
