@@ -45,7 +45,30 @@
   
   <url>
     <loc>/tags/aws/</loc>
-    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/export-gcp-stackdriver-log-with-filebeat/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bash/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/cloud-admin/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/linux-admin/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -84,24 +107,12 @@
   </url>
   
   <url>
-    <loc>/tags/cloud-admin/</loc>
-    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/posts/aws-s3-command/</loc>
     <lastmod>2019-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/amazon-s3/</loc>
-    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/bash/</loc>
     <lastmod>2019-08-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -121,17 +132,6 @@
   <url>
     <loc>/posts/useful-jq-commands/</loc>
     <lastmod>2019-08-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/linux-admin/</loc>
-    <lastmod>2019-08-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/bash-script/</loc>
-    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>

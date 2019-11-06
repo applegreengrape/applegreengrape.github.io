@@ -210,6 +210,11 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
     <div class="post-content">
       <p>So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.</p>
 
+
+  <img src="http://yuml.me/applegreengrape/diagram/scruffy/class/[cloudwatch%20logstream%7bbg:skyblue%7d]trigger-&amp;gt;[lambda%20function%7bbg:skyblue%7d],[lambda%20function%7bbg:skyblue%7d]forward%20to-&amp;gt;[tcp%20server%20endpoint%20%7bbg:skyblue%7d],"  class="center"  />
+
+
+
 <p>you will need a socket client:</p>
 
 <pre><code class="language-go">func SocketClient(m []byte) {
@@ -231,7 +236,7 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
 }
 </code></pre>
 
-<p>N.B. SocketClient is easy for shipping the data. But maybe not the most secured way. Adding a tls cert might be a better idea 😃.</p>
+<p>N.B. SocketClient is easy for shipping the data. But maybe not the most secured way. Adding a tls cert might be a better idea 😃. Also it is better to use the <code>os.Getenv(&quot;TCP_SERVER_ENDPOINT&quot;)</code> and <code>os.Getenv(&quot;PORT&quot;)</code>.</p>
 
 <p>You will also need a go client for Cloudwatch to recieve and parse the incoming messages.</p>
 

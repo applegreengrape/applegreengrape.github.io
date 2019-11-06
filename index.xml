@@ -23,6 +23,16 @@ And here is a python version:
     </item>
     
     <item>
+      <title>Export GCP Stackdriver Log With Filebeat</title>
+      <link>/posts/export-gcp-stackdriver-log-with-filebeat/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/export-gcp-stackdriver-log-with-filebeat/</guid>
+      <description>This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running.</description>
+    </item>
+    
+    <item>
       <title>AWS | Boto3 | Python </title>
       <link>/posts/boto3-python/</link>
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
@@ -61,16 +71,6 @@ escape the whitespace in your file name When you have a long list of files that 
       <description>jq is a command-line JSON processor to parse json format data. You can find the detailed documentation here. And you can try to play it online at jqplay.org. I am listing out few jq command line examples that I found quite useful for day-to-day work 😃.
 Let&amp;rsquo;s try jq with AWS resources api.
 // to parse and extract json data $ curl -s \ https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json \ | jq .offers.AmazonEC2 { &amp;quot;offerCode&amp;quot;: &amp;quot;AmazonEC2&amp;quot;, &amp;quot;versionIndexUrl&amp;quot;: &amp;quot;/offers/v1.</description>
-    </item>
-    
-    <item>
-      <title>Export GCP Stackdriver Log With Filebeat</title>
-      <link>/posts/bash-script/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/bash-script/</guid>
-      <description>This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running.</description>
     </item>
     
     <item>
