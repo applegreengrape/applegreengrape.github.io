@@ -2,11 +2,12 @@
 <html lang="en">
   <head>
     
-      <title>Bash Script :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
+      <title>Export GCP Stackdriver Log With Filebeat :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running."/>
+<meta name="description" content="This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/bash-script/" />
@@ -25,13 +26,15 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
-<meta name="twitter:title" content="Bash Script"/>
-<meta name="twitter:description" content="#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running."/>
+<meta name="twitter:title" content="Export GCP Stackdriver Log With Filebeat"/>
+<meta name="twitter:description" content="This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running."/>
 
 
 
-<meta property="og:title" content="Bash Script" />
-<meta property="og:description" content="#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running." />
+<meta property="og:title" content="Export GCP Stackdriver Log With Filebeat" />
+<meta property="og:description" content="This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/bash-script/" />
 
@@ -172,7 +175,7 @@
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/bash-script/">Bash Script</a></h2>
+    <h2 class="post-title"><a href="/posts/bash-script/">Export GCP Stackdriver Log With Filebeat</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
@@ -200,7 +203,14 @@
     
 
     <div class="post-content">
-      <pre><code class="language-bash">#!/bin/sh
+      <p>This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the <a href="https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-module-googlecloud.html#_vpcflow_fileset_settings">filebeat google cloud module</a>.</p>
+
+
+  <img src="http://yuml.me/applegreengrape/diagram/scruffy/class/[note:%20Export%20GCP%20Stackdriver%20Log%20with%20pub%2Fsub%20and%20filebeat%7bbg:cornsilk%7d],%20[Google%20Cloud%20Project%20A]Stackdriver%20A-&amp;gt;[pubsub%20sink%20A],%20[pubsub%20sink%20A]be%20subscribed%20by&amp;gt;[Filebeat],%20[Google%20Cloud%20Project%20B%7bbg:wheat%7d]Stackdriver%20B-&amp;gt;[pubsub%20sink%20B%7bbg:wheat],%20[pubsub%20sink%20B%7bbg:wheat]&amp;gt;[Filebeat],%20[Google%20Cloud%20Project%20C%7bbg:skyblue%7d]Stackdriver%20C-&amp;gt;[pubsub%20sink%20C%7bbg:skyblue%7d],%20[pubsub%20sink%20C%7bbg:skyblue%7d]&amp;gt;[Filebeat]"  class="center"  />
+
+
+
+<pre><code class="language-bash">#!/bin/sh
 # author: me 😃
 # $ bash gcloud-admin.sh -h  Required parameters:
 #      -id|--project-id: gcloud project id 

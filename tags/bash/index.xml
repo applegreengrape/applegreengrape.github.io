@@ -22,12 +22,13 @@ escape the whitespace in your file name When you have a long list of files that 
     </item>
     
     <item>
-      <title>Bash Script</title>
+      <title>Export GCP Stackdriver Log With Filebeat</title>
       <link>/posts/bash-script/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/bash-script/</guid>
-      <description>#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running.</description>
+      <description>This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running.</description>
     </item>
     
   </channel>
