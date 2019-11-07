@@ -17,8 +17,8 @@
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/google-nlp-python/</guid>
-      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. So after I crawled the news, I feel like I should do some text mining to play around with it. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
-1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.cloud.language import enums from google.cloud.language import types class nlp: def __init__(req, text): req.</description>
+      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
+1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
     </item>
     
   </channel>

@@ -47,7 +47,7 @@ escape the whitespace in your file name When you have a long list of files that 
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/lambda-logshipper/</guid>
-      <description>So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
+      <description>How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
 func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;your_tcp_endpoint:your_port&amp;quot;) defer conn.Close() if err != nil { fmt.</description>
     </item>

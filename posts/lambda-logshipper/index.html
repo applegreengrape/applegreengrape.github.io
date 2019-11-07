@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
+<meta name="description" content="How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
 func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;your_tcp_endpoint:your_port&amp;quot;) defer conn.Close() if err != nil { fmt."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
@@ -28,14 +28,14 @@ func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &am
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Lambda Logshipper"/>
-<meta name="twitter:description" content="So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
+<meta name="twitter:description" content="How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
 func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt."/>
 
 
 
 <meta property="og:title" content="Lambda Logshipper" />
-<meta property="og:description" content="So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
+<meta property="og:description" content="How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
 func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt." />
 <meta property="og:type" content="article" />
@@ -208,7 +208,7 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
     
 
     <div class="post-content">
-      <p>So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.</p>
+      <p>How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.</p>
 
 
   <img src="http://yuml.me/applegreengrape/diagram/scruffy/class/[cloudwatch%20logstream%7bbg:skyblue%7d]trigger-&amp;gt;[lambda%20function%7bbg:skyblue%7d],[lambda%20function%7bbg:skyblue%7d]forward%20to-&amp;gt;[tcp%20server%20endpoint%20%7bbg:skyblue%7d],"  class="center"  />

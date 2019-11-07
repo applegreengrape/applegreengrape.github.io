@@ -6,9 +6,9 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="So I have made one post about doing paper test by using google app script. So to do a fully automated paper testing. You can use Google&amp;rsquo;s Spreadsheets API, write down the entries and track your paper test result. So how to do it?
+<meta name="description" content="So I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&amp;rsquo;s Spreadsheets API to track your paper test result. How to do it?
 1. Connect to Google&amp;rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
-package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot; &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang."/>
+package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot; &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/context&amp;quot; &amp;quot;golang.org/x/oauth2&amp;quot; &amp;quot;golang.org/x/oauth2/google&amp;quot; &amp;quot;google.golang.org/api/sheets/v4&amp;quot; ) // Retrieve a token, saves the token, then returns the generated client."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/papertest-2/" />
@@ -28,16 +28,16 @@ package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot;
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API"/>
-<meta name="twitter:description" content="So I have made one post about doing paper test by using google app script. So to do a fully automated paper testing. You can use Google&rsquo;s Spreadsheets API, write down the entries and track your paper test result. So how to do it?
+<meta name="twitter:description" content="So I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?
 1. Connect to Google&rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
-package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang."/>
+package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang.org/x/net/context&quot; &quot;golang.org/x/oauth2&quot; &quot;golang.org/x/oauth2/google&quot; &quot;google.golang.org/api/sheets/v4&quot; ) // Retrieve a token, saves the token, then returns the generated client."/>
 
 
 
 <meta property="og:title" content="Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API" />
-<meta property="og:description" content="So I have made one post about doing paper test by using google app script. So to do a fully automated paper testing. You can use Google&rsquo;s Spreadsheets API, write down the entries and track your paper test result. So how to do it?
+<meta property="og:description" content="So I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?
 1. Connect to Google&rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
-package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang." />
+package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang.org/x/net/context&quot; &quot;golang.org/x/oauth2&quot; &quot;golang.org/x/oauth2/google&quot; &quot;google.golang.org/api/sheets/v4&quot; ) // Retrieve a token, saves the token, then returns the generated client." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/papertest-2/" />
 
@@ -206,7 +206,7 @@ package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot;
     <div class="post-content">
       
 
-<p>So I have made one post about doing paper test by using <a href="/posts/papertest/">google app script</a>. So to do a fully automated paper testing. You can use Google&rsquo;s Spreadsheets API, write down the entries and track your paper test result. So how to do it?</p>
+<p>So I have made one post about doing paper test by using <a href="/posts/papertest/">google app script</a>. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?</p>
 
 <h3 id="1-connect-to-google-s-spreadsheets-api">1. Connect to Google&rsquo;s Spreadsheets API</h3>
 

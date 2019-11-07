@@ -243,8 +243,8 @@ And here is a python version:
       <div class="post-content">
         
           
-            So I have complained about the Google&rsquo;s Spreadsheets API. So after I crawled the news, I feel like I should do some text mining to play around with it. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
-1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.cloud.language import enums from google.cloud.language import types class nlp: def <strong>init</strong>(req, text): req.
+            So I have complained about the Google&rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
+1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.
           
         
       </div>
@@ -391,9 +391,9 @@ I am using coinbase api to get the lastest Bitcoin price. And there is already o
       <div class="post-content">
         
           
-            So I have made one post about doing paper test by using google app script. So to do a fully automated paper testing. You can use Google&rsquo;s Spreadsheets API, write down the entries and track your paper test result. So how to do it?
+            So I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?
 1. Connect to Google&rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
-package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang.
+package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang.org/x/net/context&quot; &quot;golang.org/x/oauth2&quot; &quot;golang.org/x/oauth2/google&quot; &quot;google.golang.org/api/sheets/v4&quot; ) // Retrieve a token, saves the token, then returns the generated client.
           
         
       </div>
@@ -546,7 +546,7 @@ Let&rsquo;s try jq with AWS resources api.
       <div class="post-content">
         
           
-            So how can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
+            How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
 func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt.
           
