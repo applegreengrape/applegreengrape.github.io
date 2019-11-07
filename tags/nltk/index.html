@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     
-      <title>Posts :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
+      <title>nltk :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content=""/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="/posts/" />
+<link rel="canonical" href="/tags/nltk/" />
 
 
 <link rel="stylesheet" href="/assets/style.css">
@@ -25,15 +25,15 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
-<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:title" content="nltk"/>
 <meta name="twitter:description" content="Pingzhou | 平舟"/>
 
 
 
-<meta property="og:title" content="Posts" />
+<meta property="og:title" content="nltk" />
 <meta property="og:description" content="Pingzhou | 平舟" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/posts/" />
+<meta property="og:url" content="/tags/nltk/" />
 
 <meta property="og:image" content="/" />
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="DevOps | Golang | Python | Travel" />
+<link rel="alternate" type="application/rss+xml" href="/tags/nltk/index.xml" title="DevOps | Golang | Python | Travel" />
 
 
 
@@ -179,10 +179,10 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/lambda-logshipper/">Lambda Logshipper</a></h1>
+      <h1 class="post-title"><a href="/posts/nltk-grammer-tag/">Text Mining | NLTK | Python</a></h1>
       <div class="post-meta">
         <span class="post-date">
-          2019-07-11
+          2019-10-08
         </span>
         
         
@@ -192,50 +192,9 @@
       
         <span class="post-tags">
           
-            #<a href="/tags/golang/">Golang</a>&nbsp;
+            #<a href="/tags/python/">Python</a>&nbsp;
           
-            #<a href="/tags/lambda/">Lambda</a>&nbsp;
-          
-            #<a href="/tags/aws/">AWS</a>&nbsp;
-          
-            #<a href="/tags/cloudwatch/">Cloudwatch</a>&nbsp;
-          
-            #<a href="/tags/cloud-admin/">cloud admin</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
-you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/lambda-logshipper/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/web-scraper/">Web Scraper | Golang</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2019-07-09
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/golang/">Golang</a>&nbsp;
-          
-            #<a href="/tags/web-scraper/">Web Scraper</a>&nbsp;
+            #<a href="/tags/nltk/">nltk</a>&nbsp;
           
             #<a href="/tags/text-mining/">text mining</a>&nbsp;
           
@@ -247,52 +206,17 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
       <div class="post-content">
         
           
-            So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;<a href="http://feeds.reuters.com/reuters/UKTopNews&quot;">http://feeds.reuters.com/reuters/UKTopNews&quot;</a>) if err != nil { panic(err) } for _, item := range feed.
+            In my previous posts, we have crawled some ariticles and news through RSS feed and HTML tags. We played with google&rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&rsquo;s break the sentence down and let your code to define how will it read 🤓
+How about let the code understand your emotions and 👉 you to the grammer mistake you made.
           
         
       </div>
-      <div><a class="read-more button" href="/posts/web-scraper/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/cagliari/">Cagliari, Sardinia</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          0001-01-01
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/travel/">Travel</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/cagliari/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/nltk-grammer-tag/">Read more →</a></div>
     </div>
     
     <div class="pagination">
   <div class="pagination__buttons">
-    
-      <span class="button previous">
-        <a href="/posts/">
-          <span class="button__icon">←</span>
-          <span class="button__text">Newer posts</span>
-        </a>
-      </span>
     
     
   </div>

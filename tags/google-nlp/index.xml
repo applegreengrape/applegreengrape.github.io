@@ -6,7 +6,7 @@
     <description>Recent content in Google NLP on DevOps | Golang | Python | Travel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/google-nlp/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Text Mining | Google NLP | Python</title>
       <link>/posts/google-nlp-python/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/google-nlp-python/</guid>
       <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?

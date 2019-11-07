@@ -6,10 +6,31 @@
     <description>Recent content in text mining on DevOps | Golang | Python | Travel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Text Mining | NLTK | Python</title>
+      <link>/posts/nltk-grammer-tag/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/nltk-grammer-tag/</guid>
+      <description>In my previous posts, we have crawled some ariticles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
+How about let the code understand your emotions and 👉 you to the grammer mistake you made.</description>
+    </item>
+    
+    <item>
+      <title>Text Mining | Google NLP | Python</title>
+      <link>/posts/google-nlp-python/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/google-nlp-python/</guid>
+      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
+1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
+    </item>
     
     <item>
       <title>Web Scraper | Python</title>
@@ -20,16 +41,6 @@
       <description>For the Golang version please check here.
 And here is a python version:
 &amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed.</description>
-    </item>
-    
-    <item>
-      <title>Text Mining | Google NLP | Python</title>
-      <link>/posts/google-nlp-python/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/google-nlp-python/</guid>
-      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
-1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
     </item>
     
     <item>
