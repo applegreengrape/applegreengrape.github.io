@@ -42,8 +42,8 @@ And here is a python version:
 <meta property="og:url" content="/posts/web-scraper-python/" />
 
 <meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-09-08T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-09-08T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="article:published_time" content="2019-09-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-09-09T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -73,7 +73,8 @@ And here is a python version:
 
   gtag('config', 'G-Z1HV0FGVY3');
 </script>
-<script data-ad-client="ca-pub-2753999921028307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
 
 
 
@@ -181,7 +182,7 @@ And here is a python version:
     <div class="post-meta">
       
         <span class="post-date">
-            2019-09-08
+            2019-09-09
         </span>
       
       
@@ -316,6 +317,67 @@ Brexit minister says would not countenance short 'technical' delay
 13 no new feeds yet, sleep 60 seconds
 </code></pre>
 
+<p>Good! Now we have the RSS feed and the link, Let&rsquo;s grab the content off the internet with the HTML attribute. We will need the <code>BeautifulSoup</code>.</p>
+
+<pre><code class="language-python">'''
+Let's get those python modules 
+'''
+
+import requests
+from bs4 import BeautifulSoup
+</code></pre>
+
+<p>Now let&rsquo;s create a class to capture those texts by parsing with the HTML attribute like <code>{'class': 'StandardArticleBody_container'}</code>.</p>
+
+<pre><code class="language-python">class html_class:
+    def __init__(req, url):
+        req.url = url
+    
+    def parsedHTML(req):
+        try:
+            url = req.url
+            page = requests.get(url)
+
+            soup = BeautifulSoup(page.content, 'html.parser')
+            
+            see_also_section = soup.find('div', attrs={'class': 'StandardArticleBody_container'})
+            result =  see_also_section.find_all(text=True)
+
+            return result
+        
+        except Exception as e:
+            print(e)
+</code></pre>
+
+<p>Let&rsquo;s hit the button and give it go 😎😎😎!</p>
+
+<pre><code class="language-bash">$ python3 nltk_token_tag.py 
+title_init: U.S. CDC reports 'breakthrough' in vaping lung injury probe as cases top 2,000
+U.S. CDC reports 'breakthrough' in vaping lung injury probe as cases top 2,000 http://feeds.reuters.com/~r/reuters/topNews/~3/4TXTCbJEx_g/u-s-cdc-reports-breakthrough-in-vaping-lung-injury-probe-as-cases-top-2000-idUSKBN1XI26R
+['CHICAGO (Reuters) - Tests of lung samples taken from 29 patients with vaping-related injuries suggest all contained Vitamin E acetate, a discovery U.S. officials described on Friday as a “breakthrough” in the investigation of the nationwide outbreak that has topped 2,000 cases.']
+['The discovery of Vitamin E acetate in lung samples offers the first direct evidence of a link with the substance and vaping-related lung injuries.', 'The substance has also been identified in tests by U.S. and state officials of product samples collected from patients with the vaping injury.']
+['In a telephone briefing on Friday, Dr. Anne Schuchat, principal deputy director of the U.S. Centers for Disease Control and Prevention (CDC), called Vitamin E acetate “a very strong culprit of concern” and referred to the discovery as “a breakthrough” in the investigation.']
+['She cautioned that more work is needed to definitively declare it a cause, and said studies may identify other potential causes of the serious injuries as well.']
+['Vitamin E acetate is believed to be used as a cutting agent in illicit vaping products containing THC - the component of marijuana that gets people high.']
+['The substance was identified early in product testing done in the New York Health Department’s Wadsworth laboratory, but not every THC vaping pen the lab tested contained Vitamin E, a lab official told Reuters.']
+['Schuchat said researchers must now establish a causal link between exposure and injury, adding that “many substances are still under investigation.”']
+['On Thursday, the CDC reported there have been 2,051 confirmed and probable U.S. lung injury cases and 39 deaths associated with use of e-cigarettes, or vaping products.', 'Nearly 85 percent of lung injury patients in the nationwide outbreak have reported using products containing THC.']
+['FILE PHOTO: A man uses a vape device in this illustration picture, September 19, 2019.', 'REUTERS/Adnan Abidi/Illustration']
+['In the CDC analysis, THC was detected in 23 of 28 patient samples of lung cells, including from three patients who said they did not use THC products.', 'Nicotine was detected in 16 of 26 patient samples.']
+['In a separate report, Illinois officials found that compared to vapers who did not get sick, those who had a lung injury were significantly more likely to use THC-containing vaping products exclusively or frequently, and were nine times more likely to have purchased products from illicit sources, such as from on-line or off the street.']
+['Together, the findings reinforce public health officials’ recommendation that people avoid using e-cigarettes that contain THC or any products that come from illicit sources.']
+['Reporting by Julie Steenhuysen; Editing by Bill Berkrot']
+['Our Standards:']
+['The Thomson Reuters Trust Principles.']
+</code></pre>
+
+
+  <img src="http://giphygifs.s3.amazonaws.com/media/d3sE6FcNZa7Ju/giphy.gif"  class="center"  />
+
+
+
+<hr />
+
       
       <div align="center">
       <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
@@ -401,7 +463,7 @@ Brexit minister says would not countenance short 'technical' delay
 
 <script src="/assets/main.js"></script>
 <script src="/assets/prism.js"></script>
-
+<script data-ad-client="ca-pub-2753999921028307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       
     </div>
 
