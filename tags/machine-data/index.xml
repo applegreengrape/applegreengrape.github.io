@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Boto3 on DevOps | Golang | Python | Travel</title>
-    <link>/tags/boto3/</link>
-    <description>Recent content in Boto3 on DevOps | Golang | Python | Travel</description>
+    <title>machine data on DevOps | Golang | Python | Travel</title>
+    <link>/tags/machine-data/</link>
+    <description>Recent content in machine data on DevOps | Golang | Python | Travel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/boto3/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/machine-data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>/posts/uml-visualize-your-cloud/</guid>
       <description>This is an example about how to use aws boto3 with yUML to visualize your aws cloud resources. Please feel free to 👉📱message my twilio bot +447479275693.I will come back to you shortly 😃.
  In my last post, I have talked about how to play with aws boto3 api. During a usual dev-ish-ops day, I need to go draw an aws network diagram. I have to log in to the console, click click click, and then copy-paste&amp;hellip;hmmmm&amp;hellip;It&amp;rsquo;s a little tiny bit boring and obviously, I want to automate it.</description>
-    </item>
-    
-    <item>
-      <title>AWS | Boto3 | Python </title>
-      <link>/posts/boto3-python/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/boto3-python/</guid>
-      <description>This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to 👉📱message my twilio bot +447479275693. I will come back to you shortly 😃.
- import boto3 import os &amp;quot;&amp;quot;&amp;quot; how to use this class import aws_modules.get_all_sg_rules sg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rules sg_rule_result = sg_rule.getSgRules() &amp;quot;&amp;quot;&amp;quot; class sg: def __init__(req, aws_account): req.</description>
     </item>
     
   </channel>

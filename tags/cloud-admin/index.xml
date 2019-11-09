@@ -27,8 +27,8 @@
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/boto3-python/</guid>
-      <description>This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to contact me if you want some customized python modules. 👉📱message my twilio bot (+447479275693). I will come back to you shortly 😃.
-import boto3 import os &amp;quot;&amp;quot;&amp;quot; how to use this class import aws_modules.get_all_sg_rules sg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rules sg_rule_result = sg_rule.</description>
+      <description>This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to 👉📱message my twilio bot +447479275693. I will come back to you shortly 😃.
+ import boto3 import os &amp;quot;&amp;quot;&amp;quot; how to use this class import aws_modules.get_all_sg_rules sg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rules sg_rule_result = sg_rule.getSgRules() &amp;quot;&amp;quot;&amp;quot; class sg: def __init__(req, aws_account): req.</description>
     </item>
     
     <item>

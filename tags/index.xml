@@ -6,17 +6,62 @@
     <description>Recent content in Tags on DevOps | Golang | Python | Travel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boto3</title>
+      <link>/tags/boto3/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/boto3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Python</title>
       <link>/tags/python/</link>
-      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>big data visualization</title>
+      <link>/tags/big-data-visualization/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/big-data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine data</title>
+      <link>/tags/machine-data/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/machine-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yUML</title>
+      <link>/tags/yuml/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/yuml/</guid>
       <description></description>
     </item>
     
@@ -39,6 +84,15 @@
     </item>
     
     <item>
+      <title>unstructured data</title>
+      <link>/tags/unstructured-data/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/unstructured-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Google NLP</title>
       <link>/tags/google-nlp/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
@@ -53,15 +107,6 @@
       <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/web-scraper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/tags/aws/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -89,15 +134,6 @@
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/linux-admin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Boto3</title>
-      <link>/tags/boto3/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/boto3/</guid>
       <description></description>
     </item>
     
