@@ -195,6 +195,8 @@
         
           #<a href="/tags/aws/">AWS</a>&nbsp;
         
+          #<a href="/tags/uml/">UML</a>&nbsp;
+        
           #<a href="/tags/yuml/">yUML</a>&nbsp;
         
           #<a href="/tags/machine-data/">machine data</a>&nbsp;
@@ -221,10 +223,7 @@
 
 <p><a href="https://yuml.me/fb939b8c.svg">Click here</a> to view the SVG version of the UML graph.
 
-  <figure class="center" >
-    <img src="https://yuml.me/applegreengrape/diagram/boring;/class/[subnet-0c19b616d6e5468d6%7c10.163.32.0/22;eu-west-1a;clojure-subnet-public-eu-west-1a]-[rtb-0cf65b428d51c5032%7c10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-0ef0383796b11b817%7c10.163.36.0/22;eu-west-1b;clojure-subnet-public-eu-west-1b]-[rtb-0cf65b428d51c5032%7c10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-032bba5091e3d0755%7c10.163.44.0/22;eu-west-1b;clojure-subnet-private-eu-west-1b]-[rtb-0078be8c529367e44%7c10.163.32.0/20:local;0.0.0.0/0:nat-0f171865592318f10],[subnet-04cc7aa1106b95a87%7c10.163.40.0/22;eu-west-1a;clojure-subnet-private-eu-west-1a]-[rtb-0d16ec0e10307b3b9%7c10.163.32.0/20:local;0.0.0.0/0:nat-06f9b490c02cc9e13],[vpc-0db8d6908430ced1d;10.163.32.0/20%7bbg:cornsilk%7d]"   style="width: 100%"  />
-    
-  </figure>
+  <img src="https://yuml.me/applegreengrape/diagram/boring;/class/[subnet-0c19b616d6e5468d6%7c10.163.32.0/22;eu-west-1a;clojure-subnet-public-eu-west-1a]-[rtb-0cf65b428d51c5032%7c10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-0ef0383796b11b817%7c10.163.36.0/22;eu-west-1b;clojure-subnet-public-eu-west-1b]-[rtb-0cf65b428d51c5032%7c10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-032bba5091e3d0755%7c10.163.44.0/22;eu-west-1b;clojure-subnet-private-eu-west-1b]-[rtb-0078be8c529367e44%7c10.163.32.0/20:local;0.0.0.0/0:nat-0f171865592318f10],[subnet-04cc7aa1106b95a87%7c10.163.40.0/22;eu-west-1a;clojure-subnet-private-eu-west-1a]-[rtb-0d16ec0e10307b3b9%7c10.163.32.0/20:local;0.0.0.0/0:nat-06f9b490c02cc9e13],[vpc-0db8d6908430ced1d;10.163.32.0/20%7bbg:cornsilk%7d]"  class="center"  style="width: 100%"  />
 
 </p>
 
@@ -360,15 +359,23 @@ if 'NatGatewayId' in rt[0][1]:
     result_note = result+'[{0}{{bg:cornsilk}}]'.format(note)
 </code></pre>
 
-<h3 id="oh-yeah-we-have-converted-aws-machine-data-into-uml-diagrams">Oh! Yeah! We have converted aws machine data into UML Diagrams</h3>
+<h3 id="oh-yeah-we-have-converted-aws-boto3-dictionary-data-type-into-uml-diagrams">Oh! Yeah! We have converted AWS Boto3 dictionary data type into UML Diagrams</h3>
+
+
+  <img src="https://yuml.me/applegreengrape/diagram/boring;/class/[subnet-0c19b616d6e5468d6%7c10.163.32.0/22;eu-west-1a;clojure-subnet-public-eu-west-1a]-[rtb-0cf65b428d51c5032%7c10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-0ef0383796b11b817%7c10.163.36.0/22;eu-west-1b;clojure-subnet-public-eu-west-1b]-[rtb-0cf65b428d51c5032%7c10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-032bba5091e3d0755%7c10.163.44.0/22;eu-west-1b;clojure-subnet-private-eu-west-1b]-[rtb-0078be8c529367e44%7c10.163.32.0/20:local;0.0.0.0/0:nat-0f171865592318f10],[subnet-04cc7aa1106b95a87%7c10.163.40.0/22;eu-west-1a;clojure-subnet-private-eu-west-1a]-[rtb-0d16ec0e10307b3b9%7c10.163.32.0/20:local;0.0.0.0/0:nat-06f9b490c02cc9e13],[vpc-0db8d6908430ced1d;10.163.32.0/20%7bbg:cornsilk%7d]"  class="center"  style="width: 100%"  />
+
+
 
 
   <img src="https://media.giphy.com/media/8UGGp7rQvfhe63HrFq/giphy.gif"  class="center"  />
 
 
 
-<p>There is the converted UML:
-&gt; [subnet-0c19b616d6e5468d6|10.163.32.0/22;eu-west-1a;clojure-subnet-public-eu-west-1a]-[rtb-0cf65b428d51c5032|10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-0ef0383796b11b817|10.163.36.0/22;eu-west-1b;clojure-subnet-public-eu-west-1b]-[rtb-0cf65b428d51c5032|10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-032bba5091e3d0755|10.163.44.0/22;eu-west-1b;clojure-subnet-private-eu-west-1b]-[rtb-0078be8c529367e44|10.163.32.0/20:local;0.0.0.0/0:nat-0f171865592318f10],[subnet-04cc7aa1106b95a87|10.163.40.0/22;eu-west-1a;clojure-subnet-private-eu-west-1a]-[rtb-0d16ec0e10307b3b9|10.163.32.0/20:local;0.0.0.0/0:nat-06f9b490c02cc9e13],[vpc-0db8d6908430ced1d;10.163.32.0/20{bg:cornsilk}]</p>
+<p>There is the converted UML:</p>
+
+<blockquote>
+<p>[subnet-0c19b616d6e5468d6|10.163.32.0/22;eu-west-1a;clojure-subnet-public-eu-west-1a]-[rtb-0cf65b428d51c5032|10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-0ef0383796b11b817|10.163.36.0/22;eu-west-1b;clojure-subnet-public-eu-west-1b]-[rtb-0cf65b428d51c5032|10.163.32.0/20:local;0.0.0.0/0:igw-08671cfe01495863a],[subnet-032bba5091e3d0755|10.163.44.0/22;eu-west-1b;clojure-subnet-private-eu-west-1b]-[rtb-0078be8c529367e44|10.163.32.0/20:local;0.0.0.0/0:nat-0f171865592318f10],[subnet-04cc7aa1106b95a87|10.163.40.0/22;eu-west-1a;clojure-subnet-private-eu-west-1a]-[rtb-0d16ec0e10307b3b9|10.163.32.0/20:local;0.0.0.0/0:nat-06f9b490c02cc9e13],[vpc-0db8d6908430ced1d;10.163.32.0/20{bg:cornsilk}]</p>
+</blockquote>
 
 <h3 id="some-more-thoughts">Some more thoughts&hellip;</h3>
 
@@ -421,7 +428,7 @@ if 'NatGatewayId' in rt[0][1]:
           
           
             <span class="button next">
-              <a href="/posts/nltk-grammer-tag/">
+              <a href="/posts/nltk-grammar-tag/">
                 <span class="button__text">Text Mining | NLTK | Python</span>
                 <span class="button__icon">→</span>
               </a>

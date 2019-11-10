@@ -23,13 +23,13 @@
     
     <item>
       <title>Text Mining | NLTK | Python</title>
-      <link>/posts/nltk-grammer-tag/</link>
+      <link>/posts/nltk-grammar-tag/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/nltk-grammer-tag/</guid>
-      <description>In my previous posts, we have crawled some ariticles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+      <guid>/posts/nltk-grammar-tag/</guid>
+      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
 Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
-How about let the code understand your emotions and 👉 you to the grammer mistake you made.</description>
+How about let the code understand your emotions and 👉 you to the grammar mistake you made.</description>
     </item>
     
     <item>

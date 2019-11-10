@@ -23,13 +23,13 @@
     
     <item>
       <title>Text Mining | NLTK | Python</title>
-      <link>/posts/nltk-grammer-tag/</link>
+      <link>/posts/nltk-grammar-tag/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/nltk-grammer-tag/</guid>
-      <description>In my previous posts, we have crawled some ariticles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+      <guid>/posts/nltk-grammar-tag/</guid>
+      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
 Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
-How about let the code understand your emotions and 👉 you to the grammer mistake you made.</description>
+How about let the code understand your emotions and 👉 you to the grammar mistake you made.</description>
     </item>
     
     <item>
@@ -90,7 +90,7 @@ package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot;
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/papertest-google-app-script/</guid>
-      <description>I was aspired by the alpaca&amp;rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&amp;rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
+      <description>I was inspired by the alpaca&amp;rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&amp;rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
 I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp.</description>
     </item>
     
