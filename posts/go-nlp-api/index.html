@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Go NLP API | Build Your Own  :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
+Let&amp;rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;quot;gopkg."/>
+<meta name="keywords" content="DevOps | Golang | Python | Travel"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/go-nlp-api/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Go NLP API | Build Your Own "/>
+<meta name="twitter:description" content="In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
+Let&rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &quot;gopkg."/>
+
+
+
+<meta property="og:title" content="Go NLP API | Build Your Own " />
+<meta property="og:description" content="In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
+Let&rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &quot;gopkg." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/go-nlp-api/" />
+
+<meta property="og:image" content="/" />
+<meta property="article:published_time" content="2019-11-13T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-11-13T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cutive Mono" type="text/css" media="all" />
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
+
+
+<style>
+  body {
+  font-family: 'Cutive Mono';
+  }
+  code {
+  font-family: 'Source Code Pro'; 
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1HV0FGVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1HV0FGVY3');
+</script>
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags/project">Projects</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags/travel">Travel</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/">Posts</a></li>
+      
+    
+      
+        <li><a href="/tags/project">Projects</a></li>
+      
+    
+      
+        <li><a href="/tags/travel">Travel</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/go-nlp-api/">Go NLP API | Build Your Own</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-11-13
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/golang/">Golang</a>&nbsp;
+        
+          #<a href="/tags/go/">Go</a>&nbsp;
+        
+          #<a href="/tags/api/">API</a>&nbsp;
+        
+          #<a href="/tags/nlp/">NLP</a>&nbsp;
+        
+          #<a href="/tags/text-mining/">text mining</a>&nbsp;
+        
+          #<a href="/tags/backend/">Backend</a>&nbsp;
+        
+          #<a href="/tags/project/">Project</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+
+<p>In my previous posts, <a href="/posts/twilio-message-bot/">I have talked about building a small backend server to handle HTTP POST request</a>. We also have tried out <a href="/posts/google-nlp-python/">the Google NLP</a> and we dived into the topic of <a href="/tags/nltk/">NLTK</a>. Well, now we know how to create a <code>Go</code> function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?</p>
+
+
+  <img src="https://media.giphy.com/media/hTBgYWKKCLIFwND4z4/giphy.gif"  class="center"  style="border-radius: 50%; width: 35%"  />
+
+
+
+<h3 id="let-s-now-look-at-the-key-functions">Let&rsquo;s now look at the key functions</h3>
+
+<pre><code class="language-go">// Now we need to create a function to parse and tag all the data 
+// There is a pre-built lib you can use - &quot;gopkg.in/jdkato/prose.v2&quot;
+
+import (
+	&quot;gopkg.in/jdkato/prose.v2&quot;
+)
+
+func goProse(docs string) (tag [][]string, entities [][]string){
+	doc, err := prose.NewDocument(docs)
+    if err != nil {
+        log.Fatal(err)
+	}
+
+    for _, tok := range doc.Tokens() {
+		fmt.Println(tok.Text, tok.Tag)
+		var t []string
+		t = append(t, tok.Text, tok.Tag)
+		tag = append(tag, t)
+	}
+
+	for _, ent := range doc.Entities() {
+		fmt.Println(ent.Text, ent.Label)
+		var e []string
+		e = append(e, ent.Text, ent.Label)
+		entities = append(entities, e)
+	}
+	
+	return tag, entities
+
+}
+</code></pre>
+
+<h3 id="let-s-think-about-the-api-response-data-structure">Let&rsquo;s think about the API response data structure</h3>
+
+<pre><code class="language-go">type resultType struct {
+	WhoamI    string
+	Tag [][]string
+	Ent [][]string
+  }
+// I think they look like a good data type :)
+</code></pre>
+
+<h3 id="okie-dokie-looks-good-now-you-will-need-a-golang-backend-to-handle-the-http-request">Okie, dokie. Looks good! Now you will need a Golang backend to handle the http request</h3>
+
+<pre><code class="language-go">func postHandler(w http.ResponseWriter, r *http.Request){
+		if r.Method == &quot;POST&quot; {
+			body, err := ioutil.ReadAll(r.Body)
+			if err != nil {
+				log.Println(err)
+			}
+
+			fmt.Println(string(body))
+
+			var resultTag [][]string
+			var resultEnt [][]string
+
+		    resultTag,resultEnt  = goProse(string(body))
+
+			result := resultType{&quot;👋 from Pingzhou| ⛵&quot;, resultTag, resultEnt}
+
+			fmt.Println(result)
+
+			js, err := json.Marshal(result)
+  			if err != nil {
+    			http.Error(w, err.Error(), http.StatusInternalServerError)
+    		return
+  			}
+
+			w.Header().Set(&quot;Content-Type&quot;, &quot;application/json&quot;)
+  			w.Write(js)
+		}
+		
+	
+  }
+</code></pre>
+
+<h3 id="oh-yes-all-set-let-s-start-the-http-server">Oh! Yes! All set! Let&rsquo;s start the http server!</h3>
+
+<pre><code class="language-go">func main() {
+
+	mux := http.NewServeMux()
+
+	mux.HandleFunc(&quot;/v1/go-nlp&quot;, postHandler)
+	http.ListenAndServe(&quot;:&quot;+os.Getenv(&quot;api_port&quot;), mux)
+ }
+</code></pre>
+
+<h3 id="yes-here-you-go-your-own-nlp-api-is-up">Yes! Here you go! Your own nlp-api is up :)</h3>
+
+
+  <img src="https://media.giphy.com/media/kv5fbxHVAEOjrHeCLk/giphy.gif"  class="center"  style="width: 50%"  />
+
+
+
+<pre><code class="language-bash">$ curl -v -s -X POST http://localhost:8080/v1/go-nlp \
+&gt; -d 'Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.'
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 8080 (#0)
+&gt; POST /v1/go-nlp HTTP/1.1
+&gt; Host: localhost:8080
+&gt; User-Agent: curl/7.54.0
+&gt; Accept: */*
+&gt; Content-Length: 239
+&gt; Content-Type: application/x-www-form-urlencoded
+&gt; 
+* upload completely sent off: 239 out of 239 bytes
+&lt; HTTP/1.1 200 OK
+&lt; Content-Type: application/json
+&lt; Date: Wed, 13 Nov 2019 18:13:07 GMT
+&lt; Content-Length: 846
+&lt; 
+* Connection #0 to host localhost left intact
+</code></pre>
+
+<p>{&ldquo;WhoamI&rdquo;:&ldquo;👋 from Pingzhou| ⛵&rdquo;,&ldquo;Tag&rdquo;:[[&ldquo;Google&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;headquartered&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;in&rdquo;,&ldquo;IN&rdquo;],[&ldquo;Mountain&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;View&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;(&rdquo;,&ldquo;(&rdquo;],[&ldquo;1600&rdquo;,&ldquo;CD&rdquo;],[&ldquo;Amphitheatre&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Pkwy&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;Mountain&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;View&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;CA&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;940430&rdquo;,&ldquo;CD&rdquo;],[&ldquo;)&rdquo;,&ldquo;)&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;unveiled&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;the&rdquo;,&ldquo;DT&rdquo;],[&ldquo;new&rdquo;,&ldquo;JJ&rdquo;],[&ldquo;Android&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;phone&rdquo;,&ldquo;NN&rdquo;],[&ldquo;for&rdquo;,&ldquo;IN&rdquo;],[&ldquo;$&rdquo;,&ldquo;$&rdquo;],[&ldquo;799&rdquo;,&ldquo;CD&rdquo;],[&ldquo;at&rdquo;,&ldquo;IN&rdquo;],[&ldquo;the&rdquo;,&ldquo;DT&rdquo;],[&ldquo;Consumer&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Electronic&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Show.&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Sundar&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Pichai&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;said&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;in&rdquo;,&ldquo;IN&rdquo;],[&ldquo;his&rdquo;,&ldquo;PRP$&rdquo;],[&ldquo;keynote&rdquo;,&ldquo;NN&rdquo;],[&ldquo;that&rdquo;,&ldquo;IN&rdquo;],[&ldquo;users&rdquo;,&ldquo;NNS&rdquo;],[&ldquo;love&rdquo;,&ldquo;VBP&rdquo;],[&ldquo;their&rdquo;,&ldquo;PRP$&rdquo;],[&ldquo;new&rdquo;,&ldquo;JJ&rdquo;],[&ldquo;Android&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;phones&rdquo;,&ldquo;NNS&rdquo;],[&ldquo;.&rdquo;,&ldquo;.&rdquo;]],&ldquo;Ent&rdquo;:[[&ldquo;Google&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Mountain View&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Mountain View&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Consumer Electronic Show. Sundar Pichai&rdquo;,&ldquo;ORGANIZATION&rdquo;]]}</p>
+
+<pre><code class="language-bash">$ curl -s -X POST http://localhost:8080/v1/go-nlp \
+-d 'Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.' | jq .Ent[]
+</code></pre>
+
+<p>[
+  &ldquo;Google&rdquo;,
+  &ldquo;GPE&rdquo;
+]
+[
+  &ldquo;Mountain View&rdquo;,
+  &ldquo;GPE&rdquo;
+]
+[
+  &ldquo;Mountain View&rdquo;,
+  &ldquo;GPE&rdquo;
+]
+[
+  &ldquo;Consumer Electronic Show. Sundar Pichai&rdquo;,
+  &ldquo;ORGANIZATION&rdquo;
+]</p>
+
+<pre><code class="language-bash">$ curl -s -X POST http://localhost:8080/v1/go-nlp \
+-d 'Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.' | jq .Tag[0]
+</code></pre>
+
+<p>[
+  &ldquo;Google&rdquo;,
+  &ldquo;NNP&rdquo;
+]</p>
+
+      
+      <div align="center">
+      <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
+      
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      
+      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/3k2CeYTrb"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:10px;">Buy me a coffee</span></a>
+    </div>
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="/posts/uml-visualize-your-cloud/">
+                <span class="button__text">AWS Resources Visualizer | yUML | Boto3 | Python </span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-applegreengrape-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+<script data-ad-client="ca-pub-2753999921028307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    </div>
+
+    
+  </body>
+</html>

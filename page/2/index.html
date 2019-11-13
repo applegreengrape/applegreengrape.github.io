@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.55.6" />
+	<meta name="generator" content="Hugo 0.55.5" />
     
       <title>DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
     
@@ -38,7 +38,7 @@
 
 <meta property="og:image" content="/" />
 
-<meta property="og:updated_time" content="2019-10-19T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:updated_time" content="2019-11-13T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -178,6 +178,43 @@
     
     
 
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/useful-jq-commands/">jq examples</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2019-08-11
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/jq/">jq</a>&nbsp;
+          
+            #<a href="/tags/cheatsheet/">cheatsheet</a>&nbsp;
+          
+            #<a href="/tags/linux-admin/">linux admin</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            jq is a command-line JSON processor to parse json format data. You can find the detailed documentation here. And you can try to play it online at jqplay.org. I am listing out few jq command line examples that I found quite useful for day-to-day work 😃.
+Let&rsquo;s try jq with AWS resources api.
+// to parse and extract json data $ curl -s \ <a href="https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json">https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json</a> \ | jq .offers.AmazonEC2 { &quot;offerCode&quot;: &quot;AmazonEC2&quot;, &quot;versionIndexUrl&quot;: &quot;/offers/v1.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/useful-jq-commands/">Read more →</a></div>
+    </div>
     
     <div class="post on-list">
       <h1 class="post-title"><a href="/posts/twilio-message-bot/">Twilio Message Bot 📟</a></h1>
