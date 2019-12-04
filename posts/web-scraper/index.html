@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&amp;rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mmcdole/gofeed&amp;quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;quot;http://feeds.reuters.com/reuters/UKTopNews&amp;quot;) if err != nil { panic(err) } for _, item := range feed."/>
+<meta name="description" content="So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&amp;#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;#34;http://feeds.reuters.com/reuters/UKTopNews&amp;#34;) if err != nil { panic(err) } for _, item := range feed."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/web-scraper/" />
@@ -27,20 +27,19 @@ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mmcdole/gofee
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Web Scraper | Golang"/>
-<meta name="twitter:description" content="So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;http://feeds.reuters.com/reuters/UKTopNews&quot;) if err != nil { panic(err) } for _, item := range feed."/>
+<meta name="twitter:description" content="So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &#34;fmt&#34; &#34;github.com/mmcdole/gofeed&#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&#34;http://feeds.reuters.com/reuters/UKTopNews&#34;) if err != nil { panic(err) } for _, item := range feed."/>
 
 
 
 <meta property="og:title" content="Web Scraper | Golang" />
-<meta property="og:description" content="So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;http://feeds.reuters.com/reuters/UKTopNews&quot;) if err != nil { panic(err) } for _, item := range feed." />
+<meta property="og:description" content="So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &#34;fmt&#34; &#34;github.com/mmcdole/gofeed&#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&#34;http://feeds.reuters.com/reuters/UKTopNews&#34;) if err != nil { panic(err) } for _, item := range feed." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/web-scraper/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-07-09T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-07-09T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-07-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-09T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -102,7 +101,7 @@ package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) fu
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -138,7 +137,7 @@ package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) fu
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -201,38 +200,36 @@ package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) fu
     
 
     <div class="post-content">
-      <p>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS <a href="https://en.wikipedia.org/wiki/RSS">Rich Site Summary</a>. Okay,😃Let&rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.</p>
+      <p>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS <a href="https://en.wikipedia.org/wiki/RSS">Rich Site Summary</a>. Okay,😃Let's start to build a simple Golang application to fetch the latest news and headlines with in a second.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;github.com/mmcdole/gofeed&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/mmcdole/gofeed&#34;</span>
 )
 
-func feed(){
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">feed</span>(){
 
-	fp := gofeed.NewParser()
+	<span style="color:#a6e22e">fp</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gofeed</span>.<span style="color:#a6e22e">NewParser</span>()
 	
-	feed, err := fp.ParseURL(&quot;http://feeds.reuters.com/reuters/UKTopNews&quot;)
+	<span style="color:#a6e22e">feed</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fp</span>.<span style="color:#a6e22e">ParseURL</span>(<span style="color:#e6db74">&#34;http://feeds.reuters.com/reuters/UKTopNews&#34;</span>)
 	
-	if err != nil {
-		panic(err)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
 	}
 
-	for _, item := range feed.Items {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">item</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">feed</span>.<span style="color:#a6e22e">Items</span> {
 
-		fmt.Println(item.Title, item.PublishedParsed)
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">Title</span>, <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">PublishedParsed</span>)
 
 	}
 
 }
 
-func main(){
-     feed()
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+     <span style="color:#a6e22e">feed</span>()
 }
-</code></pre>
-
+</code></pre></div>
       
       <div align="center">
       <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on DevOps | Golang | Python | Travel</title>
@@ -6,10 +6,19 @@
     <description>Recent content in Golang on DevOps | Golang | Python | Travel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Payment Gateway | Go | Stripe | Vault</title>
+      <link>/posts/go-payment-gateway-with-stripe-and-vault/</link>
+      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/go-payment-gateway-with-stripe-and-vault/</guid>
+      <description>In my previous posts, I have talked about how to build a your own Google NLP API. You are a smart developer and you got a great idea 💡. You build an amazing API with useful functions. The only thing you are missing is a validated business case. I think the eaiset way to prove the use case is to put it in the market and see whether or not people are willing to pay for it.</description>
+    </item>
     
     <item>
       <title>Go NLP API | Build Your Own </title>
@@ -18,7 +27,7 @@
       
       <guid>/posts/go-nlp-api/</guid>
       <description>In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&amp;rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;quot;gopkg.</description>
+Let&#39;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;#34;gopkg.</description>
     </item>
     
     <item>
@@ -27,7 +36,7 @@ Let&amp;rsquo;s now look at the key functions // Now we need to create a functio
       <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/twilio-message-bot/</guid>
-      <description>So you want a personal chatbot to handle your messages. Let&amp;rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&amp;rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</description>
+      <description>So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</description>
     </item>
     
     <item>
@@ -38,7 +47,7 @@ Let&amp;rsquo;s now look at the key functions // Now we need to create a functio
       <guid>/posts/lambda-logshipper/</guid>
       <description>How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;your_tcp_endpoint:your_port&amp;quot;) defer conn.Close() if err != nil { fmt.</description>
+func SocketClient(m []byte) { conn, err := net.Dial(&amp;#34;tcp&amp;#34;, &amp;#34;your_tcp_endpoint:your_port&amp;#34;) defer conn.Close() if err != nil { fmt.</description>
     </item>
     
     <item>
@@ -47,8 +56,8 @@ func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &am
       <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/web-scraper/</guid>
-      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&amp;rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mmcdole/gofeed&amp;quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;quot;http://feeds.reuters.com/reuters/UKTopNews&amp;quot;) if err != nil { panic(err) } for _, item := range feed.</description>
+      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&amp;#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;#34;http://feeds.reuters.com/reuters/UKTopNews&amp;#34;) if err != nil { panic(err) } for _, item := range feed.</description>
     </item>
     
   </channel>

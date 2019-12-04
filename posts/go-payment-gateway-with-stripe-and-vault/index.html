@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Payment Gateway | Go | Stripe | Vault :: DevOps | Golang | Python | Travel — Pingzhou | 平舟 ⛵️</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="In my previous posts, I have talked about how to build a your own Google NLP API. You are a smart developer and you got a great idea 💡. You build an amazing API with useful functions. The only thing you are missing is a validated business case. I think the eaiset way to prove the use case is to put it in the market and see whether or not people are willing to pay for it."/>
+<meta name="keywords" content="DevOps | Golang | Python | Travel"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/go-payment-gateway-with-stripe-and-vault/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Payment Gateway | Go | Stripe | Vault"/>
+<meta name="twitter:description" content="In my previous posts, I have talked about how to build a your own Google NLP API. You are a smart developer and you got a great idea 💡. You build an amazing API with useful functions. The only thing you are missing is a validated business case. I think the eaiset way to prove the use case is to put it in the market and see whether or not people are willing to pay for it."/>
+
+
+
+<meta property="og:title" content="Payment Gateway | Go | Stripe | Vault" />
+<meta property="og:description" content="In my previous posts, I have talked about how to build a your own Google NLP API. You are a smart developer and you got a great idea 💡. You build an amazing API with useful functions. The only thing you are missing is a validated business case. I think the eaiset way to prove the use case is to put it in the market and see whether or not people are willing to pay for it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/go-payment-gateway-with-stripe-and-vault/" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-12-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-03T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cutive Mono" type="text/css" media="all" />
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
+
+
+<style>
+  body {
+  font-family: 'Cutive Mono';
+  }
+  code {
+  font-family: 'Source Code Pro'; 
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1HV0FGVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1HV0FGVY3');
+</script>
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags/project">Projects</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags/travel">Travel</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/tags/project">Projects</a></li>
+      
+    
+      
+        <li><a href="/tags/travel">Travel</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/go-payment-gateway-with-stripe-and-vault/">Payment Gateway | Go | Stripe | Vault</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-12-03
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/golang/">Golang</a>&nbsp;
+        
+          #<a href="/tags/go/">Go</a>&nbsp;
+        
+          #<a href="/tags/api/">API</a>&nbsp;
+        
+          #<a href="/tags/payment-gateway/">Payment Gateway</a>&nbsp;
+        
+          #<a href="/tags/stripe/">Stripe</a>&nbsp;
+        
+          #<a href="/tags/vault/">Vault</a>&nbsp;
+        
+          #<a href="/tags/frontend/">Frontend</a>&nbsp;
+        
+          #<a href="/tags/backend/">Backend</a>&nbsp;
+        
+          #<a href="/tags/project/">Project</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>In my previous posts, <a href="/posts/go-nlp-api/">I have talked about how to build a your own Google NLP API</a>. You are a smart developer and you got a great idea 💡. You build an amazing API with useful functions. The only thing you are missing is a validated business case. I think the eaiset way to prove the use case is to put it in the market and see whether or not people are willing to pay for it. Here you go! Now you need a good payment gateway. How did you build one? In this post, I will show you a simple solution built all in Go and integrated with <a href="https://stripe.com/gb">Stripe</a> and using <a href="/https://www.hashicorp.com/products/vault/">HashiCorp Vault</a>. For more information, please feel free to 👉📱message my twilio bot <a href="/posts/twilio-message-bot/">+447479275693</a>. I will come back to you shortly 😃.</p>
+
+  <img src="https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif"  class="center"  style="width: 35%"  />
+
+
+<h3 id="lets-start-with-the-frontend">Let's start with the frontend</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 
+</span><span style="color:#75715e">// There are some pre</span><span style="color:#75715e">-</span><span style="color:#75715e">built UI elements from Stripe
+</span><span style="color:#75715e">// https://stripe.com/gb/payments/elements
+</span><span style="color:#75715e"></span><span style="color:#75715e">--&gt;</span>
+
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sr-main&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width:600px; margin:20px auto;&#34;</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/charge&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;payment-form&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sr-payment-form&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sr-combo-inputs-row&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sr-input sr-card-element&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-element&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sr-field-error&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-errors&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+       &lt;<span style="color:#f92672">button</span>&gt;
+            &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button-text&#34;</span>&gt;Pay&lt;/<span style="color:#f92672">span</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;order-amount&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+       &lt;/<span style="color:#f92672">button</span>&gt;
+            <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> Used to display form errors. </span><span style="color:#75715e">--&gt;</span>
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-errors&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// now let&#39;s look at the javascript
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Create a Stripe client.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stripe</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Stripe</span>(<span style="color:#e6db74">&#39;your_stripe_pub_key&#39;</span>);
+
+<span style="color:#75715e">// Create an instance of Elements.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elements</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">elements</span>();
+
+<span style="color:#75715e">// Custom styling can be passed to options when creating an Element.
+</span><span style="color:#75715e"></span><span style="color:#75715e">// (Note that this demo uses a wider set of styles than the guide below.)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">style</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">base</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#32325d&#39;</span>,
+    <span style="color:#a6e22e">fontFamily</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#34;Helvetica Neue&#34;, Helvetica, sans-serif&#39;</span>,
+    <span style="color:#a6e22e">fontSmoothing</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;antialiased&#39;</span>,
+    <span style="color:#a6e22e">fontSize</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;16px&#39;</span>,
+    <span style="color:#e6db74">&#39;::placeholder&#39;</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#aab7c4&#39;</span>
+    }
+  },
+  <span style="color:#a6e22e">invalid</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#fa755a&#39;</span>,
+    <span style="color:#a6e22e">iconColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#fa755a&#39;</span>
+  }
+};
+
+<span style="color:#75715e">// Create an instance of the card Element.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">card</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">elements</span>.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#39;card&#39;</span>, {<span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">style</span>});
+
+<span style="color:#75715e">// Add an instance of the card Element into the `card-element` &lt;div&gt;.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">card</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#card-element&#39;</span>);
+
+<span style="color:#75715e">// Handle real-time validation errors from the card Element.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">card</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;change&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">displayError</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;card-errors&#39;</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">error</span>) {
+    <span style="color:#a6e22e">displayError</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>;
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">displayError</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  }
+});
+
+
+
+<span style="color:#75715e">// Handle form submission.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;payment-form&#39;</span>);
+<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+  <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>();
+
+  <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">createToken</span>(<span style="color:#a6e22e">card</span>).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">result</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">error</span>) {
+      <span style="color:#75715e">// Inform the user if there was an error.
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">errorElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;card-errors&#39;</span>);
+      <span style="color:#a6e22e">errorElement</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>;
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Send the token to your server.
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">stripeTokenHandler</span>(<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">token</span>);
+    }
+  });
+});
+
+<span style="color:#75715e">// Submit the form with the token ID.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">stripeTokenHandler</span>(<span style="color:#a6e22e">token</span>) {
+  <span style="color:#75715e">// Insert the token ID into the form so it gets submitted to the server
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;payment-form&#39;</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">hiddenInput</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;input&#39;</span>);
+  <span style="color:#a6e22e">hiddenInput</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;type&#39;</span>, <span style="color:#e6db74">&#39;hidden&#39;</span>);
+  <span style="color:#a6e22e">hiddenInput</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;stripeToken&#39;</span>);
+  <span style="color:#a6e22e">hiddenInput</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">id</span>);
+  <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">hiddenInput</span>);
+
+  <span style="color:#75715e">// Submit the form
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">submit</span>();
+}
+</code></pre></div><p>Now Let's just make it prettier. There are quite a lot free html templates on line you can just download 😃.
+Here you go! Your own payment Gateway Page looks pretty good!
+
+  <img src="/static/img/pg-1.png"  alt="payment gateway page"  class="center"  />
+
+</p>
+<h3 id="now-lets-look-at-the-backend">Now let's look at the backend</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// This quick win/demo is using stripe&#39;s charge API. It is a good way to get you started but not really the best practice
+</span><span style="color:#75715e"></span><span style="color:#75715e">// In this demo, we are using the Vault as the backend KV storage. I like it because: 
+</span><span style="color:#75715e"></span><span style="color:#75715e">// 		1) It&#39;s a good and secured KV storage tool.
+</span><span style="color:#75715e"></span><span style="color:#75715e">// 		2) It also manage the version for you. Everything is tracked and easy to roll back 
+</span><span style="color:#75715e"></span><span style="color:#75715e">//      3) It&#39;s easy to scale up. Just adding more nodes.
+</span><span style="color:#75715e"></span><span style="color:#75715e">// I would recommended to use Stripe&#39;s Payment API https://stripe.com/docs/payments/payment-intents
+</span><span style="color:#75715e"></span><span style="color:#75715e">// &#34;We recommend creating a PaymentIntent as soon as the amount is known, such as when the customer begins the checkout process&#34; - also recommended by the Stripe
+</span><span style="color:#75715e"></span><span style="color:#75715e">//  &#34;The Charges API works for U.S. and Canadian payments but will not work for the rest of the world. To accept payments from customers outside of North America, use the Payment Intents API.&#34; - also warned by Stripe 
+</span><span style="color:#75715e"></span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+  <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">Key</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;SECRET_KEY&#34;</span>)
+
+  <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">FileServer</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Dir</span>(<span style="color:#e6db74">&#34;./views&#34;</span>)))
+
+  <span style="color:#75715e">// using Go&#39;s html template to make a pretty after payment page 
+</span><span style="color:#75715e"></span>
+  <span style="color:#a6e22e">tmpl</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">template</span>.<span style="color:#a6e22e">Must</span>(<span style="color:#a6e22e">template</span>.<span style="color:#a6e22e">ParseFiles</span>(<span style="color:#e6db74">&#34;./views/after-payment-page.html&#34;</span>))
+
+  <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/charge&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+	<span style="color:#a6e22e">token</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">FormValue</span>(<span style="color:#e6db74">&#34;stripeToken&#34;</span>)
+	
+	<span style="color:#75715e">// calling the charge api
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">params</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">ChargeParams</span>{
+		<span style="color:#a6e22e">Amount</span>: <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">Int64</span>(<span style="color:#ae81ff">999</span>),
+		<span style="color:#a6e22e">Currency</span>: <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">String</span>(string(<span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">CurrencyGBP</span>)),
+		<span style="color:#a6e22e">Description</span>: <span style="color:#a6e22e">stripe</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;api A token&#34;</span>),
+	}
+  
+  <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">SetSource</span>(<span style="color:#a6e22e">token</span>)
+
+  <span style="color:#75715e">// create your own token to track cutsomers 
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">NewRandom</span>()
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span>{
+    <span style="color:#75715e">// err handling for generateing uuid 
+</span><span style="color:#75715e"></span>  }
+	
+	<span style="color:#a6e22e">ch</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">charge</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">params</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#75715e">// payment failed with error
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pageData</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tok</span>{
+      <span style="color:#a6e22e">Status</span>: <span style="color:#e6db74">&#34;😿Payment Failed 😿, reference id is here 👇&#34;</span>,
+      <span style="color:#a6e22e">Tok</span>: <span style="color:#a6e22e">id</span>,
+    }
+    <span style="color:#a6e22e">tmpl</span>.<span style="color:#a6e22e">Execute</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">pageData</span>)
+    <span style="color:#a6e22e">body</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Data</span>{
+      <span style="color:#a6e22e">User</span>: <span style="color:#a6e22e">id</span>.<span style="color:#a6e22e">String</span>(),
+      <span style="color:#a6e22e">Status</span> : <span style="color:#e6db74">&#34;😿Payment Failed 😿&#34;</span>,
+      <span style="color:#a6e22e">Ref</span> : <span style="color:#a6e22e">ch</span>.<span style="color:#a6e22e">ID</span>,
+    }
+    
+    <span style="color:#a6e22e">payloadData</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Vault</span>{
+      <span style="color:#a6e22e">Data</span>: <span style="color:#a6e22e">body</span>,
+    }
+	
+	<span style="color:#75715e">// In this demo, we are using the Vault
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callVault</span>(<span style="color:#a6e22e">payloadData</span>, <span style="color:#a6e22e">id</span>.<span style="color:#a6e22e">String</span>())
+
+  }
+  
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">ch</span>)
+  <span style="color:#75715e">// payment went through without error
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">pageData</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tok</span>{
+    <span style="color:#a6e22e">Status</span>: <span style="color:#e6db74">&#34;🎉 Payment Completed 🎉, your token is here 👇&#34;</span>,
+    <span style="color:#a6e22e">Tok</span>: <span style="color:#a6e22e">id</span>,
+  }
+
+  <span style="color:#a6e22e">tmpl</span>.<span style="color:#a6e22e">Execute</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">pageData</span>)
+
+  <span style="color:#a6e22e">body</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Data</span>{
+    <span style="color:#a6e22e">User</span>: <span style="color:#a6e22e">id</span>.<span style="color:#a6e22e">String</span>(),
+    <span style="color:#a6e22e">Status</span> : <span style="color:#e6db74">&#34;🎉 Payment Completed 🎉&#34;</span>,
+    <span style="color:#a6e22e">Ref</span> : <span style="color:#a6e22e">ch</span>.<span style="color:#a6e22e">ID</span>,
+}
+
+<span style="color:#a6e22e">payloadData</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Vault</span>{
+  <span style="color:#a6e22e">Data</span>: <span style="color:#a6e22e">body</span>,
+}
+
+<span style="color:#a6e22e">callVault</span>(<span style="color:#a6e22e">payloadData</span>, <span style="color:#a6e22e">id</span>.<span style="color:#a6e22e">String</span>())
+
+})
+  
+  <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:1212&#34;</span>, <span style="color:#66d9ef">nil</span>)
+
+}
+</code></pre></div><p>Now you can just easily to <code>POST</code> the customer data to your Vault.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">callVault</span>(<span style="color:#a6e22e">payload</span> <span style="color:#a6e22e">Vault</span>,  <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>){
+
+  <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">payload</span>)
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> = []byte(string(<span style="color:#a6e22e">body</span>))
+
+  <span style="color:#a6e22e">url</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;http://127.0.0.1:8080/v1/secret/data/&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">id</span>
+
+  <span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewRequest</span>(<span style="color:#e6db74">&#34;POST&#34;</span>, <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">NewBuffer</span>(<span style="color:#a6e22e">b</span>))
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+  <span style="color:#75715e">// handle err
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+  }
+  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;X-Vault-Token&#34;</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;VAULT_TOKEN&#34;</span>))
+  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>)
+
+  <span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">DefaultClient</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">req</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+	  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+  }
+  <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+}
+</code></pre></div><p>If the payment go through, your customer will get a <code>payment complete page</code>. Like this 👇:
+
+  <img src="/static/img/pg-2.png"  alt="payment gateway page"  class="center"  />
+
+</p>
+<p>If the payment went wrong, your customer will get a <code>payment failed page</code>. Like this 👇:
+
+  <img src="/static/img/pg-3.png"  alt="payment gateway page"  class="center"  />
+
+</p>
+<p>And you have all the records in your Vault KV:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/ <span style="color:#75715e"># vault kv list secret</span>
+Keys
+----
+8ed9e686-296b-484a-8371-c0169f05c72f
+993bcc1a-2d1a-4bb9-95b4-129652bd3f5a
+/ <span style="color:#75715e"># vault kv get secret/8ed9e686-296b-484a-8371-c0169f05c72f</span>
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span> Metadata <span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span>
+Key              Value
+---              -----
+created_time     2019-12-04T10:37:56.352085651Z
+deletion_time    n/a
+destroyed        false
+version          1
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span> Data <span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span>
+Key       Value
+---       -----
+ref       n/a
+status    😿Payment Failed 😿
+user      8ed9e686-296b-484a-8371-c0169f05c72f
+/ <span style="color:#75715e"># vault kv get secret/993bcc1a-2d1a-4bb9-95b4-129652bd3f5a</span>
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span> Metadata <span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span>
+Key              Value
+---              -----
+created_time     2019-12-04T10:37:38.115146197Z
+deletion_time    n/a
+destroyed        false
+version          1
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span> Data <span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span>
+Key       Value
+---       -----
+ref       ch_1FlvEjA9LWTzlLdFgGznKqiK
+status    🎉 Payment Completed 🎉
+user      993bcc1a-2d1a-4bb9-95b4-129652bd3f5a
+</code></pre></div>
+  <img src="https://media.giphy.com/media/Js7cqIkpxFy0bILFFA/giphy.gif"  class="center"  style="width: 50%"  />
+
+
+<p>Please feel free to leave some comments if you have any questions or any other interesting use cases. If you have enjoyed reading this post, please feel free to buy me a <code>(r'virtual|physical', 'coffee')</code>.</p>
+
+      
+      <div align="center">
+      <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
+      
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      
+      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/3k2CeYTrb"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:10px;">Buy me a coffee</span></a>
+    </div>
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="/posts/go-nlp-api/">
+                <span class="button__text">Go NLP API | Build Your Own </span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-applegreengrape-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+<script data-ad-client="ca-pub-2753999921028307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    </div>
+
+    
+  </body>
+</html>

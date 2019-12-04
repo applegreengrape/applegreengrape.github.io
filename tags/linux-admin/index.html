@@ -34,10 +34,8 @@
 <meta property="og:description" content="Pingzhou | 平舟" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/linux-admin/" />
-
-<meta property="og:image" content="/" />
-
-<meta property="og:updated_time" content="2019-09-05T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="og:updated_time" content="2019-09-05T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -100,7 +98,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -136,7 +134,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -209,7 +207,7 @@
         
           
             This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|&ndash;project-id: gcloud project id # -svs|&ndash;svs-account: gcloud service account name to collect logs # Optional parameters: # -h|&ndash;help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|&ndash;help) PRINT_HELP=true shift ;; -id|&ndash;project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|&ndash;svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|&ndash;project-id: gcloud project id # -svs|&ndash;svs-account: gcloud service account name to collect logs # Optional parameters: # -h|&ndash;help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|&ndash;help) PRINT_HELP=true shift ;; -id|&ndash;project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|&ndash;svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency}required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running.
           
         
       </div>
@@ -245,7 +243,7 @@
         
           
             jq is a command-line JSON processor to parse json format data. You can find the detailed documentation here. And you can try to play it online at jqplay.org. I am listing out few jq command line examples that I found quite useful for day-to-day work 😃.
-Let&rsquo;s try jq with AWS resources api.
+Let's try jq with AWS resources api.
 // to parse and extract json data $ curl -s \ <a href="https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json">https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json</a> \ | jq .offers.AmazonEC2 { &quot;offerCode&quot;: &quot;AmazonEC2&quot;, &quot;versionIndexUrl&quot;: &quot;/offers/v1.
           
         

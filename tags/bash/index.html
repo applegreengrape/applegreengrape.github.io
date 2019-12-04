@@ -34,10 +34,8 @@
 <meta property="og:description" content="Pingzhou | 平舟" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/bash/" />
-
-<meta property="og:image" content="/" />
-
-<meta property="og:updated_time" content="2019-09-05T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="og:updated_time" content="2019-09-05T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -100,7 +98,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -136,7 +134,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -209,7 +207,7 @@
         
           
             This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|&ndash;project-id: gcloud project id # -svs|&ndash;svs-account: gcloud service account name to collect logs # Optional parameters: # -h|&ndash;help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|&ndash;help) PRINT_HELP=true shift ;; -id|&ndash;project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|&ndash;svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running.
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|&ndash;project-id: gcloud project id # -svs|&ndash;svs-account: gcloud service account name to collect logs # Optional parameters: # -h|&ndash;help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|&ndash;help) PRINT_HELP=true shift ;; -id|&ndash;project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|&ndash;svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency}required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running.
           
         
       </div>
@@ -246,7 +244,7 @@
       <div class="post-content">
         
           
-            aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp &ndash;recursive.
+            aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp &ndash;recursive .
 escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace.
           
         

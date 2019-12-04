@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+<meta name="description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive .
 escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
@@ -27,20 +27,19 @@ escape the whitespace in your file name When you have a long list of files that 
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="amazon s3"/>
-<meta name="twitter:description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+<meta name="twitter:description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive .
 escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace."/>
 
 
 
 <meta property="og:title" content="amazon s3" />
-<meta property="og:description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+<meta property="og:description" content="aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive .
 escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/aws-s3-command/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-08-12T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-12T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-08-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -102,7 +101,7 @@ escape the whitespace in your file name When you have a long list of files that 
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -138,7 +137,7 @@ escape the whitespace in your file name When you have a long list of files that 
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -203,95 +202,79 @@ escape the whitespace in your file name When you have a long list of files that 
     
 
     <div class="post-content">
-      
-
-<p>aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between <code>aws s3 sync</code>  and <code>aws s3 cp --recursive</code>.</p>
-
+      <p>aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between <code>aws s3 sync</code>  and <code>aws s3 cp --recursive </code>.</p>
 <h3 id="escape-the-whitespace-in-your-file-name">escape the whitespace in your file name</h3>
-
 <p>When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace. Something like this:</p>
-
-<pre><code class="language-bash">.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
 ├── test1.txt
 ├── test2.txt
 ├── test3.txt
 └── test4.txt
 
-$ for i in $(ls); do echo $1 &amp;&amp; aws s3 cp ./$i s3://your_s3bucket_name/$i; done
-</code></pre>
-
-<p>However, sometimes it is slightly more complicated when it comes to filenames with whitespace. There is also one command handy - <code>basename</code>. Something like this:</p>
-
-<pre><code class="language-bash">$ tree .
+$ <span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>ls<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span> echo $1 <span style="color:#f92672">&amp;&amp;</span> aws s3 cp ./$i s3://your_s3bucket_name/$i; <span style="color:#66d9ef">done</span>
+</code></pre></div><p>However, sometimes it is slightly more complicated when it comes to filenames with whitespace. There is also one command handy - <code>basename</code>. Something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree .
 .
 ├── s3.sh
-├── test\ 1.txt
-├── test\ 2.txt
+├── test<span style="color:#ae81ff">\ </span>1.txt
+├── test<span style="color:#ae81ff">\ </span>2.txt
 └── test3.txt
 
-0 directories, 4 files
-$ basename &quot;$(ls)&quot;
+<span style="color:#ae81ff">0</span> directories, <span style="color:#ae81ff">4</span> files
+$ basename <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>ls<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
 s3.sh
 test 1.txt
 test 2.txt
 test3.txt
-</code></pre>
-
-<p>So if we put it into a bash script loop, it will be something like this:</p>
-
-<pre><code class="language-bash">#!/bin/sh
-
-find .  -type file -name &quot;*&quot; -print0 | while IFS= read -r -d '' file; do
-#    echo $file
-    KEY=$(basename &quot;$file&quot;)
+</code></pre></div><p>So if we put it into a bash script loop, it will be something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+find .  -type file -name <span style="color:#e6db74">&#34;*&#34;</span> -print0 | <span style="color:#66d9ef">while</span> IFS<span style="color:#f92672">=</span> read -r -d <span style="color:#e6db74">&#39;&#39;</span> file; <span style="color:#66d9ef">do</span>
+<span style="color:#75715e">#    echo $file</span>
+    KEY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
     echo $KEY
-    echo aws s3api put-object --bucket your_s3_bucket --key '&quot;'$KEY'&quot;' --body $file
-    aws s3api put-object --bucket your_s3_bucket --key '&quot;'$KEY'&quot;' --body $file
-done
-</code></pre>
-
-<h3 id="delete-all-versions-of-all-files-in-a-versioned-s3-bucket">delete all versions of all files in a versioned s3 bucket</h3>
-
-<p>When it comes to delete a versioned s3 bucket, you will need to delete all versions of s3 bucket objects before you can delete the s3 bucket. So let&rsquo;s wrap a simple script to do it. You will use <code>aws s3</code> command and <code>jq</code>. If you don&rsquo;t know anything about jq. You can check my last post on <a href="/posts/useful-jq-commands">jq</a>.</p>
-
-<pre><code class="language-bash">#!/bin/bash
-
-bucket=$1
+    echo aws s3api put-object --bucket your_s3_bucket --key <span style="color:#e6db74">&#39;&#34;&#39;</span>$KEY<span style="color:#e6db74">&#39;&#34;&#39;</span> --body $file
+    aws s3api put-object --bucket your_s3_bucket --key <span style="color:#e6db74">&#39;&#34;&#39;</span>$KEY<span style="color:#e6db74">&#39;&#34;&#39;</span> --body $file
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="delete-all-versions-of-all-files-in-a-versioned-s3-bucket">delete all versions of all files in a versioned s3 bucket</h3>
+<p>When it comes to delete a versioned s3 bucket, you will need to delete all versions of s3 bucket objects before you can delete the s3 bucket. So let's wrap a simple script to do it. You will use <code>aws s3</code> command and <code>jq</code>. If you don't know anything about jq. You can check my last post on <a href="/posts/useful-jq-commands">jq</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+bucket<span style="color:#f92672">=</span>$1
 
 set -e
 
-echo &quot;Removing all versions from $bucket&quot;
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Removing all versions from </span>$bucket<span style="color:#e6db74">&#34;</span>
 
-versions=`aws s3api list-object-versions --bucket $bucket |jq '.Versions'`
-markers=`aws s3api list-object-versions --bucket $bucket |jq '.DeleteMarkers'`
-let count=`echo $versions |jq 'length'`-1
+versions<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>aws s3api list-object-versions --bucket $bucket |jq <span style="color:#e6db74">&#39;.Versions&#39;</span><span style="color:#e6db74">`</span>
+markers<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>aws s3api list-object-versions --bucket $bucket |jq <span style="color:#e6db74">&#39;.DeleteMarkers&#39;</span><span style="color:#e6db74">`</span>
+let count<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $versions |jq <span style="color:#e6db74">&#39;length&#39;</span><span style="color:#e6db74">`</span>-1
 
-if [ $count -gt -1 ]; then
-        echo &quot;removing files&quot;
-        for i in $(seq 0 $count); do
-                key=`echo $versions | jq .[$i].Key |sed -e 's/\&quot;//g'`
-                versionId=`echo $versions | jq .[$i].VersionId |sed -e 's/\&quot;//g'`
-                cmd=&quot;aws s3api delete-object --bucket $bucket --key $key --version-id $versionId&quot;
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $count -gt -1 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;removing files&#34;</span>
+        <span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">0</span> $count<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+                key<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $versions | jq .<span style="color:#f92672">[</span>$i<span style="color:#f92672">]</span>.Key |sed -e <span style="color:#e6db74">&#39;s/\&#34;//g&#39;</span><span style="color:#e6db74">`</span>
+                versionId<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $versions | jq .<span style="color:#f92672">[</span>$i<span style="color:#f92672">]</span>.VersionId |sed -e <span style="color:#e6db74">&#39;s/\&#34;//g&#39;</span><span style="color:#e6db74">`</span>
+                cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">aws s3api delete-object --bucket </span>$bucket<span style="color:#e6db74"> --key </span>$key<span style="color:#e6db74"> --version-id </span>$versionId<span style="color:#e6db74">&#34;</span>
                 echo $cmd
                 $cmd
-        done
-fi
+        <span style="color:#66d9ef">done</span>
+<span style="color:#66d9ef">fi</span>
 
-let count=`echo $markers |jq 'length'`-1
+let count<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $markers |jq <span style="color:#e6db74">&#39;length&#39;</span><span style="color:#e6db74">`</span>-1
 
-if [ $count -gt -1 ]; then
-        echo &quot;removing delete markers&quot;
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $count -gt -1 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;removing delete markers&#34;</span>
 
-        for i in $(seq 0 $count); do
-                key=`echo $markers | jq .[$i].Key |sed -e 's/\&quot;//g'`
-                versionId=`echo $markers | jq .[$i].VersionId |sed -e 's/\&quot;//g'`
-                cmd=&quot;aws s3api delete-object --bucket $bucket --key $key --version-id $versionId&quot;
+        <span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">0</span> $count<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+                key<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $markers | jq .<span style="color:#f92672">[</span>$i<span style="color:#f92672">]</span>.Key |sed -e <span style="color:#e6db74">&#39;s/\&#34;//g&#39;</span><span style="color:#e6db74">`</span>
+                versionId<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $markers | jq .<span style="color:#f92672">[</span>$i<span style="color:#f92672">]</span>.VersionId |sed -e <span style="color:#e6db74">&#39;s/\&#34;//g&#39;</span><span style="color:#e6db74">`</span>
+                cmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">aws s3api delete-object --bucket </span>$bucket<span style="color:#e6db74"> --key </span>$key<span style="color:#e6db74"> --version-id </span>$versionId<span style="color:#e6db74">&#34;</span>
                 echo $cmd
                 $cmd
-        done
-fi
-</code></pre>
-
+        <span style="color:#66d9ef">done</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div>
       
       <div align="center">
       <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
@@ -310,16 +293,16 @@ fi
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="/posts/papertest-google-app-script/">
+              <a href="/posts/papertest-google-spreadsheet-api/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Google Spreadsheets Paper Test</span>
+                <span class="button__text">Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API</span>
               </a>
             </span>
           
           
             <span class="button next">
-              <a href="/posts/useful-jq-commands/">
-                <span class="button__text">jq examples</span>
+              <a href="/posts/papertest-google-app-script/">
+                <span class="button__text">Google Spreadsheets Paper Test</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

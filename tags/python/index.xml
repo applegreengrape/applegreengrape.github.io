@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on DevOps | Golang | Python | Travel</title>
@@ -18,7 +18,7 @@
       
       <guid>/posts/uml-visualize-your-cloud/</guid>
       <description>This is an example about how to use aws boto3 with yUML to visualize your aws cloud resources. Please feel free to 👉📱message my twilio bot +447479275693.I will come back to you shortly 😃.
- In my last post, I have talked about how to play with aws boto3 api. During a usual dev-ish-ops day, sometimes I need to draw an aws network diagram. I have to log in to the console, click click click, and then copy-paste&amp;hellip;hmmmm&amp;hellip;It&amp;rsquo;s a little tiny bit boring and obviously, I want to automate it.</description>
+ In my last post, I have talked about how to play with aws boto3 api. During a usual dev-ish-ops day, sometimes I need to draw an aws network diagram. I have to log in to the console, click click click, and then copy-paste&amp;hellip;hmmmm&amp;hellip;It&#39;s a little tiny bit boring and obviously, I want to automate it.</description>
     </item>
     
     <item>
@@ -27,8 +27,8 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/nltk-grammar-tag/</guid>
-      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
+      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&#39;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made.</description>
     </item>
     
@@ -38,8 +38,8 @@ How about let the code understand your emotions and 👉 you to the grammar mist
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/google-nlp-python/</guid>
-      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
-1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
+      <description>So I have complained about the Google&#39;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&#39;s NLP API, Ha! I know I won&#39;t like it but why not?
+1. let&#39;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@ How about let the code understand your emotions and 👉 you to the grammar mist
       <guid>/posts/web-scraper-python/</guid>
       <description>For the Golang version please check here.
 And here is a python version:
-&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed.</description>
+&amp;#34;&amp;#34;&amp;#34;create a rss class to parse the rss feed url anf get the title and link &amp;#34;&amp;#34;&amp;#34; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &amp;#39;&amp;#39; last_modified = &amp;#39;&amp;#39; title = &amp;#39;&amp;#39; link = &amp;#39;&amp;#39; row = &amp;#39;&amp;#39; result = [] feed = feedparser.parse(url) last_etag = feed.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@ And here is a python version:
       
       <guid>/posts/boto3-python/</guid>
       <description>This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to 👉📱message my twilio bot +447479275693. I will come back to you shortly 😃.
- import boto3 import os &amp;quot;&amp;quot;&amp;quot; how to use this class import aws_modules.get_all_sg_rules sg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rules sg_rule_result = sg_rule.getSgRules() &amp;quot;&amp;quot;&amp;quot; class sg: def __init__(req, aws_account): req.</description>
+ import boto3 import os &amp;#34;&amp;#34;&amp;#34;how to use this classimport aws_modules.get_all_sg_rulessg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rulessg_rule_result = sg_rule.getSgRules()&amp;#34;&amp;#34;&amp;#34; class sg: def __init__(req, aws_account): req.aws_account = aws_account def getSgRules(req): try: os.</description>
     </item>
     
   </channel>

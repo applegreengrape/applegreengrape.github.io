@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&amp;rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;quot;gopkg."/>
+Let&#39;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;#34;gopkg."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/go-nlp-api/" />
@@ -28,19 +28,18 @@ Let&amp;rsquo;s now look at the key functions // Now we need to create a functio
 
 <meta name="twitter:title" content="Go NLP API | Build Your Own "/>
 <meta name="twitter:description" content="In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &quot;gopkg."/>
+Let&#39;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &#34;gopkg."/>
 
 
 
 <meta property="og:title" content="Go NLP API | Build Your Own " />
 <meta property="og:description" content="In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &quot;gopkg." />
+Let&#39;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &#34;gopkg." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/go-nlp-api/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-11-13T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-11-13T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-11-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-13T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -102,7 +101,7 @@ Let&rsquo;s now look at the key functions // Now we need to create a function to
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -138,7 +137,7 @@ Let&rsquo;s now look at the key functions // Now we need to create a function to
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -209,162 +208,136 @@ Let&rsquo;s now look at the key functions // Now we need to create a function to
     
 
     <div class="post-content">
-      
-
-<p>In my previous posts, <a href="/posts/twilio-message-bot/">I have talked about building a small backend server to handle HTTP POST request</a>. We also have tried out <a href="/posts/google-nlp-python/">the Google NLP</a> and we dived into the topic of <a href="/tags/nltk/">NLTK</a>. Well, now we know how to create a <code>Go</code> function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?</p>
-
+      <p>In my previous posts, <a href="/posts/twilio-message-bot/">I have talked about building a small backend server to handle HTTP POST request</a>. We also have tried out <a href="/posts/google-nlp-python/">the Google NLP</a> and we dived into the topic of <a href="/tags/nltk/">NLTK</a>. Well, now we know how to create a <code>Go</code> function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?</p>
 
   <img src="https://media.giphy.com/media/hTBgYWKKCLIFwND4z4/giphy.gif"  class="center"  style="border-radius: 50%; width: 35%"  />
 
 
-
-<h3 id="let-s-now-look-at-the-key-functions">Let&rsquo;s now look at the key functions</h3>
-
-<pre><code class="language-go">// Now we need to create a function to parse and tag all the data 
-// There is a pre-built lib you can use - &quot;gopkg.in/jdkato/prose.v2&quot;
-
-import (
-	&quot;gopkg.in/jdkato/prose.v2&quot;
+<h3 id="lets-now-look-at-the-key-functions">Let's now look at the key functions</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Now we need to create a function to parse and tag all the data 
+</span><span style="color:#75715e"></span><span style="color:#75715e">// There is a pre-built lib you can use - &#34;gopkg.in/jdkato/prose.v2&#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;gopkg.in/jdkato/prose.v2&#34;</span>
 )
 
-func goProse(docs string) (tag [][]string, entities [][]string){
-	doc, err := prose.NewDocument(docs)
-    if err != nil {
-        log.Fatal(err)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">goProse</span>(<span style="color:#a6e22e">docs</span> <span style="color:#66d9ef">string</span>) (<span style="color:#a6e22e">tag</span> [][]<span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">entities</span> [][]<span style="color:#66d9ef">string</span>){
+	<span style="color:#a6e22e">doc</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">prose</span>.<span style="color:#a6e22e">NewDocument</span>(<span style="color:#a6e22e">docs</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
 
-    for _, tok := range doc.Tokens() {
-		fmt.Println(tok.Text, tok.Tag)
-		var t []string
-		t = append(t, tok.Text, tok.Tag)
-		tag = append(tag, t)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">tok</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">Tokens</span>() {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">tok</span>.<span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">tok</span>.<span style="color:#a6e22e">Tag</span>)
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">t</span> []<span style="color:#66d9ef">string</span>
+		<span style="color:#a6e22e">t</span> = append(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">tok</span>.<span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">tok</span>.<span style="color:#a6e22e">Tag</span>)
+		<span style="color:#a6e22e">tag</span> = append(<span style="color:#a6e22e">tag</span>, <span style="color:#a6e22e">t</span>)
 	}
 
-	for _, ent := range doc.Entities() {
-		fmt.Println(ent.Text, ent.Label)
-		var e []string
-		e = append(e, ent.Text, ent.Label)
-		entities = append(entities, e)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">ent</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">Entities</span>() {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Label</span>)
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">e</span> []<span style="color:#66d9ef">string</span>
+		<span style="color:#a6e22e">e</span> = append(<span style="color:#a6e22e">e</span>, <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Label</span>)
+		<span style="color:#a6e22e">entities</span> = append(<span style="color:#a6e22e">entities</span>, <span style="color:#a6e22e">e</span>)
 	}
 	
-	return tag, entities
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tag</span>, <span style="color:#a6e22e">entities</span>
 
 }
-</code></pre>
-
-<h3 id="let-s-think-about-the-api-response-data-structure">Let&rsquo;s think about the API response data structure</h3>
-
-<pre><code class="language-go">type resultType struct {
-	WhoamI    string
-	Tag [][]string
-	Ent [][]string
+</code></pre></div><h3 id="lets-think-about-the-api-response-data-structure">Let's think about the API response data structure</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">resultType</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">WhoamI</span>    <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">Tag</span> [][]<span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">Ent</span> [][]<span style="color:#66d9ef">string</span>
   }
-// I think they look like a good data type :)
-</code></pre>
-
-<h3 id="okie-dokie-looks-good-now-you-will-need-a-golang-backend-to-handle-the-http-request">Okie, dokie. Looks good! Now you will need a Golang backend to handle the http request</h3>
-
-<pre><code class="language-go">func postHandler(w http.ResponseWriter, r *http.Request){
-		if r.Method == &quot;POST&quot; {
-			body, err := ioutil.ReadAll(r.Body)
-			if err != nil {
-				log.Println(err)
+<span style="color:#75715e">// I think they look like a good data type :)
+</span></code></pre></div><h3 id="okie-dokie-looks-good-now-you-will-need-a-golang-backend-to-handle-the-http-request">Okie, dokie. Looks good! Now you will need a Golang backend to handle the http request</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">postHandler</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>){
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Method</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;POST&#34;</span> {
+			<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Body</span>)
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+				<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
 			}
 
-			fmt.Println(string(body))
+			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">body</span>))
 
-			var resultTag [][]string
-			var resultEnt [][]string
+			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">resultTag</span> [][]<span style="color:#66d9ef">string</span>
+			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">resultEnt</span> [][]<span style="color:#66d9ef">string</span>
 
-		    resultTag,resultEnt  = goProse(string(body))
+		    <span style="color:#a6e22e">resultTag</span>,<span style="color:#a6e22e">resultEnt</span>  = <span style="color:#a6e22e">goProse</span>(string(<span style="color:#a6e22e">body</span>))
 
-			result := resultType{&quot;👋 from Pingzhou| ⛵&quot;, resultTag, resultEnt}
+			<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">resultType</span>{<span style="color:#e6db74">&#34;👋 from Pingzhou| ⛵&#34;</span>, <span style="color:#a6e22e">resultTag</span>, <span style="color:#a6e22e">resultEnt</span>}
 
-			fmt.Println(result)
+			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">result</span>)
 
-			js, err := json.Marshal(result)
-  			if err != nil {
-    			http.Error(w, err.Error(), http.StatusInternalServerError)
-    		return
+			<span style="color:#a6e22e">js</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">result</span>)
+  			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    			<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>(), <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>)
+    		<span style="color:#66d9ef">return</span>
   			}
 
-			w.Header().Set(&quot;Content-Type&quot;, &quot;application/json&quot;)
-  			w.Write(js)
+			<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Header</span>().<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+  			<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Write</span>(<span style="color:#a6e22e">js</span>)
 		}
 		
 	
   }
-</code></pre>
+</code></pre></div><h3 id="oh-yes-all-set-lets-start-the-http-server">Oh! Yes! All set! Let's start the http server!</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 
-<h3 id="oh-yes-all-set-let-s-start-the-http-server">Oh! Yes! All set! Let&rsquo;s start the http server!</h3>
+	<span style="color:#a6e22e">mux</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewServeMux</span>()
 
-<pre><code class="language-go">func main() {
-
-	mux := http.NewServeMux()
-
-	mux.HandleFunc(&quot;/v1/go-nlp&quot;, postHandler)
-	http.ListenAndServe(&quot;:&quot;+os.Getenv(&quot;api_port&quot;), mux)
+	<span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/v1/go-nlp&#34;</span>, <span style="color:#a6e22e">postHandler</span>)
+	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;api_port&#34;</span>), <span style="color:#a6e22e">mux</span>)
  }
-</code></pre>
-
-<h3 id="yes-here-you-go-your-own-nlp-api-is-up">Yes! Here you go! Your own nlp-api is up :)</h3>
-
+</code></pre></div><h3 id="yes-here-you-go-your-own-nlpapi-is-up-">Yes! Here you go! Your own nlp-api is up :)</h3>
 
   <img src="https://media.giphy.com/media/kv5fbxHVAEOjrHeCLk/giphy.gif"  class="center"  style="width: 50%"  />
 
 
-
-<pre><code class="language-bash">$ curl -v -s -X POST http://localhost:8080/v1/go-nlp \
-&gt; -d 'Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -v -s -X POST http://localhost:8080/v1/go-nlp <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>&gt; -d <span style="color:#e6db74">&#39;Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.&#39;</span>
 *   Trying ::1...
 * TCP_NODELAY set
-* Connected to localhost (::1) port 8080 (#0)
+* Connected to localhost <span style="color:#f92672">(</span>::1<span style="color:#f92672">)</span> port <span style="color:#ae81ff">8080</span> <span style="color:#f92672">(</span><span style="color:#75715e">#0)</span>
 &gt; POST /v1/go-nlp HTTP/1.1
 &gt; Host: localhost:8080
 &gt; User-Agent: curl/7.54.0
 &gt; Accept: */*
-&gt; Content-Length: 239
+&gt; Content-Length: <span style="color:#ae81ff">239</span>
 &gt; Content-Type: application/x-www-form-urlencoded
 &gt; 
-* upload completely sent off: 239 out of 239 bytes
-&lt; HTTP/1.1 200 OK
+* upload completely sent off: <span style="color:#ae81ff">239</span> out of <span style="color:#ae81ff">239</span> bytes
+&lt; HTTP/1.1 <span style="color:#ae81ff">200</span> OK
 &lt; Content-Type: application/json
-&lt; Date: Wed, 13 Nov 2019 18:13:07 GMT
-&lt; Content-Length: 846
+&lt; Date: Wed, <span style="color:#ae81ff">13</span> Nov <span style="color:#ae81ff">2019</span> 18:13:07 GMT
+&lt; Content-Length: <span style="color:#ae81ff">846</span>
 &lt; 
-* Connection #0 to host localhost left intact
-</code></pre>
-
-<p>{&ldquo;WhoamI&rdquo;:&ldquo;👋 from Pingzhou| ⛵&rdquo;,&ldquo;Tag&rdquo;:[[&ldquo;Google&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;headquartered&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;in&rdquo;,&ldquo;IN&rdquo;],[&ldquo;Mountain&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;View&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;(&rdquo;,&ldquo;(&rdquo;],[&ldquo;1600&rdquo;,&ldquo;CD&rdquo;],[&ldquo;Amphitheatre&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Pkwy&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;Mountain&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;View&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;CA&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;940430&rdquo;,&ldquo;CD&rdquo;],[&ldquo;)&rdquo;,&ldquo;)&rdquo;],[&ldquo;,&rdquo;,&ldquo;,&rdquo;],[&ldquo;unveiled&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;the&rdquo;,&ldquo;DT&rdquo;],[&ldquo;new&rdquo;,&ldquo;JJ&rdquo;],[&ldquo;Android&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;phone&rdquo;,&ldquo;NN&rdquo;],[&ldquo;for&rdquo;,&ldquo;IN&rdquo;],[&ldquo;$&rdquo;,&ldquo;$&rdquo;],[&ldquo;799&rdquo;,&ldquo;CD&rdquo;],[&ldquo;at&rdquo;,&ldquo;IN&rdquo;],[&ldquo;the&rdquo;,&ldquo;DT&rdquo;],[&ldquo;Consumer&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Electronic&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Show.&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Sundar&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Pichai&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;said&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;in&rdquo;,&ldquo;IN&rdquo;],[&ldquo;his&rdquo;,&ldquo;PRP$&rdquo;],[&ldquo;keynote&rdquo;,&ldquo;NN&rdquo;],[&ldquo;that&rdquo;,&ldquo;IN&rdquo;],[&ldquo;users&rdquo;,&ldquo;NNS&rdquo;],[&ldquo;love&rdquo;,&ldquo;VBP&rdquo;],[&ldquo;their&rdquo;,&ldquo;PRP$&rdquo;],[&ldquo;new&rdquo;,&ldquo;JJ&rdquo;],[&ldquo;Android&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;phones&rdquo;,&ldquo;NNS&rdquo;],[&ldquo;.&rdquo;,&ldquo;.&rdquo;]],&ldquo;Ent&rdquo;:[[&ldquo;Google&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Mountain View&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Mountain View&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Consumer Electronic Show. Sundar Pichai&rdquo;,&ldquo;ORGANIZATION&rdquo;]]}</p>
-
-<pre><code class="language-bash">$ curl -s -X POST http://localhost:8080/v1/go-nlp \
--d 'Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.' | jq .Ent[]
-</code></pre>
-
-<p>[
-  &ldquo;Google&rdquo;,
-  &ldquo;GPE&rdquo;
+* Connection <span style="color:#75715e">#0 to host localhost left intact</span>
+</code></pre></div><p>{&ldquo;WhoamI&rdquo;:&ldquo;👋 from Pingzhou| ⛵&rdquo;,&ldquo;Tag&rdquo;:[[&ldquo;Google&rdquo;,&ldquo;NNP&rdquo;],[&quot;,&quot;,&quot;,&quot;],[&ldquo;headquartered&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;in&rdquo;,&ldquo;IN&rdquo;],[&ldquo;Mountain&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;View&rdquo;,&ldquo;NNP&rdquo;],[&quot;(&quot;,&quot;(&quot;],[&ldquo;1600&rdquo;,&ldquo;CD&rdquo;],[&ldquo;Amphitheatre&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Pkwy&rdquo;,&ldquo;NNP&rdquo;],[&quot;,&quot;,&quot;,&quot;],[&ldquo;Mountain&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;View&rdquo;,&ldquo;NNP&rdquo;],[&quot;,&quot;,&quot;,&quot;],[&ldquo;CA&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;940430&rdquo;,&ldquo;CD&rdquo;],[&quot;)&quot;,&quot;)&quot;],[&quot;,&quot;,&quot;,&quot;],[&ldquo;unveiled&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;the&rdquo;,&ldquo;DT&rdquo;],[&ldquo;new&rdquo;,&ldquo;JJ&rdquo;],[&ldquo;Android&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;phone&rdquo;,&ldquo;NN&rdquo;],[&ldquo;for&rdquo;,&ldquo;IN&rdquo;],[&ldquo;$&rdquo;,&ldquo;$&rdquo;],[&ldquo;799&rdquo;,&ldquo;CD&rdquo;],[&ldquo;at&rdquo;,&ldquo;IN&rdquo;],[&ldquo;the&rdquo;,&ldquo;DT&rdquo;],[&ldquo;Consumer&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Electronic&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Show.&quot;,&ldquo;NNP&rdquo;],[&ldquo;Sundar&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;Pichai&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;said&rdquo;,&ldquo;VBD&rdquo;],[&ldquo;in&rdquo;,&ldquo;IN&rdquo;],[&ldquo;his&rdquo;,&ldquo;PRP$&rdquo;],[&ldquo;keynote&rdquo;,&ldquo;NN&rdquo;],[&ldquo;that&rdquo;,&ldquo;IN&rdquo;],[&ldquo;users&rdquo;,&ldquo;NNS&rdquo;],[&ldquo;love&rdquo;,&ldquo;VBP&rdquo;],[&ldquo;their&rdquo;,&ldquo;PRP$&rdquo;],[&ldquo;new&rdquo;,&ldquo;JJ&rdquo;],[&ldquo;Android&rdquo;,&ldquo;NNP&rdquo;],[&ldquo;phones&rdquo;,&ldquo;NNS&rdquo;],[&quot;.&quot;,&quot;.&quot;]],&ldquo;Ent&rdquo;:[[&ldquo;Google&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Mountain View&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Mountain View&rdquo;,&ldquo;GPE&rdquo;],[&ldquo;Consumer Electronic Show. Sundar Pichai&rdquo;,&ldquo;ORGANIZATION&rdquo;]]}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s -X POST http://localhost:8080/v1/go-nlp <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-d <span style="color:#e6db74">&#39;Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.&#39;</span> | jq .Ent<span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+</code></pre></div><p>[
+&ldquo;Google&rdquo;,
+&ldquo;GPE&rdquo;
 ]
 [
-  &ldquo;Mountain View&rdquo;,
-  &ldquo;GPE&rdquo;
+&ldquo;Mountain View&rdquo;,
+&ldquo;GPE&rdquo;
 ]
 [
-  &ldquo;Mountain View&rdquo;,
-  &ldquo;GPE&rdquo;
+&ldquo;Mountain View&rdquo;,
+&ldquo;GPE&rdquo;
 ]
 [
-  &ldquo;Consumer Electronic Show. Sundar Pichai&rdquo;,
-  &ldquo;ORGANIZATION&rdquo;
+&ldquo;Consumer Electronic Show. Sundar Pichai&rdquo;,
+&ldquo;ORGANIZATION&rdquo;
 ]</p>
-
-<pre><code class="language-bash">$ curl -s -X POST http://localhost:8080/v1/go-nlp \
--d 'Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.' | jq .Tag[0]
-</code></pre>
-
-<p>[
-  &ldquo;Google&rdquo;,
-  &ldquo;NNP&rdquo;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s -X POST http://localhost:8080/v1/go-nlp <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-d <span style="color:#e6db74">&#39;Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones.&#39;</span> | jq .Tag<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>
+</code></pre></div><p>[
+&ldquo;Google&rdquo;,
+&ldquo;NNP&rdquo;
 ]</p>
 
       
@@ -383,6 +356,13 @@ func goProse(docs string) (tag [][]string, entities [][]string){
           <hr />
         </div>
         <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="/posts/go-payment-gateway-with-stripe-and-vault/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Payment Gateway | Go | Stripe | Vault</span>
+              </a>
+            </span>
           
           
             <span class="button next">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Google Apps Script on DevOps | Golang | Python | Travel</title>
@@ -17,9 +17,9 @@
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/papertest-google-spreadsheet-api/</guid>
-      <description>I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&amp;rsquo;s Spreadsheets API to track your paper test result. How to do it?
-1. Connect to Google&amp;rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
-package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot; &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/context&amp;quot; &amp;quot;golang.org/x/oauth2&amp;quot; &amp;quot;golang.org/x/oauth2/google&amp;quot; &amp;quot;google.golang.org/api/sheets/v4&amp;quot; ) // Retrieve a token, saves the token, then returns the generated client.</description>
+      <description>I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&#39;s Spreadsheets API to track your paper test result. How to do it?
+1. Connect to Google&#39;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
+package main import ( &amp;#34;time&amp;#34; &amp;#34;encoding/json&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;golang.org/x/net/context&amp;#34; &amp;#34;golang.org/x/oauth2&amp;#34; &amp;#34;golang.org/x/oauth2/google&amp;#34; &amp;#34;google.golang.org/api/sheets/v4&amp;#34; ) // Retrieve a token, saves the token, then returns the generated client.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ package main import ( &amp;quot;time&amp;quot; &amp;quot;encoding/json&amp;quot;
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/papertest-google-app-script/</guid>
-      <description>I was inspired by the alpaca&amp;rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&amp;rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
+      <description>I was inspired by the alpaca&#39;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&#39;s stock version, you can find the details here. The google spreadsheet will look like this:
 I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp.</description>
     </item>
     

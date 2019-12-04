@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloud admin on DevOps | Golang | Python | Travel</title>
@@ -18,7 +18,7 @@
       
       <guid>/posts/export-gcp-stackdriver-log-with-filebeat/</guid>
       <description>This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running.</description>
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;#34;$@&amp;#34; readonly dependencies=( &amp;#34;gcloud&amp;#34; ) processArgs(){ while [[ &amp;#34;$#&amp;#34; -gt 0 ]]; do key=&amp;#34;$1&amp;#34; case &amp;#34;$key&amp;#34; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;#34;$2&amp;#34; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;#34;$2&amp;#34; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;#34;${dependencies[@]}&amp;#34; ; do command -v &amp;#34;${dependency}&amp;#34; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;#34;${dependency}required&amp;#34;; unmet_dependencies=true } done if [ &amp;#34;${unmet_dependencies}&amp;#34; = true ] ; then echo &amp;#34;Please install unmet dependencies above before running.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@
       
       <guid>/posts/boto3-python/</guid>
       <description>This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to 👉📱message my twilio bot +447479275693. I will come back to you shortly 😃.
- import boto3 import os &amp;quot;&amp;quot;&amp;quot; how to use this class import aws_modules.get_all_sg_rules sg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rules sg_rule_result = sg_rule.getSgRules() &amp;quot;&amp;quot;&amp;quot; class sg: def __init__(req, aws_account): req.</description>
+ import boto3 import os &amp;#34;&amp;#34;&amp;#34;how to use this classimport aws_modules.get_all_sg_rulessg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rulessg_rule_result = sg_rule.getSgRules()&amp;#34;&amp;#34;&amp;#34; class sg: def __init__(req, aws_account): req.aws_account = aws_account def getSgRules(req): try: os.</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/aws-s3-command/</guid>
-      <description>aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive.
+      <description>aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp --recursive .
 escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace.</description>
     </item>
     
@@ -49,7 +49,7 @@ escape the whitespace in your file name When you have a long list of files that 
       <guid>/posts/lambda-logshipper/</guid>
       <description>How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;your_tcp_endpoint:your_port&amp;quot;) defer conn.Close() if err != nil { fmt.</description>
+func SocketClient(m []byte) { conn, err := net.Dial(&amp;#34;tcp&amp;#34;, &amp;#34;your_tcp_endpoint:your_port&amp;#34;) defer conn.Close() if err != nil { fmt.</description>
     </item>
     
   </channel>

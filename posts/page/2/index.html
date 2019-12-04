@@ -34,10 +34,8 @@
 <meta property="og:description" content="Pingzhou | 平舟" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-
-<meta property="og:image" content="/" />
-
-<meta property="og:updated_time" content="2019-11-13T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="og:updated_time" content="2019-12-03T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -100,7 +98,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -136,7 +134,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -179,6 +177,42 @@
 
     
     <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/papertest-google-app-script/">Google Spreadsheets Paper Test</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2019-08-12
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/google-apps-script/">Google Apps Script</a>&nbsp;
+          
+            #<a href="/tags/google-spreadsheets/">Google Spreadsheets</a>&nbsp;
+          
+            #<a href="/tags/paper-test/">Paper Test</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            I was inspired by the alpaca's idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca's stock version, you can find the details here. The google spreadsheet will look like this:
+I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/papertest-google-app-script/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
       <h1 class="post-title"><a href="/posts/useful-jq-commands/">jq examples</a></h1>
       <div class="post-meta">
         <span class="post-date">
@@ -207,7 +241,7 @@
         
           
             jq is a command-line JSON processor to parse json format data. You can find the detailed documentation here. And you can try to play it online at jqplay.org. I am listing out few jq command line examples that I found quite useful for day-to-day work 😃.
-Let&rsquo;s try jq with AWS resources api.
+Let's try jq with AWS resources api.
 // to parse and extract json data $ curl -s \ <a href="https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json">https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json</a> \ | jq .offers.AmazonEC2 { &quot;offerCode&quot;: &quot;AmazonEC2&quot;, &quot;versionIndexUrl&quot;: &quot;/offers/v1.
           
         
@@ -247,7 +281,7 @@ Let&rsquo;s try jq with AWS resources api.
       <div class="post-content">
         
           
-            So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.
+            So you want a personal chatbot to handle your messages. Let's build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let's start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.
           
         
       </div>
@@ -323,8 +357,8 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
       <div class="post-content">
         
           
-            So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;<a href="http://feeds.reuters.com/reuters/UKTopNews&quot;">http://feeds.reuters.com/reuters/UKTopNews&quot;</a>) if err != nil { panic(err) } for _, item := range feed.
+            So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let's start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;http://feeds.reuters.com/reuters/UKTopNews&quot;) if err != nil { panic(err) } for _, item := range feed.
           
         
       </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yUML on DevOps | Golang | Python | Travel</title>
@@ -18,7 +18,7 @@
       
       <guid>/posts/uml-visualize-your-cloud/</guid>
       <description>This is an example about how to use aws boto3 with yUML to visualize your aws cloud resources. Please feel free to 👉📱message my twilio bot +447479275693.I will come back to you shortly 😃.
- In my last post, I have talked about how to play with aws boto3 api. During a usual dev-ish-ops day, sometimes I need to draw an aws network diagram. I have to log in to the console, click click click, and then copy-paste&amp;hellip;hmmmm&amp;hellip;It&amp;rsquo;s a little tiny bit boring and obviously, I want to automate it.</description>
+ In my last post, I have talked about how to play with aws boto3 api. During a usual dev-ish-ops day, sometimes I need to draw an aws network diagram. I have to log in to the console, click click click, and then copy-paste&amp;hellip;hmmmm&amp;hellip;It&#39;s a little tiny bit boring and obviously, I want to automate it.</description>
     </item>
     
   </channel>

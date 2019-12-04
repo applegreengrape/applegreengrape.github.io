@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chatbot on DevOps | Golang | Python | Travel</title>
@@ -17,7 +17,7 @@
       <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/twilio-message-bot/</guid>
-      <description>So you want a personal chatbot to handle your messages. Let&amp;rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&amp;rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</description>
+      <description>So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</description>
     </item>
     
   </channel>

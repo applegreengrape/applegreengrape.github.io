@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
+<meta name="description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&#39;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
@@ -28,22 +28,21 @@ How about let the code understand your emotions and 👉 you to the grammar mist
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Text Mining | NLTK | Python"/>
-<meta name="twitter:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&rsquo;s break the sentence down and let your code to define how will it read 🤓
+<meta name="twitter:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&#39;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made."/>
 
 
 
 <meta property="og:title" content="Text Mining | NLTK | Python" />
-<meta property="og:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&rsquo;s break the sentence down and let your code to define how will it read 🤓
+<meta property="og:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&#39;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/nltk-grammar-tag/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-10-08T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-10-08T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-10-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-08T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -105,7 +104,7 @@ How about let the code understand your emotions and 👉 you to the grammar mist
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -141,7 +140,7 @@ How about let the code understand your emotions and 👉 you to the grammar mist
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -206,62 +205,44 @@ How about let the code understand your emotions and 👉 you to the grammar mist
     
 
     <div class="post-content">
-      
-
-<p>In my previous posts, we have <a href="/posts/web-scraper-python/">crawled some articles and news through RSS feed and HTML tags</a>. We played with <a href="/posts/google-nlp-python/">google&rsquo;s nlp api</a> and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).</p>
-
-<p>Let&rsquo;s break the sentence down and let your code to define how will it read 🤓</p>
-
+      <p>In my previous posts, we have <a href="/posts/web-scraper-python/">crawled some articles and news through RSS feed and HTML tags</a>. We played with <a href="/posts/google-nlp-python/">google's nlp api</a> and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).</p>
+<p>Let's break the sentence down and let your code to define how will it read 🤓</p>
 
   <img src="https://media.giphy.com/media/vMEjhlxsBR7Fe/giphy.gif"  class="center"  />
 
 
-
-<h3 id="how-about-let-the-code-understand-your-emotions-and-you-to-the-grammar-mistake-you-made">How about let the code understand your emotions and 👉 you to the grammar mistake you made.</h3>
-
+<h3 id="how-about-let-the-code-understand-your-emotions-and--you-to-the-grammar-mistake-you-made">How about let the code understand your emotions and 👉 you to the grammar mistake you made.</h3>
 <p>Take this sentence as an example:</p>
-
 <pre><code>My english is bad and I will got the grammar wrong but I am still happy !
-</code></pre>
-
-<p>Let&rsquo;s import all the python modules needed.</p>
-
-<pre><code class="language-python">from nltk.tokenize import sent_tokenize
-from nltk.tokenize import word_tokenize
-from nltk import pos_tag
-from nltk import RegexpParser
-from nltk import RegexpTagger
-</code></pre>
-
-<p>Make a function to tag with regular expressions:</p>
-
-<pre><code class="language-python">def rule_based_tag(sent):
-    my_tags = RegexpTagger([
-        (r'bad|wrong|sad', '😞'),
-        (r'happy|good|nice', '😃'),
+</code></pre><p>Let's import all the python modules needed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> nltk.tokenize <span style="color:#f92672">import</span> sent_tokenize
+<span style="color:#f92672">from</span> nltk.tokenize <span style="color:#f92672">import</span> word_tokenize
+<span style="color:#f92672">from</span> nltk <span style="color:#f92672">import</span> pos_tag
+<span style="color:#f92672">from</span> nltk <span style="color:#f92672">import</span> RegexpParser
+<span style="color:#f92672">from</span> nltk <span style="color:#f92672">import</span> RegexpTagger
+</code></pre></div><p>Make a function to tag with regular expressions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rule_based_tag</span>(sent):
+    my_tags <span style="color:#f92672">=</span> RegexpTagger([
+        (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">bad|wrong|sad</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">😞</span><span style="color:#e6db74">&#39;</span>),
+        (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">happy|good|nice</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">😃</span><span style="color:#e6db74">&#39;</span>),
             ])
 
-    reg_out = my_tags.tag(word_tokenize(sent))
-    tag_out = pos_tag(word_tokenize(sent))
-    return [(token, rtag) if rtag == '😞' or rtag == '😃' else (token, ttag) for (token, rtag), (token, ttag) in zip(reg_out, tag_out)]
+    reg_out <span style="color:#f92672">=</span> my_tags<span style="color:#f92672">.</span>tag(word_tokenize(sent))
+    tag_out <span style="color:#f92672">=</span> pos_tag(word_tokenize(sent))
+    <span style="color:#66d9ef">return</span> [(token, rtag) <span style="color:#66d9ef">if</span> rtag <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">😞</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">or</span> rtag <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">😃</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">else</span> (token, ttag) <span style="color:#66d9ef">for</span> (token, rtag), (token, ttag) <span style="color:#f92672">in</span> zip(reg_out, tag_out)]
 
-tag = rule_based_tag(sent)
-</code></pre>
+tag <span style="color:#f92672">=</span> rule_based_tag(sent)
+</code></pre></div><p>Now let's add some grammar here.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">grammar <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">  bag_grammar : {&lt;MD&gt;+&lt;VBG&gt;}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">  my_emotions : {&lt;😞&gt;|&lt;😃&gt;}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">  </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
 
-<p>Now let&rsquo;s add some grammar here.</p>
+cp  <span style="color:#f92672">=</span> RegexpParser(grammar)
+tree <span style="color:#f92672">=</span> cp<span style="color:#f92672">.</span>parse(tag)
 
-<pre><code class="language-python">grammar = r&quot;&quot;&quot;
-  bag_grammar : {&lt;MD&gt;+&lt;VBG&gt;}
-  my_emotions : {&lt;😞&gt;|&lt;😃&gt;}
-  &quot;&quot;&quot;
-
-cp  = RegexpParser(grammar)
-tree = cp.parse(tag)
-
-tree.draw()
-</code></pre>
-
-<p>And here you go. They are just layers and layers of regular expressions. How cool is that 😃😃😃!
+tree<span style="color:#f92672">.</span>draw()
+</code></pre></div><p>And here you go. They are just layers and layers of regular expressions. How cool is that 😃😃😃!
 
   <img src="/static/img/ntlp_tag.png"  class="center"  style="width: 200%"  />
 
@@ -270,36 +251,31 @@ tree.draw()
   <img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif"  class="center"  />
 
 </p>
-
-<p>Oops&hellip;This <code>tree.draw()</code> doesn&rsquo;t support emojis 😞😞😞.</p>
-
+<p>Oops&hellip;This <code>tree.draw()</code> doesn't support emojis 😞😞😞.</p>
 <h3 id="and-there-are-more-nltk-pos-tag-you-can-play-with">and there are more nltk pos tag you can play with</h3>
-
-<pre><code class="language-python">nltk.help.upenn_tagset()
-</code></pre>
-
-<pre><code class="language-bash">$: dollar
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nltk<span style="color:#f92672">.</span>help<span style="color:#f92672">.</span>upenn_tagset()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$: dollar
     $ -$ --$ A$ C$ HK$ M$ NZ$ S$ U.S.$ US$
-'': closing quotation mark
-    ' ''
-(: opening parenthesis
-    ( [ {
-): closing parenthesis
-    ) ] }
-,: comma
-    ,
---: dash
-    --
-.: sentence terminator
-    . ! ?
-:: colon or ellipsis
-    : ; ...
-CC: conjunction, coordinating
-    &amp; 'n and both but either et for less minus neither nor or plus so
+<span style="color:#e6db74">&#39;&#39;</span>: closing quotation mark
+    <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">(: opening parenthesis
+</span><span style="color:#e6db74">    ( [ {
+</span><span style="color:#e6db74">): closing parenthesis
+</span><span style="color:#e6db74">    ) ] }
+</span><span style="color:#e6db74">,: comma
+</span><span style="color:#e6db74">    ,
+</span><span style="color:#e6db74">--: dash
+</span><span style="color:#e6db74">    --
+</span><span style="color:#e6db74">.: sentence terminator
+</span><span style="color:#e6db74">    . ! ?
+</span><span style="color:#e6db74">:: colon or ellipsis
+</span><span style="color:#e6db74">    : ; ...
+</span><span style="color:#e6db74">CC: conjunction, coordinating
+</span><span style="color:#e6db74">    &amp; &#39;</span>n and both but either et <span style="color:#66d9ef">for</span> less minus neither nor or plus so
     therefore times v. versus vs. whether yet
 CD: numeral, cardinal
     mid-1890 nine-thirty forty-two one-tenth ten million 0.5 one forty-
-    seven 1987 twenty '79 zero two 78-degrees eighty-four IX '60s .025
+    seven <span style="color:#ae81ff">1987</span> twenty <span style="color:#e6db74">&#39;79 zero two 78-degrees eighty-four IX &#39;</span>60s .025
     fifteen 271,124 dozen quintillion DM2,000 ...
 DT: determiner
     all an another any both del each either every half la many much nary
@@ -307,76 +283,76 @@ DT: determiner
 EX: existential there
     there
 FW: foreign word
-    gemeinschaft hund ich jeux habeas Haementeria Herr K'ang-si vous
-    lutihaw alai je jour objets salutaris fille quibusdam pas trop Monte
-    terram fiche oui corporis ...
-IN: preposition or conjunction, subordinating
-    astride among uppon whether out inside pro despite on by throughout
-    below within for towards near behind atop around if like until below
-    next into if beside ...
-JJ: adjective or numeral, ordinal
-    third ill-mannered pre-war regrettable oiled calamitous first separable
-    ectoplasmic battery-powered participatory fourth still-to-be-named
-    multilingual multi-disciplinary ...
-JJR: adjective, comparative
-    bleaker braver breezier briefer brighter brisker broader bumper busier
-    calmer cheaper choosier cleaner clearer closer colder commoner costlier
-    cozier creamier crunchier cuter ...
-JJS: adjective, superlative
-    calmest cheapest choicest classiest cleanest clearest closest commonest
-    corniest costliest crassest creepiest crudest cutest darkest deadliest
-    dearest deepest densest dinkiest ...
-LS: list item marker
-    A A. B B. C C. D E F First G H I J K One SP-44001 SP-44002 SP-44005
-    SP-44007 Second Third Three Two * a b c d first five four one six three
-    two
-MD: modal auxiliary
-    can cannot could couldn't dare may might must need ought shall should
-    shouldn't will would
-NN: noun, common, singular or mass
-    common-carrier cabbage knuckle-duster Casino afghan shed thermostat
-    investment slide humour falloff slick wind hyena override subhumanity
-    machinist ...
-NNP: noun, proper, singular
-    Motown Venneboerger Czestochwa Ranzer Conchita Trumplane Christos
-    Oceanside Escobar Kreisler Sawyer Cougar Yvette Ervin ODI Darryl CTCA
-    Shannon A.K.C. Meltex Liverpool ...
-NNPS: noun, proper, plural
-    Americans Americas Amharas Amityvilles Amusements Anarcho-Syndicalists
-    Andalusians Andes Andruses Angels Animals Anthony Antilles Antiques
-    Apache Apaches Apocrypha ...
-NNS: noun, common, plural
-    undergraduates scotches bric-a-brac products bodyguards facets coasts
-    divestitures storehouses designs clubs fragrances averages
-    subjectivists apprehensions muses factory-jobs ...
-PDT: pre-determiner
-    all both half many quite such sure this
-POS: genitive marker
-    ' 's
-PRP: pronoun, personal
-    hers herself him himself hisself it itself me myself one oneself ours
-    ourselves ownself self she thee theirs them themselves they thou thy us
-PRP$: pronoun, possessive
-    her his mine my our ours their thy your
-RB: adverb
-    occasionally unabatingly maddeningly adventurously professedly
-    stirringly prominently technologically magisterially predominately
-    swiftly fiscally pitilessly ...
-RBR: adverb, comparative
-    further gloomier grander graver greater grimmer harder harsher
-    healthier heavier higher however larger later leaner lengthier less-
-    perfectly lesser lonelier longer louder lower more ...
-RBS: adverb, superlative
-    best biggest bluntest earliest farthest first furthest hardest
-    heartiest highest largest least less most nearest second tightest worst
-RP: particle
-    aboard about across along apart around aside at away back before behind
-    by crop down ever fast for forth from go high i.e. in into just later
-    low more off on open out over per pie raising start teeth that through
-    under unto up up-pp upon whole with you
-SYM: symbol
-    % &amp; ' '' ''. ) ). * + ,. &lt; = &gt; @ A[fj] U.S U.S.S.R * ** ***
-TO: &quot;to&quot; as preposition or infinitive marker
+    gemeinschaft hund ich jeux habeas Haementeria Herr K<span style="color:#e6db74">&#39;ang-si vous
+</span><span style="color:#e6db74">    lutihaw alai je jour objets salutaris fille quibusdam pas trop Monte
+</span><span style="color:#e6db74">    terram fiche oui corporis ...
+</span><span style="color:#e6db74">IN: preposition or conjunction, subordinating
+</span><span style="color:#e6db74">    astride among uppon whether out inside pro despite on by throughout
+</span><span style="color:#e6db74">    below within for towards near behind atop around if like until below
+</span><span style="color:#e6db74">    next into if beside ...
+</span><span style="color:#e6db74">JJ: adjective or numeral, ordinal
+</span><span style="color:#e6db74">    third ill-mannered pre-war regrettable oiled calamitous first separable
+</span><span style="color:#e6db74">    ectoplasmic battery-powered participatory fourth still-to-be-named
+</span><span style="color:#e6db74">    multilingual multi-disciplinary ...
+</span><span style="color:#e6db74">JJR: adjective, comparative
+</span><span style="color:#e6db74">    bleaker braver breezier briefer brighter brisker broader bumper busier
+</span><span style="color:#e6db74">    calmer cheaper choosier cleaner clearer closer colder commoner costlier
+</span><span style="color:#e6db74">    cozier creamier crunchier cuter ...
+</span><span style="color:#e6db74">JJS: adjective, superlative
+</span><span style="color:#e6db74">    calmest cheapest choicest classiest cleanest clearest closest commonest
+</span><span style="color:#e6db74">    corniest costliest crassest creepiest crudest cutest darkest deadliest
+</span><span style="color:#e6db74">    dearest deepest densest dinkiest ...
+</span><span style="color:#e6db74">LS: list item marker
+</span><span style="color:#e6db74">    A A. B B. C C. D E F First G H I J K One SP-44001 SP-44002 SP-44005
+</span><span style="color:#e6db74">    SP-44007 Second Third Three Two * a b c d first five four one six three
+</span><span style="color:#e6db74">    two
+</span><span style="color:#e6db74">MD: modal auxiliary
+</span><span style="color:#e6db74">    can cannot could couldn&#39;</span>t dare may might must need ought shall should
+    shouldn<span style="color:#e6db74">&#39;t will would
+</span><span style="color:#e6db74">NN: noun, common, singular or mass
+</span><span style="color:#e6db74">    common-carrier cabbage knuckle-duster Casino afghan shed thermostat
+</span><span style="color:#e6db74">    investment slide humour falloff slick wind hyena override subhumanity
+</span><span style="color:#e6db74">    machinist ...
+</span><span style="color:#e6db74">NNP: noun, proper, singular
+</span><span style="color:#e6db74">    Motown Venneboerger Czestochwa Ranzer Conchita Trumplane Christos
+</span><span style="color:#e6db74">    Oceanside Escobar Kreisler Sawyer Cougar Yvette Ervin ODI Darryl CTCA
+</span><span style="color:#e6db74">    Shannon A.K.C. Meltex Liverpool ...
+</span><span style="color:#e6db74">NNPS: noun, proper, plural
+</span><span style="color:#e6db74">    Americans Americas Amharas Amityvilles Amusements Anarcho-Syndicalists
+</span><span style="color:#e6db74">    Andalusians Andes Andruses Angels Animals Anthony Antilles Antiques
+</span><span style="color:#e6db74">    Apache Apaches Apocrypha ...
+</span><span style="color:#e6db74">NNS: noun, common, plural
+</span><span style="color:#e6db74">    undergraduates scotches bric-a-brac products bodyguards facets coasts
+</span><span style="color:#e6db74">    divestitures storehouses designs clubs fragrances averages
+</span><span style="color:#e6db74">    subjectivists apprehensions muses factory-jobs ...
+</span><span style="color:#e6db74">PDT: pre-determiner
+</span><span style="color:#e6db74">    all both half many quite such sure this
+</span><span style="color:#e6db74">POS: genitive marker
+</span><span style="color:#e6db74">    &#39;</span> <span style="color:#e6db74">&#39;s
+</span><span style="color:#e6db74">PRP: pronoun, personal
+</span><span style="color:#e6db74">    hers herself him himself hisself it itself me myself one oneself ours
+</span><span style="color:#e6db74">    ourselves ownself self she thee theirs them themselves they thou thy us
+</span><span style="color:#e6db74">PRP$: pronoun, possessive
+</span><span style="color:#e6db74">    her his mine my our ours their thy your
+</span><span style="color:#e6db74">RB: adverb
+</span><span style="color:#e6db74">    occasionally unabatingly maddeningly adventurously professedly
+</span><span style="color:#e6db74">    stirringly prominently technologically magisterially predominately
+</span><span style="color:#e6db74">    swiftly fiscally pitilessly ...
+</span><span style="color:#e6db74">RBR: adverb, comparative
+</span><span style="color:#e6db74">    further gloomier grander graver greater grimmer harder harsher
+</span><span style="color:#e6db74">    healthier heavier higher however larger later leaner lengthier less-
+</span><span style="color:#e6db74">    perfectly lesser lonelier longer louder lower more ...
+</span><span style="color:#e6db74">RBS: adverb, superlative
+</span><span style="color:#e6db74">    best biggest bluntest earliest farthest first furthest hardest
+</span><span style="color:#e6db74">    heartiest highest largest least less most nearest second tightest worst
+</span><span style="color:#e6db74">RP: particle
+</span><span style="color:#e6db74">    aboard about across along apart around aside at away back before behind
+</span><span style="color:#e6db74">    by crop down ever fast for forth from go high i.e. in into just later
+</span><span style="color:#e6db74">    low more off on open out over per pie raising start teeth that through
+</span><span style="color:#e6db74">    under unto up up-pp upon whole with you
+</span><span style="color:#e6db74">SYM: symbol
+</span><span style="color:#e6db74">    % &amp; &#39;</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#e6db74">&#39;&#39;</span>. <span style="color:#f92672">)</span> <span style="color:#f92672">)</span>. * + ,. &lt; <span style="color:#f92672">=</span> &gt; @ A<span style="color:#f92672">[</span>fj<span style="color:#f92672">]</span> U.S U.S.S.R * ** ***
+TO: <span style="color:#e6db74">&#34;to&#34;</span> as preposition or infinitive marker
     to
 UH: interjection
     Goodbye Goody Gosh Wow Jeepers Jee-sus Hubba Hey Kee-reist Oops amen
@@ -392,7 +368,7 @@ VBD: verb, past tense
     speculated wore appreciated contemplated ...
 VBG: verb, present participle or gerund
     telegraphing stirring focusing angering judging stalling lactating
-    hankerin' alleging veering capping approaching traveling besieging
+    hankerin<span style="color:#960050;background-color:#1e0010">&#39;</span> alleging veering capping approaching traveling besieging
     encrypting interrupting erasing wincing ...
 VBN: verb, past participle
     multihulled dilapidated aerosolized chaired languished panelized used
@@ -401,7 +377,7 @@ VBN: verb, past participle
 VBP: verb, present tense, not 3rd person singular
     predominate wrap resort sue twist spill cure lengthen brush terminate
     appear tend stray glisten obtain comprise detest tease attract
-    emphasize mold postpone sever return wag ...
+    emphasize mold postpone sever <span style="color:#66d9ef">return</span> wag ...
 VBZ: verb, present tense, 3rd person singular
     bases reconstructs marks mixes displeases seals carps weaves snatches
     slumps stretches authorizes smolders pictures emerges stockpiles
@@ -414,9 +390,8 @@ WP$: WH-pronoun, possessive
     whose
 WRB: Wh-adverb
     how however whence whenever where whereby whereever wherein whereof why
-``: opening quotation mark
-</code></pre>
-
+<span style="color:#e6db74">`</span><span style="color:#e6db74">`</span>: opening quotation mark
+</code></pre></div>
       
       <div align="center">
       <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>

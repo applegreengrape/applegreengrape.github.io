@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="So you want a personal chatbot to handle your messages. Let&amp;rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&amp;rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
+<meta name="description" content="So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/twilio-message-bot/" />
@@ -26,18 +26,17 @@
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Twilio Message Bot 📟"/>
-<meta name="twitter:description" content="So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
+<meta name="twitter:description" content="So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
 
 
 
 <meta property="og:title" content="Twilio Message Bot 📟" />
-<meta property="og:description" content="So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers." />
+<meta property="og:description" content="So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/twilio-message-bot/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-07-12T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-07-12T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-07-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -99,7 +98,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -135,7 +134,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -202,59 +201,48 @@
     
 
     <div class="post-content">
-      
-
-<p>So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</p>
-
-<h3 id="1-get-a-twilio-number">1 - Get a twilio number</h3>
-
+      <p>So you want a personal chatbot to handle your messages. Let's build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let's start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</p>
+<h3 id="1--get-a-twilio-number">1 - Get a twilio number</h3>
 <p>You can register <a href="https://www.twilio.com/sms">a twilio number here</a>.</p>
-
-<h3 id="2-create-your-own-flow-in-twilio-flow-studio">2 - Create your own flow in twilio flow studio</h3>
-
+<h3 id="2--create-your-own-flow-in-twilio-flow-studio">2 - Create your own flow in twilio flow studio</h3>
 <p>It is a simple drag and click tools for doing something rather simple. For details you can check <a href="https://www.twilio.com/docs/studio/user-guide">user guide</a>. For this usecase, we can set our flow like this:
 
   <img src="/static/img/twilio.png"  alt="twilio"  class="left"  />
 
 </p>
-
-<h3 id="3-start-your-own-backend-server-to-handle-requests-from-twilio">3 - Start your own backend server to handle requests from twilio</h3>
-
+<h3 id="3--start-your-own-backend-server-to-handle-requests-from-twilio">3 - Start your own backend server to handle requests from twilio</h3>
 <p>However, you also need your twilio bot to message you about the message summaries. Then how to do it? Similar to the <a href="https://www.twilio.com/docs/studio/tutorials/how-to-post-sms-to-slack">guide here</a>. You will need a small backend function to handle the POST request. So now it is clear - we need a tiny little backend server to handle the POST request.</p>
-
-<pre><code class="language-go">
-// PostHandler converts post request body to string
- func PostHandler(w http.ResponseWriter, r *http.Request) {
-	 // ... setting up the accountSid and authToken
-     if r.Method == &quot;POST&quot; {
-		body, err := ioutil.ReadAll(r.Body)
-		if err != nil {
-			log.Println(err)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
+<span style="color:#75715e">// PostHandler converts post request body to string
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">PostHandler</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+	 <span style="color:#75715e">// ... setting up the accountSid and authToken
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Method</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;POST&#34;</span> {
+		<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Body</span>)
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
 		}
 
-	 // Build out the data for our message
-	 v := url.Values{}
-	 v.Set(&quot;To&quot;,&quot;your_number&quot;)
-	 v.Set(&quot;From&quot;,&quot;your_twilio_number&quot;)
-	 v.Set(&quot;Body&quot;, string(body))
-     rb := *strings.NewReader(v.Encode())
+	 <span style="color:#75715e">// Build out the data for our message
+</span><span style="color:#75715e"></span>	 <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">Values</span>{}
+	 <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;To&#34;</span>,<span style="color:#e6db74">&#34;your_number&#34;</span>)
+	 <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;From&#34;</span>,<span style="color:#e6db74">&#34;your_twilio_number&#34;</span>)
+	 <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Body&#34;</span>, string(<span style="color:#a6e22e">body</span>))
+     <span style="color:#a6e22e">rb</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Encode</span>())
      
-     // Create client
-	 client := &amp;http.Client{}
+     <span style="color:#75715e">// Create client
+</span><span style="color:#75715e"></span>	 <span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Client</span>{}
    
-	 req, _ := http.NewRequest(&quot;POST&quot;, urlStr, &amp;rb)
-	 req.SetBasicAuth(accountSid, authToken)
-	 req.Header.Add(&quot;Accept&quot;, &quot;application/json&quot;)
-	 req.Header.Add(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)
+	 <span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewRequest</span>(<span style="color:#e6db74">&#34;POST&#34;</span>, <span style="color:#a6e22e">urlStr</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rb</span>)
+	 <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">SetBasicAuth</span>(<span style="color:#a6e22e">accountSid</span>, <span style="color:#a6e22e">authToken</span>)
+	 <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#e6db74">&#34;Accept&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+	 <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>)
    
-	 // Make request
-	 resp, _ := client.Do(req)
-	 fmt.Println(resp.Status)
+	 <span style="color:#75715e">// Make request
+</span><span style="color:#75715e"></span>	 <span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">req</span>)
+	 <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Status</span>)
 	}
  }
-</code></pre>
-
-<p>That&rsquo;s pretty much it 😃. 👉📱message my twilio bot (+447479275693) to check out this twilio flow. Message me or leave a comment to let me know more interesting user cases. And you can find the <a href="https://github.com/applegreengrape/twilio-backend">source code here</a></p>
+</code></pre></div><p>That's pretty much it 😃. 👉📱message my twilio bot (+447479275693) to check out this twilio flow. Message me or leave a comment to let me know more interesting user cases. And you can find the <a href="https://github.com/applegreengrape/twilio-backend">source code here</a></p>
 
       
       <div align="center">

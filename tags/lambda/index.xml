@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lambda on DevOps | Golang | Python | Travel</title>
@@ -19,7 +19,7 @@
       <guid>/posts/lambda-logshipper/</guid>
       <description>How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;your_tcp_endpoint:your_port&amp;quot;) defer conn.Close() if err != nil { fmt.</description>
+func SocketClient(m []byte) { conn, err := net.Dial(&amp;#34;tcp&amp;#34;, &amp;#34;your_tcp_endpoint:your_port&amp;#34;) defer conn.Close() if err != nil { fmt.</description>
     </item>
     
   </channel>

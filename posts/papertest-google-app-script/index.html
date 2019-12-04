@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="I was inspired by the alpaca&amp;rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&amp;rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
+<meta name="description" content="I was inspired by the alpaca&#39;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&#39;s stock version, you can find the details here. The google spreadsheet will look like this:
 I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
@@ -27,20 +27,19 @@ I am using coinbase api to get the lastest Bitcoin price. And there is already o
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Google Spreadsheets Paper Test"/>
-<meta name="twitter:description" content="I was inspired by the alpaca&rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
+<meta name="twitter:description" content="I was inspired by the alpaca&#39;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&#39;s stock version, you can find the details here. The google spreadsheet will look like this:
 I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp."/>
 
 
 
 <meta property="og:title" content="Google Spreadsheets Paper Test" />
-<meta property="og:description" content="I was inspired by the alpaca&rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&rsquo;s stock version, you can find the details here. The google spreadsheet will look like this:
+<meta property="og:description" content="I was inspired by the alpaca&#39;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&#39;s stock version, you can find the details here. The google spreadsheet will look like this:
 I am using coinbase api to get the lastest Bitcoin price. And there is already one google app script class that you can use - Class UrlFetchApp." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/papertest-google-app-script/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-08-12T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-12T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-08-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -102,7 +101,7 @@ I am using coinbase api to get the lastest Bitcoin price. And there is already o
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -138,7 +137,7 @@ I am using coinbase api to get the lastest Bitcoin price. And there is already o
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -201,90 +200,82 @@ I am using coinbase api to get the lastest Bitcoin price. And there is already o
     
 
     <div class="post-content">
-      <p>I was inspired by the alpaca&rsquo;s idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca&rsquo;s stock version, you can find the details <a href="https://medium.com/automation-generation/manage-your-stocks-from-google-spreadsheet-using-api-43026db44289">here</a>. The google spreadsheet will look like this:</p>
-
+      <p>I was inspired by the alpaca's idea of using google spreadsheet as a test environment for auto algo trading. So I decided to make a version for bitcoin paper test trading. For alpaca's stock version, you can find the details <a href="https://medium.com/automation-generation/manage-your-stocks-from-google-spreadsheet-using-api-43026db44289">here</a>. The google spreadsheet will look like this:</p>
 
   <img src="/static/img/btc_spreadsheet.png"  alt="btc_spreadsheet"  class="left"  />
 
 
-
 <p>I am using <a href="https://api.coinbase.com/v2/">coinbase api</a> to get the lastest Bitcoin price. And there is already one google app script class that you can use - <a href="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app"><code>Class UrlFetchApp</code></a>. Then you need to call this class in your function.</p>
-
-<pre><code class="language-go">function myFunction() {
- // Make a GET request and log the returned content.
-  var response = UrlFetchApp.fetch('https://api.coinbase.com/v2/prices/BTC-USD/spot');
-  var fact = response.getContentText();
-  var json = JSON.parse(fact)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">function</span> <span style="color:#a6e22e">myFunction</span>() {
+ <span style="color:#75715e">// Make a GET request and log the returned content.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">response</span> = <span style="color:#a6e22e">UrlFetchApp</span>.<span style="color:#a6e22e">fetch</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">https</span>:<span style="color:#75715e">//api.coinbase.com/v2/prices/BTC-USD/spot&#39;);
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fact</span> = <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">getContentText</span>();
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">json</span> = <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">fact</span>)
  
-  Logger.log(json.data.amount)
-  var sheet = SpreadsheetApp.getActiveSheet();
-  var lastRow = sheet.getLastRow();
+  <span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">amount</span>)
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sheet</span> = <span style="color:#a6e22e">SpreadsheetApp</span>.<span style="color:#a6e22e">getActiveSheet</span>();
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lastRow</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getLastRow</span>();
   
   
-  for (var i = 2; i &lt;= lastRow; i++){
-// update each row to set the latest bitcoin price
-  sheet.getRange(i,1).setValue([json.data.amount]);
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">lastRow</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+<span style="color:#75715e">// update each row to set the latest bitcoin price
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">setValue</span>([<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">amount</span>]);
   
   }
-  ...
+  <span style="color:#f92672">...</span>
 }
-</code></pre>
-
-<p>Now we need to do some small calculation to update the position status (open, close and closed profit/loss).  We can use the <a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet">class sheet</a>. Then the script will be some thing like this:</p>
-
-<pre><code class="language-go">function myFunction() {
-    ...
-    for (var i = 2; i &lt;= lastRow; i++ ){
+</code></pre></div><p>Now we need to do some small calculation to update the position status (open, close and closed profit/loss).  We can use the <a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet">class sheet</a>. Then the script will be some thing like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">function</span> <span style="color:#a6e22e">myFunction</span>() {
+    <span style="color:#f92672">...</span>
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">lastRow</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> ){
         
-        var status = sheet.getRange(i,9).getValues();
-        var price = sheet.getRange(i,1).getValues();
-        var direction = sheet.getRange(i,2).getValues();
-        var buy = sheet.getRange(i,3).getValues();
-        var sell = sheet.getRange(i,4).getValues();
-        var limit = sheet.getRange(i,5).getValues();
-        var stop = sheet.getRange(i,6).getValues();
-        var size = sheet.getRange(i,7).getValues();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">status</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">9</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">price</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">direction</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">2</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">buy</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">3</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sell</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">4</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">limit</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">5</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stop</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">6</span>).<span style="color:#a6e22e">getValues</span>();
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">size</span> = <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">7</span>).<span style="color:#a6e22e">getValues</span>();
     
     
-    if ( status[0][0] == &quot;closed&quot;){}
-    else { 
+    <span style="color:#66d9ef">if</span> ( <span style="color:#a6e22e">status</span>[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;closed&#34;</span>){}
+    <span style="color:#66d9ef">else</span> { 
       
-      if ( direction[0][0] ==&quot;long&quot;){ if(price-buy&lt;limit &amp;&amp; buy-price&lt;stop){
-        //  Logger.log(&quot;still open&quot;)
-        sheet.getRange(i,9).setValue(&quot;open&quot;);
-        var pl = (price-buy)*size
-        sheet.getRange(i,8).setValue(pl);
+      <span style="color:#66d9ef">if</span> ( <span style="color:#a6e22e">direction</span>[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span><span style="color:#e6db74">&#34;long&#34;</span>){ <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">price</span><span style="color:#f92672">-</span><span style="color:#a6e22e">buy</span>&lt;<span style="color:#a6e22e">limit</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">buy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">price</span>&lt;<span style="color:#a6e22e">stop</span>){
+        <span style="color:#75715e">//  Logger.log(&#34;still open&#34;)
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">9</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#34;open&#34;</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pl</span> = (<span style="color:#a6e22e">price</span><span style="color:#f92672">-</span><span style="color:#a6e22e">buy</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">size</span>
+        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">8</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#a6e22e">pl</span>);
       
-      }else{
-        // Logger.log(&quot;closed&quot;)
-        sheet.getRange(i,9).setValue(&quot;closed&quot;);
-        var pl = (price-buy)*size
-        sheet.getRange(i,8).setValue(pl);
+      }<span style="color:#66d9ef">else</span>{
+        <span style="color:#75715e">// Logger.log(&#34;closed&#34;)
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">9</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#34;closed&#34;</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pl</span> = (<span style="color:#a6e22e">price</span><span style="color:#f92672">-</span><span style="color:#a6e22e">buy</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">size</span>
+        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">8</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#a6e22e">pl</span>);
         
       }}
       
-      else{
-        if( direction[0][0] ==&quot;short&quot; ){
-        if(sell-price&lt;limit &amp;&amp; price-sell&lt;stop){
-        //  Logger.log(&quot;still open&quot;)
-        sheet.getRange(i,9).setValue(&quot;open&quot;);
-        var pl = (sell-price)*size
-        sheet.getRange(i,8).setValue(pl); 
+      <span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">if</span>( <span style="color:#a6e22e">direction</span>[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span><span style="color:#e6db74">&#34;short&#34;</span> ){
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">sell</span><span style="color:#f92672">-</span><span style="color:#a6e22e">price</span>&lt;<span style="color:#a6e22e">limit</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">price</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sell</span>&lt;<span style="color:#a6e22e">stop</span>){
+        <span style="color:#75715e">//  Logger.log(&#34;still open&#34;)
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">9</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#34;open&#34;</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pl</span> = (<span style="color:#a6e22e">sell</span><span style="color:#f92672">-</span><span style="color:#a6e22e">price</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">size</span>
+        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">8</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#a6e22e">pl</span>); 
        
-        }else{
-        // Logger.log(&quot;closed&quot;)
-        sheet.getRange(i,9).setValue(&quot;closed&quot;);
-        var pl = (sell-price)*size
-        sheet.getRange(i,8).setValue(pl); 
+        }<span style="color:#66d9ef">else</span>{
+        <span style="color:#75715e">// Logger.log(&#34;closed&#34;)
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">9</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#34;closed&#34;</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pl</span> = (<span style="color:#a6e22e">sell</span><span style="color:#f92672">-</span><span style="color:#a6e22e">price</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">size</span>
+        <span style="color:#a6e22e">sheet</span>.<span style="color:#a6e22e">getRange</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">8</span>).<span style="color:#a6e22e">setValue</span>(<span style="color:#a6e22e">pl</span>); 
         }
        }
       }
     }
   }
 }
-</code></pre>
-
-<p>You can find <a href="https://github.com/applegreengrape/btc-google-spreadsheet-app-script/blob/master/btcFunction">the source code here</a>. Please feel free to 👉📱message my twilio bot <a href="/posts/twilio-message-bot/">+447479275693</a>. I will come back to you shortly 😃.</p>
+</code></pre></div><p>You can find <a href="https://github.com/applegreengrape/btc-google-spreadsheet-app-script/blob/master/btcFunction">the source code here</a>. Please feel free to 👉📱message my twilio bot <a href="/posts/twilio-message-bot/">+447479275693</a>. I will come back to you shortly 😃.</p>
 
       
       <div align="center">
@@ -304,16 +295,16 @@ I am using coinbase api to get the lastest Bitcoin price. And there is already o
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="/posts/papertest-google-spreadsheet-api/">
+              <a href="/posts/aws-s3-command/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API</span>
+                <span class="button__text">amazon s3</span>
               </a>
             </span>
           
           
             <span class="button next">
-              <a href="/posts/aws-s3-command/">
-                <span class="button__text">amazon s3</span>
+              <a href="/posts/useful-jq-commands/">
+                <span class="button__text">jq examples</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

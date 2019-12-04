@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;quot;$@&amp;quot; readonly dependencies=( &amp;quot;gcloud&amp;quot; ) processArgs(){ while [[ &amp;quot;$#&amp;quot; -gt 0 ]]; do key=&amp;quot;$1&amp;quot; case &amp;quot;$key&amp;quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;quot;$2&amp;quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;quot;$2&amp;quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;quot;${dependencies[@]}&amp;quot; ; do command -v &amp;quot;${dependency}&amp;quot; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;quot;${dependency} required&amp;quot;; unmet_dependencies=true } done if [ &amp;quot;${unmet_dependencies}&amp;quot; = true ] ; then echo &amp;quot;Please install unmet dependencies above before running."/>
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&amp;#34;$@&amp;#34; readonly dependencies=( &amp;#34;gcloud&amp;#34; ) processArgs(){ while [[ &amp;#34;$#&amp;#34; -gt 0 ]]; do key=&amp;#34;$1&amp;#34; case &amp;#34;$key&amp;#34; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&amp;#34;$2&amp;#34; shift ;; -svs|--svs-account) SVS_ACCOUNT=&amp;#34;$2&amp;#34; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &amp;#34;${dependencies[@]}&amp;#34; ; do command -v &amp;#34;${dependency}&amp;#34; &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;2 &amp;#34;${dependency}required&amp;#34;; unmet_dependencies=true } done if [ &amp;#34;${unmet_dependencies}&amp;#34; = true ] ; then echo &amp;#34;Please install unmet dependencies above before running."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/export-gcp-stackdriver-log-with-filebeat/" />
@@ -28,19 +28,18 @@
 
 <meta name="twitter:title" content="Export GCP Stackdriver Log With Filebeat"/>
 <meta name="twitter:description" content="This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running."/>
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&#34;$@&#34; readonly dependencies=( &#34;gcloud&#34; ) processArgs(){ while [[ &#34;$#&#34; -gt 0 ]]; do key=&#34;$1&#34; case &#34;$key&#34; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&#34;$2&#34; shift ;; -svs|--svs-account) SVS_ACCOUNT=&#34;$2&#34; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &#34;${dependencies[@]}&#34; ; do command -v &#34;${dependency}&#34; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &#34;${dependency}required&#34;; unmet_dependencies=true } done if [ &#34;${unmet_dependencies}&#34; = true ] ; then echo &#34;Please install unmet dependencies above before running."/>
 
 
 
 <meta property="og:title" content="Export GCP Stackdriver Log With Filebeat" />
 <meta property="og:description" content="This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the filebeat google cloud module.
-#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&quot;$@&quot; readonly dependencies=( &quot;gcloud&quot; ) processArgs(){ while [[ &quot;$#&quot; -gt 0 ]]; do key=&quot;$1&quot; case &quot;$key&quot; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&quot;$2&quot; shift ;; -svs|--svs-account) SVS_ACCOUNT=&quot;$2&quot; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &quot;${dependencies[@]}&quot; ; do command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;${dependency} required&quot;; unmet_dependencies=true } done if [ &quot;${unmet_dependencies}&quot; = true ] ; then echo &quot;Please install unmet dependencies above before running." />
+#!/bin/sh # author: me 😃 # $ bash gcloud-admin.sh -h Required parameters: # -id|--project-id: gcloud project id # -svs|--svs-account: gcloud service account name to collect logs # Optional parameters: # -h|--help: Print this message readonly ARGS=&#34;$@&#34; readonly dependencies=( &#34;gcloud&#34; ) processArgs(){ while [[ &#34;$#&#34; -gt 0 ]]; do key=&#34;$1&#34; case &#34;$key&#34; in -h|--help) PRINT_HELP=true shift ;; -id|--project-id) PROJECT_ID=&#34;$2&#34; shift ;; -svs|--svs-account) SVS_ACCOUNT=&#34;$2&#34; shift ;; esac shift done } checkDependencies() { local unmet_dependencies=false for dependency in &#34;${dependencies[@]}&#34; ; do command -v &#34;${dependency}&#34; &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &#34;${dependency}required&#34;; unmet_dependencies=true } done if [ &#34;${unmet_dependencies}&#34; = true ] ; then echo &#34;Please install unmet dependencies above before running." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/export-gcp-stackdriver-log-with-filebeat/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-09-05T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-09-05T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-09-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-05T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -102,7 +101,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -138,7 +137,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -205,160 +204,157 @@
     <div class="post-content">
       <p>This is a bash script to configure GCP project to export logs by creating a Pub/Sub sink topic and let filebeat to subscribe to that sink topic by the <a href="https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-module-googlecloud.html#_vpcflow_fileset_settings">filebeat google cloud module</a>.</p>
 
-
   <img src="http://yuml.me/applegreengrape/diagram/scruffy/class/[note:%20Export%20GCP%20Stackdriver%20Log%20with%20pub/Fsub%20and%20filebeat%7bbg:cornsilk%7d],%20[Google%20Cloud%20Project%20A]Stackdriver%20A-&amp;gt;[pubsub%20sink%20A],%20[pubsub%20sink%20A]be%20subscribed%20by&amp;gt;[Filebeat],%20[Google%20Cloud%20Project%20B%7bbg:wheat%7d]Stackdriver%20B-&amp;gt;[pubsub%20sink%20B%7bbg:wheat],%20[pubsub%20sink%20B%7bbg:wheat]&amp;gt;[Filebeat],%20[Google%20Cloud%20Project%20C%7bbg:skyblue%7d]Stackdriver%20C-&amp;gt;[pubsub%20sink%20C%7bbg:skyblue%7d],%20[pubsub%20sink%20C%7bbg:skyblue%7d]&amp;gt;[Filebeat],"  class="center"  />
 
 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span><span style="color:#75715e"># author: me 😃</span>
+<span style="color:#75715e"># $ bash gcloud-admin.sh -h  Required parameters:</span>
+<span style="color:#75715e">#      -id|--project-id: gcloud project id</span> 
+<span style="color:#75715e">#      -svs|--svs-account: gcloud service account name to collect logs</span>
+<span style="color:#75715e">#  Optional parameters:</span>
+<span style="color:#75715e">#      -h|--help: Print this message</span>
 
-<pre><code class="language-bash">#!/bin/sh
-# author: me 😃
-# $ bash gcloud-admin.sh -h  Required parameters:
-#      -id|--project-id: gcloud project id 
-#      -svs|--svs-account: gcloud service account name to collect logs
-#  Optional parameters:
-#      -h|--help: Print this message
+readonly ARGS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+readonly dependencies<span style="color:#f92672">=</span><span style="color:#f92672">(</span> <span style="color:#e6db74">&#34;gcloud&#34;</span> <span style="color:#f92672">)</span>
 
-readonly ARGS=&quot;$@&quot;
-readonly dependencies=( &quot;gcloud&quot; )
+processArgs<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span><span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$#<span style="color:#e6db74">&#34;</span> -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span><span style="color:#f92672">]</span>;
+    <span style="color:#66d9ef">do</span>
+      key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+      <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$key<span style="color:#e6db74">&#34;</span> in
 
-processArgs(){
-    while [[ &quot;$#&quot; -gt 0 ]];
-    do
-      key=&quot;$1&quot;
-      case &quot;$key&quot; in
-
-      -h|--help)
-        PRINT_HELP=true
+      -h|--help<span style="color:#f92672">)</span>
+        PRINT_HELP<span style="color:#f92672">=</span>true
         shift
         ;;
 
-      -id|--project-id)
-        PROJECT_ID=&quot;$2&quot;
+      -id|--project-id<span style="color:#f92672">)</span>
+        PROJECT_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span>
         shift
         ;;
 
-      -svs|--svs-account)
-        SVS_ACCOUNT=&quot;$2&quot;
+      -svs|--svs-account<span style="color:#f92672">)</span>
+        SVS_ACCOUNT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span>
         shift
         ;;
 
-    esac
+    <span style="color:#66d9ef">esac</span>
       shift
-    done
-}
+    <span style="color:#66d9ef">done</span>
+<span style="color:#f92672">}</span>
 
-checkDependencies() {
-    local unmet_dependencies=false
+checkDependencies<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    local unmet_dependencies<span style="color:#f92672">=</span>false
 
-    for dependency in &quot;${dependencies[@]}&quot; ; do
-        command -v &quot;${dependency}&quot; &gt;/dev/null 2&gt;&amp;1 || {
-            echo &gt;&amp;2 &quot;${dependency} required&quot;;
-            unmet_dependencies=true
-        }
-    done
+    <span style="color:#66d9ef">for</span> dependency in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dependencies[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> ; <span style="color:#66d9ef">do</span>
+        command -v <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dependency<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span>
+            echo &gt;&amp;<span style="color:#ae81ff">2</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dependency<span style="color:#e6db74">}</span><span style="color:#e6db74"> required</span><span style="color:#e6db74">&#34;</span>;
+            unmet_dependencies<span style="color:#f92672">=</span>true
+        <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">done</span>
 
-    if [ &quot;${unmet_dependencies}&quot; = true ] ; then
-        echo &quot;Please install unmet dependencies above before running.&quot;
-        exit 1
-    fi
-}
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>unmet_dependencies<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> true <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;Please install unmet dependencies above before running.&#34;</span>
+        exit <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
 
-printHelp() {
-    echo &quot;  Required parameters:&quot;
-    echo &quot;      -id|--project-id: gcloud project id &quot;
-    echo &quot;      -svs|--svs-account: gcloud service account name to collect logs&quot;
-    echo &quot;  Optional parameters:&quot;
-    echo &quot;      -h|--help: Print this message&quot;
-    exit 0
-}
+printHelp<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    echo <span style="color:#e6db74">&#34;  Required parameters:&#34;</span>
+    echo <span style="color:#e6db74">&#34;      -id|--project-id: gcloud project id &#34;</span>
+    echo <span style="color:#e6db74">&#34;      -svs|--svs-account: gcloud service account name to collect logs&#34;</span>
+    echo <span style="color:#e6db74">&#34;  Optional parameters:&#34;</span>
+    echo <span style="color:#e6db74">&#34;      -h|--help: Print this message&#34;</span>
+    exit <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">}</span>
 
 
-updateProjectPolicy(){
-    local project_id=&quot;${1}&quot;
-    local new_policy=${project_id}-policy.yaml
+updateProjectPolicy<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    local project_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    local new_policy<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>-policy.yaml
 
-    gcloud projects get-iam-policy ${project_id} &gt;&gt; ${new_policy}
+    gcloud projects get-iam-policy <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span> &gt;&gt; <span style="color:#e6db74">${</span>new_policy<span style="color:#e6db74">}</span>
     
-    cat &lt;&lt;EOF &gt;&gt; ${new_policy}
-auditConfigs:
-- auditLogConfigs:
-  - logType: ADMIN_READ
-  - logType: DATA_READ
-  - logType: DATA_WRITE
-  service: allServices
-EOF
-    gcloud projects set-iam-policy ${project_id} ${new_policy}
+    cat <span style="color:#e6db74">&lt;&lt;EOF &gt;&gt; ${new_policy}
+</span><span style="color:#e6db74">auditConfigs:
+</span><span style="color:#e6db74">- auditLogConfigs:
+</span><span style="color:#e6db74">  - logType: ADMIN_READ
+</span><span style="color:#e6db74">  - logType: DATA_READ
+</span><span style="color:#e6db74">  - logType: DATA_WRITE
+</span><span style="color:#e6db74">  service: allServices
+</span><span style="color:#e6db74">EOF</span>
+    gcloud projects set-iam-policy <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>new_policy<span style="color:#e6db74">}</span>
 
-    echo &quot;updated ${project_id} iam policy&quot;
-}
+    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">updated </span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span><span style="color:#e6db74"> iam policy</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
 
-enableLoggingAPI(){
-    local project_id=&quot;${1}&quot;
-    echo &quot;enable Stackdriver Logging API for ${project_id}&quot;
-    gcloud services enable logging.googleapis.com --project ${project_id}
+enableLoggingAPI<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    local project_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">enable Stackdriver Logging API for </span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    gcloud services enable logging.googleapis.com --project <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>
 
-    echo &quot;enable Cloud Pub/Sub API for ${project_id}&quot;
-    gcloud services enable pubsub.googleapis.com --project ${project_id}
-}
+    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">enable Cloud Pub/Sub API for </span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    gcloud services enable pubsub.googleapis.com --project <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
 
-createSink(){
-    local project_id=&quot;${1}&quot;
-    local sink_name=${project_id}-audit-logs
+createSink<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    local project_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    local sink_name<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>-audit-logs
 
-    gcloud pubsub topics create --project ${project_id} ${sink_name}
+    gcloud pubsub topics create --project <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>sink_name<span style="color:#e6db74">}</span>
     
-    gcloud logging sinks create --project ${project_id} \
-        ${sink_name} \
-        pubsub.googleapis.com/projects/${project_id}/topics/${sink_name} \
-        --log-filter=&quot;logName:projects/${project_id}/logs/cloudaudit.googleapis.com%2Fdata_access&quot;
+    gcloud logging sinks create --project <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">${</span>sink_name<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        pubsub.googleapis.com/projects/<span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>/topics/<span style="color:#e6db74">${</span>sink_name<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        --log-filter<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">logName:projects/</span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span><span style="color:#e6db74">/logs/cloudaudit.googleapis.com%2Fdata_access</span><span style="color:#e6db74">&#34;</span>
     
-    gcloud logging sinks describe ${sink_name} --project ${project_id}
-}
+    gcloud logging sinks describe <span style="color:#e6db74">${</span>sink_name<span style="color:#e6db74">}</span> --project <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
 
-svsAccountPermission(){
+svsAccountPermission<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
 
-    local project_id=&quot;${1}&quot;
-    local sink_name=${project_id}-audit-logs
-    local svs_account=&quot;${2}&quot;
+    local project_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    local sink_name<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>-audit-logs
+    local svs_account<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 
-    echo &quot;give ${svs_account} access to ${project_id}&quot;
-    gcloud projects add-iam-policy-binding ${project_id} \
-        --member serviceAccount:${svs_account} \
-        --role roles/editor
+    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">give </span><span style="color:#e6db74">${</span>svs_account<span style="color:#e6db74">}</span><span style="color:#e6db74"> access to </span><span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    gcloud projects add-iam-policy-binding <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        --member serviceAccount:<span style="color:#e6db74">${</span>svs_account<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        --role roles/editor
     
-    echo &quot;give the topics's roles/pubsub.editor access to the ${svs_account}&quot;
-    local new_topic_policy=$(gcloud beta pubsub topics get-iam-policy \
-        projects/${project_id}/topics/${sink_name} --format json \
-        | jq --arg svs ${svs_account} '.bindings += [{&quot;members&quot;: [$svs],&quot;role&quot;: &quot;roles/pubsub.editor&quot;}]')
+    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">give the topics&#39;s roles/pubsub.editor access to the </span><span style="color:#e6db74">${</span>svs_account<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    local new_topic_policy<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>gcloud beta pubsub topics get-iam-policy <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        projects/<span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span>/topics/<span style="color:#e6db74">${</span>sink_name<span style="color:#e6db74">}</span> --format json <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        | jq --arg svs <span style="color:#e6db74">${</span>svs_account<span style="color:#e6db74">}</span> <span style="color:#e6db74">&#39;.bindings += [{&#34;members&#34;: [$svs],&#34;role&#34;: &#34;roles/pubsub.editor&#34;}]&#39;</span><span style="color:#66d9ef">)</span>
 
-    gcloud beta pubsub topics add-iam-policy-binding ${sink_name} \
-      --project ${project_id} \
-      --member serviceAccount:${svs_account} \
-      --role roles/pubsub.editor
-}
+    gcloud beta pubsub topics add-iam-policy-binding <span style="color:#e6db74">${</span>sink_name<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --project <span style="color:#e6db74">${</span>project_id<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --member serviceAccount:<span style="color:#e6db74">${</span>svs_account<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      --role roles/pubsub.editor
+<span style="color:#f92672">}</span>
 
-main(){
+main<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
 
-    processArgs ${ARGS}
+    processArgs <span style="color:#e6db74">${</span>ARGS<span style="color:#e6db74">}</span>
 
-    if [ &quot;${PRINT_HELP}&quot; =  true ] ; then
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PRINT_HELP<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span>  true <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
         printHelp
-    fi
+    <span style="color:#66d9ef">fi</span>
 
     checkDependencies
 
-    updateProjectPolicy &quot;${PROJECT_ID}&quot;
-    enableLoggingAPI &quot;${PROJECT_ID}&quot;
-    createSink &quot;${PROJECT_ID}&quot;
-    svsAccountPermission &quot;${PROJECT_ID}&quot; \
-    &quot;${SVS_ACCOUNT}&quot;
+    updateProjectPolicy <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PROJECT_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    enableLoggingAPI <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PROJECT_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    createSink <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PROJECT_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    svsAccountPermission <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PROJECT_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SVS_ACCOUNT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 
-}
+<span style="color:#f92672">}</span>
 
 main
 
-</code></pre>
-
+</code></pre></div>
       
       <div align="center">
       <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>

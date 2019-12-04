@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="For the Golang version please check here.
 And here is a python version:
-&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
+&amp;#34;&amp;#34;&amp;#34;create a rss class to parse the rss feed url anf get the title and link &amp;#34;&amp;#34;&amp;#34; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &amp;#39;&amp;#39; last_modified = &amp;#39;&amp;#39; title = &amp;#39;&amp;#39; link = &amp;#39;&amp;#39; row = &amp;#39;&amp;#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/web-scraper-python/" />
@@ -30,20 +30,19 @@ And here is a python version:
 <meta name="twitter:title" content="Web Scraper | Python"/>
 <meta name="twitter:description" content="For the Golang version please check here.
 And here is a python version:
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
+&#34;&#34;&#34;create a rss class to parse the rss feed url anf get the title and link &#34;&#34;&#34; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed."/>
 
 
 
 <meta property="og:title" content="Web Scraper | Python" />
 <meta property="og:description" content="For the Golang version please check here.
 And here is a python version:
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed." />
+&#34;&#34;&#34;create a rss class to parse the rss feed url anf get the title and link &#34;&#34;&#34; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/web-scraper-python/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-09-09T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-09-09T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-09T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -105,7 +104,7 @@ And here is a python version:
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -141,7 +140,7 @@ And here is a python version:
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -205,65 +204,57 @@ And here is a python version:
 
     <div class="post-content">
       <p>For the Golang version please check <a href="/posts/web-scraper/">here</a>.</p>
-
 <p>And here is a python version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">create a rss class to parse the rss feed url anf get the title and link </span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span>
 
-<pre><code class="language-python">
-&quot;&quot;&quot;
-create a rss class to parse the rss feed url anf get the title and link 
-&quot;&quot;&quot;
+<span style="color:#f92672">import</span> feedparser
+<span style="color:#f92672">import</span> os
 
-import feedparser
-import os
-
-class rss:
-    def __init__(req, url):
-        req.url = url
-	def fetchDetails(req):
-        try:
-            url = req.url
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">rss</span>:
+    <span style="color:#66d9ef">def</span> __init__(req, url):
+        req<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> url
+	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fetchDetails</span>(req):
+        <span style="color:#66d9ef">try</span>:
+            url <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span>url
             
-            last_etag = ''
-            last_modified = ''
+            last_etag <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>
+            last_modified <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>
 
-            title = ''
-            link = ''
-            row = ''
-            result = []
-            feed = feedparser.parse(url)
+            title <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>
+            link <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>
+            row <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>
+            result <span style="color:#f92672">=</span> []
+            feed <span style="color:#f92672">=</span> feedparser<span style="color:#f92672">.</span>parse(url)
             
-            last_etag = feed.etag
-            last_modified = feed.modified
+            last_etag <span style="color:#f92672">=</span> feed<span style="color:#f92672">.</span>etag
+            last_modified <span style="color:#f92672">=</span> feed<span style="color:#f92672">.</span>modified
 
-            for entry in feed['entries']:
-                title = entry['title']
-                for link in entry['links']:
-                    link = link['href']
-                    row = [title, link]
-                    result.append(row)
+            <span style="color:#66d9ef">for</span> entry <span style="color:#f92672">in</span> feed[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">entries</span><span style="color:#e6db74">&#39;</span>]:
+                title <span style="color:#f92672">=</span> entry[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">title</span><span style="color:#e6db74">&#39;</span>]
+                <span style="color:#66d9ef">for</span> link <span style="color:#f92672">in</span> entry[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">links</span><span style="color:#e6db74">&#39;</span>]:
+                    link <span style="color:#f92672">=</span> link[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">href</span><span style="color:#e6db74">&#39;</span>]
+                    row <span style="color:#f92672">=</span> [title, link]
+                    result<span style="color:#f92672">.</span>append(row)
 
-            return last_etag, last_modified, result
+            <span style="color:#66d9ef">return</span> last_etag, last_modified, result
 
-        except Exception as e:
-            print(e)
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            <span style="color:#66d9ef">print</span>(e)
 
-</code></pre>
+</code></pre></div><p>Now call the python module class that you just created.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> feedparser
+<span style="color:#f92672">import</span> os
+<span style="color:#f92672">import</span> my_module.rss_feedparser
 
-<p>Now call the python module class that you just created.</p>
+url <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span> <span style="color:#75715e"># the rss feed url that you want to parse</span>
+rss <span style="color:#f92672">=</span> my_module<span style="color:#f92672">.</span>rss_feedparser<span style="color:#f92672">.</span>rss(url)
+result <span style="color:#f92672">=</span> rss<span style="color:#f92672">.</span>fetchDetails()[<span style="color:#ae81ff">2</span>]
 
-<pre><code class="language-python">
-import feedparser
-import os
-import my_module.rss_feedparser
-
-url = '' # the rss feed url that you want to parse
-rss = my_module.rss_feedparser.rss(url)
-result = rss.fetchDetails()[2]
-
-</code></pre>
-
-<p>Now keep the title as the <code>title_init</code> and then do a while loop:</p>
-
+</code></pre></div><p>Now keep the title as the <code>title_init</code> and then do a while loop:</p>
 <pre><code>i = 0
         while latest_title == title_init :
             i += 1 
@@ -281,97 +272,83 @@ result = rss.fetchDetails()[2]
                     print(r[0])
             else:
                 continue
-</code></pre>
-
-<p>Then you have a tiny web scraper:</p>
-
-<pre><code class="language-bash">5 no new feeds yet, sleep 60 seconds
-6 no new feeds yet, sleep 60 seconds
-7 no new feeds yet, sleep 60 seconds
-8 no new feeds yet, sleep 60 seconds
-9 no new feeds yet, sleep 60 seconds
-10 no new feeds yet, sleep 60 seconds
-11 no new feeds yet, sleep 60 seconds
+</code></pre><p>Then you have a tiny web scraper:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">5</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">6</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">7</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">8</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">9</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">10</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">11</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
 new news:
-Roche lifts 2019 sales view again as Chinese demand soars
+Roche lifts <span style="color:#ae81ff">2019</span> sales view again as Chinese demand soars
 Trump national security adviser jets to Turkey in bid to halt assault
-Irish PM says Brexit issues remain, EU sources report 'standstill'
-Turkey's Erdogan says to re-evaluate upcoming U.S. visit
-UK watchdog opens formal probe of Amazon Deliveroo deal
-Hong Kong leader forced to abandon address, offers no olive branch
-Warming climate puts Austria's hip Gruener Veltliner wine at risk
-U.S. security chief 'heaped pain' on grieving parents of UK teen - lawyer
+Irish PM says Brexit issues remain, EU sources report <span style="color:#e6db74">&#39;standstill&#39;</span>
+Turkey<span style="color:#e6db74">&#39;s Erdogan says to re-evaluate upcoming U.S. visit
+</span><span style="color:#e6db74">UK watchdog opens formal probe of Amazon Deliveroo deal
+</span><span style="color:#e6db74">Hong Kong leader forced to abandon address, offers no olive branch
+</span><span style="color:#e6db74">Warming climate puts Austria&#39;</span>s hip Gruener Veltliner wine at risk
+U.S. security chief <span style="color:#e6db74">&#39;heaped pain&#39;</span> on grieving parents of UK teen - lawyer
 Sterling, UK stocks fall on concerns Brexit talks have stalled
 Brexit talks ongoing as PM Johnson seeks to reach a deal - spokesman
-'Number of significant issues to resolve' in Brexit talks - EU's Avramopoulos
-UK Brexit minister: Not aware of 'second letter' plan to thwart EU exit delay
-Euro zone inflation drops more than foreseen, trade surplus widens
-Trading in second Woodford fund suspended - administrator
-UK stocks retreat as market waits for Brexit deal update
-M&amp;S CFO Humphrey Singer to step down at the end of the year
-Sales disappoint at UK homebuilder Barratt
-Clashes erupt in Barcelona as Catalan separatists protest sentences for leaders
-UK minister: PM will abide by pledge to write Brexit delay letter
-Brexit minister says would not countenance short 'technical' delay
-12 no new feeds yet, sleep 60 seconds
-13 no new feeds yet, sleep 60 seconds
-</code></pre>
+<span style="color:#e6db74">&#39;Number of significant issues to resolve&#39;</span> in Brexit talks - EU<span style="color:#e6db74">&#39;s Avramopoulos
+</span><span style="color:#e6db74">UK Brexit minister: Not aware of &#39;</span>second letter<span style="color:#e6db74">&#39; plan to thwart EU exit delay
+</span><span style="color:#e6db74">Euro zone inflation drops more than foreseen, trade surplus widens
+</span><span style="color:#e6db74">Trading in second Woodford fund suspended - administrator
+</span><span style="color:#e6db74">UK stocks retreat as market waits for Brexit deal update
+</span><span style="color:#e6db74">M&amp;S CFO Humphrey Singer to step down at the end of the year
+</span><span style="color:#e6db74">Sales disappoint at UK homebuilder Barratt
+</span><span style="color:#e6db74">Clashes erupt in Barcelona as Catalan separatists protest sentences for leaders
+</span><span style="color:#e6db74">UK minister: PM will abide by pledge to write Brexit delay letter
+</span><span style="color:#e6db74">Brexit minister says would not countenance short &#39;</span>technical<span style="color:#960050;background-color:#1e0010">&#39;</span> delay
+<span style="color:#ae81ff">12</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+<span style="color:#ae81ff">13</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
+</code></pre></div><p>Good! Now we have the RSS feed and the link, Let's grab the content off the internet with the HTML attribute. We will need the <code>BeautifulSoup</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">Let</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">s get those python modules </span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;&#39;</span>
 
-<p>Good! Now we have the RSS feed and the link, Let&rsquo;s grab the content off the internet with the HTML attribute. We will need the <code>BeautifulSoup</code>.</p>
-
-<pre><code class="language-python">'''
-Let's get those python modules 
-'''
-
-import requests
-from bs4 import BeautifulSoup
-</code></pre>
-
-<p>Now let&rsquo;s create a class to capture those texts by parsing with the HTML attribute like <code>{'class': 'StandardArticleBody_container'}</code>.</p>
-
-<pre><code class="language-python">class html_class:
-    def __init__(req, url):
-        req.url = url
+<span style="color:#f92672">import</span> requests
+<span style="color:#f92672">from</span> bs4 <span style="color:#f92672">import</span> BeautifulSoup
+</code></pre></div><p>Now let's create a class to capture those texts by parsing with the HTML attribute like <code>{'class': 'StandardArticleBody_container'}</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">html_class</span>:
+    <span style="color:#66d9ef">def</span> __init__(req, url):
+        req<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> url
     
-    def parsedHTML(req):
-        try:
-            url = req.url
-            page = requests.get(url)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parsedHTML</span>(req):
+        <span style="color:#66d9ef">try</span>:
+            url <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span>url
+            page <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
 
-            soup = BeautifulSoup(page.content, 'html.parser')
+            soup <span style="color:#f92672">=</span> BeautifulSoup(page<span style="color:#f92672">.</span>content, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">html.parser</span><span style="color:#e6db74">&#39;</span>)
             
-            see_also_section = soup.find('div', attrs={'class': 'StandardArticleBody_container'})
-            result =  see_also_section.find_all(text=True)
+            see_also_section <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>find(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">div</span><span style="color:#e6db74">&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">class</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">StandardArticleBody_container</span><span style="color:#e6db74">&#39;</span>})
+            result <span style="color:#f92672">=</span>  see_also_section<span style="color:#f92672">.</span>find_all(text<span style="color:#f92672">=</span>True)
 
-            return result
+            <span style="color:#66d9ef">return</span> result
         
-        except Exception as e:
-            print(e)
-</code></pre>
-
-<p>Let&rsquo;s hit the button and give it go 😎😎😎!</p>
-
-<pre><code class="language-bash">$ python3 nltk_token_tag.py 
-title_init: U.S. CDC reports 'breakthrough' in vaping lung injury probe as cases top 2,000
-U.S. CDC reports 'breakthrough' in vaping lung injury probe as cases top 2,000 http://feeds.reuters.com/~r/reuters/topNews/~3/4TXTCbJEx_g/u-s-cdc-reports-breakthrough-in-vaping-lung-injury-probe-as-cases-top-2000-idUSKBN1XI26R
-['CHICAGO (Reuters) - Tests of lung samples taken from 29 patients with vaping-related injuries suggest all contained Vitamin E acetate, a discovery U.S. officials described on Friday as a “breakthrough” in the investigation of the nationwide outbreak that has topped 2,000 cases.']
-['The discovery of Vitamin E acetate in lung samples offers the first direct evidence of a link with the substance and vaping-related lung injuries.', 'The substance has also been identified in tests by U.S. and state officials of product samples collected from patients with the vaping injury.']
-['In a telephone briefing on Friday, Dr. Anne Schuchat, principal deputy director of the U.S. Centers for Disease Control and Prevention (CDC), called Vitamin E acetate “a very strong culprit of concern” and referred to the discovery as “a breakthrough” in the investigation.']
-['She cautioned that more work is needed to definitively declare it a cause, and said studies may identify other potential causes of the serious injuries as well.']
-['Vitamin E acetate is believed to be used as a cutting agent in illicit vaping products containing THC - the component of marijuana that gets people high.']
-['The substance was identified early in product testing done in the New York Health Department’s Wadsworth laboratory, but not every THC vaping pen the lab tested contained Vitamin E, a lab official told Reuters.']
-['Schuchat said researchers must now establish a causal link between exposure and injury, adding that “many substances are still under investigation.”']
-['On Thursday, the CDC reported there have been 2,051 confirmed and probable U.S. lung injury cases and 39 deaths associated with use of e-cigarettes, or vaping products.', 'Nearly 85 percent of lung injury patients in the nationwide outbreak have reported using products containing THC.']
-['FILE PHOTO: A man uses a vape device in this illustration picture, September 19, 2019.', 'REUTERS/Adnan Abidi/Illustration']
-['In the CDC analysis, THC was detected in 23 of 28 patient samples of lung cells, including from three patients who said they did not use THC products.', 'Nicotine was detected in 16 of 26 patient samples.']
-['In a separate report, Illinois officials found that compared to vapers who did not get sick, those who had a lung injury were significantly more likely to use THC-containing vaping products exclusively or frequently, and were nine times more likely to have purchased products from illicit sources, such as from on-line or off the street.']
-['Together, the findings reinforce public health officials’ recommendation that people avoid using e-cigarettes that contain THC or any products that come from illicit sources.']
-['Reporting by Julie Steenhuysen; Editing by Bill Berkrot']
-['Our Standards:']
-['The Thomson Reuters Trust Principles.']
-</code></pre>
-
-
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            <span style="color:#66d9ef">print</span>(e)
+</code></pre></div><p>Let's hit the button and give it go 😎😎😎!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 nltk_token_tag.py 
+title_init: U.S. CDC reports <span style="color:#e6db74">&#39;breakthrough&#39;</span> in vaping lung injury probe as cases top 2,000
+U.S. CDC reports <span style="color:#e6db74">&#39;breakthrough&#39;</span> in vaping lung injury probe as cases top 2,000 http://feeds.reuters.com/~r/reuters/topNews/~3/4TXTCbJEx_g/u-s-cdc-reports-breakthrough-in-vaping-lung-injury-probe-as-cases-top-2000-idUSKBN1XI26R
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;CHICAGO (Reuters) - Tests of lung samples taken from 29 patients with vaping-related injuries suggest all contained Vitamin E acetate, a discovery U.S. officials described on Friday as a “breakthrough” in the investigation of the nationwide outbreak that has topped 2,000 cases.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;The discovery of Vitamin E acetate in lung samples offers the first direct evidence of a link with the substance and vaping-related lung injuries.&#39;</span>, <span style="color:#e6db74">&#39;The substance has also been identified in tests by U.S. and state officials of product samples collected from patients with the vaping injury.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;In a telephone briefing on Friday, Dr. Anne Schuchat, principal deputy director of the U.S. Centers for Disease Control and Prevention (CDC), called Vitamin E acetate “a very strong culprit of concern” and referred to the discovery as “a breakthrough” in the investigation.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;She cautioned that more work is needed to definitively declare it a cause, and said studies may identify other potential causes of the serious injuries as well.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;Vitamin E acetate is believed to be used as a cutting agent in illicit vaping products containing THC - the component of marijuana that gets people high.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;The substance was identified early in product testing done in the New York Health Department’s Wadsworth laboratory, but not every THC vaping pen the lab tested contained Vitamin E, a lab official told Reuters.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;Schuchat said researchers must now establish a causal link between exposure and injury, adding that “many substances are still under investigation.”&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;On Thursday, the CDC reported there have been 2,051 confirmed and probable U.S. lung injury cases and 39 deaths associated with use of e-cigarettes, or vaping products.&#39;</span>, <span style="color:#e6db74">&#39;Nearly 85 percent of lung injury patients in the nationwide outbreak have reported using products containing THC.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;FILE PHOTO: A man uses a vape device in this illustration picture, September 19, 2019.&#39;</span>, <span style="color:#e6db74">&#39;REUTERS/Adnan Abidi/Illustration&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;In the CDC analysis, THC was detected in 23 of 28 patient samples of lung cells, including from three patients who said they did not use THC products.&#39;</span>, <span style="color:#e6db74">&#39;Nicotine was detected in 16 of 26 patient samples.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;In a separate report, Illinois officials found that compared to vapers who did not get sick, those who had a lung injury were significantly more likely to use THC-containing vaping products exclusively or frequently, and were nine times more likely to have purchased products from illicit sources, such as from on-line or off the street.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;Together, the findings reinforce public health officials’ recommendation that people avoid using e-cigarettes that contain THC or any products that come from illicit sources.&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;Reporting by Julie Steenhuysen; Editing by Bill Berkrot&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;Our Standards:&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;The Thomson Reuters Trust Principles.&#39;</span><span style="color:#f92672">]</span>
+</code></pre></div>
   <img src="http://giphygifs.s3.amazonaws.com/media/d3sE6FcNZa7Ju/giphy.gif"  class="center"  />
 
 

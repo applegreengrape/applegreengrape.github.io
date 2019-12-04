@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Scraper on DevOps | Golang | Python | Travel</title>
@@ -19,7 +19,7 @@
       <guid>/posts/web-scraper-python/</guid>
       <description>For the Golang version please check here.
 And here is a python version:
-&amp;quot;&amp;quot;&amp;quot; create a rss class to parse the rss feed url anf get the title and link &amp;quot;&amp;quot;&amp;quot; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &#39;&#39; last_modified = &#39;&#39; title = &#39;&#39; link = &#39;&#39; row = &#39;&#39; result = [] feed = feedparser.parse(url) last_etag = feed.</description>
+&amp;#34;&amp;#34;&amp;#34;create a rss class to parse the rss feed url anf get the title and link &amp;#34;&amp;#34;&amp;#34; import feedparser import os class rss: def __init__(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &amp;#39;&amp;#39; last_modified = &amp;#39;&amp;#39; title = &amp;#39;&amp;#39; link = &amp;#39;&amp;#39; row = &amp;#39;&amp;#39; result = [] feed = feedparser.parse(url) last_etag = feed.</description>
     </item>
     
     <item>
@@ -28,8 +28,8 @@ And here is a python version:
       <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/web-scraper/</guid>
-      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&amp;rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mmcdole/gofeed&amp;quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;quot;http://feeds.reuters.com/reuters/UKTopNews&amp;quot;) if err != nil { panic(err) } for _, item := range feed.</description>
+      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&amp;#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;#34;http://feeds.reuters.com/reuters/UKTopNews&amp;#34;) if err != nil { panic(err) } for _, item := range feed.</description>
     </item>
     
   </channel>

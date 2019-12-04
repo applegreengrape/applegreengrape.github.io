@@ -34,10 +34,8 @@
 <meta property="og:description" content="Pingzhou | 平舟" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/text-mining/" />
-
-<meta property="og:image" content="/" />
-
-<meta property="og:updated_time" content="2019-11-13T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="og:updated_time" content="2019-11-13T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -100,7 +98,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -136,7 +134,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -215,7 +213,7 @@
         
           
             In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &quot;gopkg.
+Let's now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &quot;gopkg.
           
         
       </div>
@@ -252,8 +250,8 @@ Let&rsquo;s now look at the key functions // Now we need to create a function to
       <div class="post-content">
         
           
-            In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&rsquo;s break the sentence down and let your code to define how will it read 🤓
+            In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google's nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let's break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made.
           
         
@@ -291,8 +289,10 @@ How about let the code understand your emotions and 👉 you to the grammar mist
       <div class="post-content">
         
           
-            So I have complained about the Google&rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
-1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.
+            So I have complained about the Google's Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google's NLP API, Ha! I know I won't like it but why not?</p>
+<ol>
+<li>let's create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</li>
+</ol>
           
         
       </div>
@@ -329,7 +329,7 @@ How about let the code understand your emotions and 👉 you to the grammar mist
           
             For the Golang version please check here.
 And here is a python version:
-&quot;&quot;&quot; create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def <strong>init</strong>(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = &ldquo; last_modified = &ldquo; title = &rdquo; link = &ldquo; row = &rdquo; result = [] feed = feedparser.parse(url) last_etag = feed.
+&quot;&quot;&quot;create a rss class to parse the rss feed url anf get the title and link &quot;&quot;&quot; import feedparser import os class rss: def <strong>init</strong>(req, url): req.url = url def fetchDetails(req): try: url = req.url last_etag = '' last_modified = '' title = '' link = '' row = '' result = [] feed = feedparser.parse(url) last_etag = feed.
           
         
       </div>
@@ -364,8 +364,8 @@ And here is a python version:
       <div class="post-content">
         
           
-            So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
-package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;<a href="http://feeds.reuters.com/reuters/UKTopNews&quot;">http://feeds.reuters.com/reuters/UKTopNews&quot;</a>) if err != nil { panic(err) } for _, item := range feed.
+            So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let's start to build a simple Golang application to fetch the latest news and headlines with in a second.
+package main import ( &quot;fmt&quot; &quot;github.com/mmcdole/gofeed&quot; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&quot;http://feeds.reuters.com/reuters/UKTopNews&quot;) if err != nil { panic(err) } for _, item := range feed.
           
         
       </div>

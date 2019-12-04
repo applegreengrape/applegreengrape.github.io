@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
-1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google."/>
+<meta name="description" content="So I have complained about the Google&#39;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&#39;s NLP API, Ha! I know I won&#39;t like it but why not?
+1. let&#39;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/google-nlp-python/" />
@@ -27,20 +27,19 @@
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Text Mining | Google NLP | Python"/>
-<meta name="twitter:description" content="So I have complained about the Google&rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
-1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google."/>
+<meta name="twitter:description" content="So I have complained about the Google&#39;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&#39;s NLP API, Ha! I know I won&#39;t like it but why not?
+1. let&#39;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google."/>
 
 
 
 <meta property="og:title" content="Text Mining | Google NLP | Python" />
-<meta property="og:description" content="So I have complained about the Google&rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?
-1. let&rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google." />
+<meta property="og:description" content="So I have complained about the Google&#39;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&#39;s NLP API, Ha! I know I won&#39;t like it but why not?
+1. let&#39;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/google-nlp-python/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-10-07T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-10-07T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-10-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-07T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -102,7 +101,7 @@
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -138,7 +137,7 @@
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -203,132 +202,119 @@
     
 
     <div class="post-content">
-      
-
-<p>So I have complained about the <a href="/posts/papertest-2/">Google&rsquo;s Spreadsheets API</a>. After I <a href="/posts/web-scraper-python/">crawled the news</a>, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&rsquo;s NLP API, Ha! I know I won&rsquo;t like it but why not?</p>
-
+      <p>So I have complained about the <a href="/posts/papertest-2/">Google's Spreadsheets API</a>. After I <a href="/posts/web-scraper-python/">crawled the news</a>, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google's NLP API, Ha! I know I won't like it but why not?</p>
 
   <img src="https://media.giphy.com/media/2vrGD7BtskWD8HB5BK/giphy.gif"  class="center"  style="width: 50%"  />
 
 
+<h3 id="1-lets-create-a-googlenlp-class">1. let's create a google-nlp class</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports the Google Cloud client library</span>
+<span style="color:#f92672">from</span> google.cloud <span style="color:#f92672">import</span> language
+<span style="color:#f92672">from</span> google.cloud.language <span style="color:#f92672">import</span> enums
+<span style="color:#f92672">from</span> google.cloud.language <span style="color:#f92672">import</span> types
 
-<h3 id="1-let-s-create-a-google-nlp-class">1. let&rsquo;s create a google-nlp class</h3>
-
-<pre><code class="language-python"># Imports the Google Cloud client library
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
-
-class nlp:
-    def __init__(req, text):
-        req.text = text
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">nlp</span>:
+    <span style="color:#66d9ef">def</span> __init__(req, text):
+        req<span style="color:#f92672">.</span>text <span style="color:#f92672">=</span> text
     
-    def getEntity(req):
-        try:
-            text = req.text
-            row = ''
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getEntity</span>(req):
+        <span style="color:#66d9ef">try</span>:
+            text <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span>text
+            row <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>
 
-            client = language.LanguageServiceClient()
-            document = types.Document(
-                content=text,
-                type=enums.Document.Type.PLAIN_TEXT
+            client <span style="color:#f92672">=</span> language<span style="color:#f92672">.</span>LanguageServiceClient()
+            document <span style="color:#f92672">=</span> types<span style="color:#f92672">.</span>Document(
+                content<span style="color:#f92672">=</span>text,
+                type<span style="color:#f92672">=</span>enums<span style="color:#f92672">.</span>Document<span style="color:#f92672">.</span>Type<span style="color:#f92672">.</span>PLAIN_TEXT
                 )
             
-            encoding_type = enums.EncodingType.UTF8
+            encoding_type <span style="color:#f92672">=</span> enums<span style="color:#f92672">.</span>EncodingType<span style="color:#f92672">.</span>UTF8
 
-            response = client.analyze_entities(document, encoding_type=encoding_type)
+            response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>analyze_entities(document, encoding_type<span style="color:#f92672">=</span>encoding_type)
 
-            for entity in response.entities:
-                row = [entity.name, enums.Entity.Type(entity.type).name]
-                #print(u&quot;Representative name for the entity: {}&quot;.format(entity.name))
-                #print(u&quot;Entity type: {}&quot;.format(enums.Entity.Type(entity.type).name))
-                return row
+            <span style="color:#66d9ef">for</span> entity <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>entities:
+                row <span style="color:#f92672">=</span> [entity<span style="color:#f92672">.</span>name, enums<span style="color:#f92672">.</span>Entity<span style="color:#f92672">.</span>Type(entity<span style="color:#f92672">.</span>type)<span style="color:#f92672">.</span>name]
+                <span style="color:#75715e">#print(u&#34;Representative name for the entity: {}&#34;.format(entity.name))</span>
+                <span style="color:#75715e">#print(u&#34;Entity type: {}&#34;.format(enums.Entity.Type(entity.type).name))</span>
+                <span style="color:#66d9ef">return</span> row
 
-        except Exception as e:
-            print(e)
-</code></pre>
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            <span style="color:#66d9ef">print</span>(e)
+</code></pre></div><p><code>response = client.analyze_entities(document, encoding_type=encoding_type)</code> this python module is to create a client and analyse the entities. There are more features you can play with. The most useful one is <a href="https://cloud.google.com/natural-language/docs/basics#tokenization">tokenization</a>. I will tell you later 😉.</p>
+<h3 id="2-lets-call-the-class-while-crawling-the-news">2. let's call the class while crawling the news</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> feedparser
+<span style="color:#f92672">import</span> os
+<span style="color:#f92672">import</span> time
+<span style="color:#f92672">import</span> mr_know_it_all.rss_feedparser
+<span style="color:#f92672">import</span> mr_know_it_all.parse_html
+<span style="color:#f92672">import</span> mr_know_it_all.google_nlp
 
-<p><code>response = client.analyze_entities(document, encoding_type=encoding_type)</code> this python module is to create a client and analyse the entities. There are more features you can play with. The most useful one is <a href="https://cloud.google.com/natural-language/docs/basics#tokenization">tokenization</a>. I will tell you later 😉.</p>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getstats</span>(url):
+    <span style="color:#66d9ef">try</span>:
+        rss <span style="color:#f92672">=</span> mr_know_it_all<span style="color:#f92672">.</span>rss_feedparser<span style="color:#f92672">.</span>rss(url)
+        result <span style="color:#f92672">=</span> rss<span style="color:#f92672">.</span>fetchDetails()
 
-<h3 id="2-let-s-call-the-class-while-crawling-the-news">2. let&rsquo;s call the class while crawling the news</h3>
+        <span style="color:#66d9ef">return</span> result      
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            <span style="color:#66d9ef">print</span>(e)
 
-<pre><code class="language-python">import feedparser
-import os
-import time
-import mr_know_it_all.rss_feedparser
-import mr_know_it_all.parse_html
-import mr_know_it_all.google_nlp
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    <span style="color:#66d9ef">try</span>:
+        url <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">http://feeds.reuters.com/reuters/UKTopNews</span><span style="color:#e6db74">&#39;</span>
 
-def getstats(url):
-    try:
-        rss = mr_know_it_all.rss_feedparser.rss(url)
-        result = rss.fetchDetails()
+        <span style="color:#75715e"># url = &#39;https://feeds.a.dj.com/rss/RSSWorldNews.xml&#39;</span>
 
-        return result      
-    except Exception as e:
-            print(e)
+        result <span style="color:#f92672">=</span> getstats(url)
+        title_init <span style="color:#f92672">=</span> result[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
+        latest_title <span style="color:#f92672">=</span> result[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
 
-def main():
-    try:
-        url = 'http://feeds.reuters.com/reuters/UKTopNews'
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">title_init:</span><span style="color:#e6db74">&#34;</span>, title_init)
 
-        # url = 'https://feeds.a.dj.com/rss/RSSWorldNews.xml'
+        <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> result:
+            <span style="color:#66d9ef">print</span>(r[<span style="color:#ae81ff">0</span>])
+            html <span style="color:#f92672">=</span> mr_know_it_all<span style="color:#f92672">.</span>parse_html<span style="color:#f92672">.</span>html_class(r[<span style="color:#ae81ff">1</span>])
+            text <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>parsedHTML()
+            <span style="color:#66d9ef">print</span>(text)
 
-        result = getstats(url)
-        title_init = result[0][0]
-        latest_title = result[0][0]
+            <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> text:
+                entity <span style="color:#f92672">=</span> mr_know_it_all<span style="color:#f92672">.</span>google_nlp<span style="color:#f92672">.</span>nlp(line)
+                result <span style="color:#f92672">=</span> entity<span style="color:#f92672">.</span>getEntity()
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{0}:{1}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(result[<span style="color:#ae81ff">0</span>], result[<span style="color:#ae81ff">1</span>]))
 
-        print(&quot;title_init:&quot;, title_init)
+        i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> latest_title <span style="color:#f92672">==</span> title_init :
+            i <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> 
+            <span style="color:#66d9ef">print</span>(i, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">no new feeds yet, sleep 60 seconds</span><span style="color:#e6db74">&#34;</span>)
+            time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">60</span>)
+            result <span style="color:#f92672">=</span> getstats(url)
+            latest_title <span style="color:#f92672">=</span> result[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
 
-        for r in result:
-            print(r[0])
-            html = mr_know_it_all.parse_html.html_class(r[1])
-            text = html.parsedHTML()
-            print(text)
+            <span style="color:#66d9ef">if</span> latest_title <span style="color:#f92672">!=</span> title_init :
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">new news:</span><span style="color:#e6db74">&#34;</span>)
+                i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+                result <span style="color:#f92672">=</span> getstats(url)
+                latest_title <span style="color:#f92672">=</span> result[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
+                title_init <span style="color:#f92672">=</span> result[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
+                <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> result:
+                    <span style="color:#66d9ef">print</span>(r[<span style="color:#ae81ff">0</span>])
+                    html <span style="color:#f92672">=</span> mr_know_it_all<span style="color:#f92672">.</span>parse_html<span style="color:#f92672">.</span>html_class(r[<span style="color:#ae81ff">1</span>])
+                    text <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>parsedHTML()
+                    <span style="color:#66d9ef">print</span>(text)
+                    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> text:
+                        entity <span style="color:#f92672">=</span> mr_know_it_all<span style="color:#f92672">.</span>google_nlp<span style="color:#f92672">.</span>nlp(line)
+                        result <span style="color:#f92672">=</span> entity<span style="color:#f92672">.</span>getEntity()
+                        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{0}:{1}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(result[<span style="color:#ae81ff">0</span>], result[<span style="color:#ae81ff">1</span>]))
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">continue</span>
 
-            for line in text:
-                entity = mr_know_it_all.google_nlp.nlp(line)
-                result = entity.getEntity()
-                print(u&quot;{0}:{1}&quot;.format(result[0], result[1]))
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            <span style="color:#66d9ef">print</span>(e)
 
-        i = 0
-        while latest_title == title_init :
-            i += 1 
-            print(i, &quot;no new feeds yet, sleep 60 seconds&quot;)
-            time.sleep(60)
-            result = getstats(url)
-            latest_title = result[0][0]
-
-            if latest_title != title_init :
-                print(&quot;new news:&quot;)
-                i = 0 
-                result = getstats(url)
-                latest_title = result[0][0]
-                title_init = result[0][0]
-                for r in result:
-                    print(r[0])
-                    html = mr_know_it_all.parse_html.html_class(r[1])
-                    text = html.parsedHTML()
-                    print(text)
-                    for line in text:
-                        entity = mr_know_it_all.google_nlp.nlp(line)
-                        result = entity.getEntity()
-                        print(u&quot;{0}:{1}&quot;.format(result[0], result[1]))
-            else:
-                continue
-
-    except Exception as e:
-            print(e)
-
-if __name__ == '__main__':
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">__main__</span><span style="color:#e6db74">&#39;</span>:
     main()
-</code></pre>
-
-<p>p.s. you will need to handle the authentication with a google service account</p>
-
+</code></pre></div><p>p.s. you will need to handle the authentication with a google service account</p>
 
   <img src="https://media.giphy.com/media/hcpVSCSwDcKju/giphy.gif"  class="center"  />
-
 
 
 <p>Nah, Just joking. I will tell you later in the following-up post about how to use grammar with the tokenization, where we can find more interesting insights from those news and text. To teach your computer to read news exactly the way you programmed 😎😎😎). Please feel free to 👉📱message my twilio bot (+447479275693).</p>

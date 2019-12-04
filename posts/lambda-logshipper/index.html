@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;your_tcp_endpoint:your_port&amp;quot;) defer conn.Close() if err != nil { fmt."/>
+func SocketClient(m []byte) { conn, err := net.Dial(&amp;#34;tcp&amp;#34;, &amp;#34;your_tcp_endpoint:your_port&amp;#34;) defer conn.Close() if err != nil { fmt."/>
 <meta name="keywords" content="DevOps | Golang | Python | Travel"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/lambda-logshipper/" />
@@ -30,20 +30,19 @@ func SocketClient(m []byte) { conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &am
 <meta name="twitter:title" content="Lambda Logshipper"/>
 <meta name="twitter:description" content="How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt."/>
+func SocketClient(m []byte) { conn, err := net.Dial(&#34;tcp&#34;, &#34;your_tcp_endpoint:your_port&#34;) defer conn.Close() if err != nil { fmt."/>
 
 
 
 <meta property="og:title" content="Lambda Logshipper" />
 <meta property="og:description" content="How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
 you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt." />
+func SocketClient(m []byte) { conn, err := net.Dial(&#34;tcp&#34;, &#34;your_tcp_endpoint:your_port&#34;) defer conn.Close() if err != nil { fmt." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/lambda-logshipper/" />
-
-<meta property="og:image" content="/" />
-<meta property="article:published_time" content="2019-07-11T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-07-11T00:00:00&#43;00:00"/><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2019-07-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-11T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Golang | Python | Travel" />
 
 
 
@@ -105,7 +104,7 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
         
       
         
-          <li><a href="/">Posts</a></li>
+          <li><a href="/posts">Posts</a></li>
         
       
         
@@ -141,7 +140,7 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
       
     
       
-        <li><a href="/">Posts</a></li>
+        <li><a href="/posts">Posts</a></li>
       
     
       
@@ -210,81 +209,72 @@ func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_
     <div class="post-content">
       <p>How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.</p>
 
-
   <img src="http://yuml.me/applegreengrape/diagram/scruffy/class/[cloudwatch%20logstream%7bbg:skyblue%7d]trigger-&amp;gt;[lambda%20function%7bbg:skyblue%7d],[lambda%20function%7bbg:skyblue%7d]forward%20to-&amp;gt;[tcp%20server%20endpoint%20%7bbg:skyblue%7d],"  class="center"  />
 
 
-
 <p>you will need a socket client:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SocketClient</span>(<span style="color:#a6e22e">m</span> []<span style="color:#66d9ef">byte</span>) {
+	<span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Dial</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#e6db74">&#34;your_tcp_endpoint:your_port&#34;</span>)
 
-<pre><code class="language-go">func SocketClient(m []byte) {
-	conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;)
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Close</span>()
 
-	defer conn.Close()
-
-	if err != nil {
-		fmt.Println(err)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
 	}
 
-	fmt.Println(&quot;sending logs to syslog-ng:&quot;, string(m))
-	conn.Write(m)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;sending logs to syslog-ng:&#34;</span>, string(<span style="color:#a6e22e">m</span>))
+	<span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>(<span style="color:#a6e22e">m</span>)
 
-	buff := make([]byte, 1024)
-	n, _ := conn.Read(buff)
-	log.Printf(&quot;Receive: %s&quot;, buff[:n])
+	<span style="color:#a6e22e">buff</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">1024</span>)
+	<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">buff</span>)
+	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Receive: %s&#34;</span>, <span style="color:#a6e22e">buff</span>[:<span style="color:#a6e22e">n</span>])
 
 }
-</code></pre>
-
-<p>N.B. SocketClient is easy for shipping the data. But maybe not the most secured way. Adding a tls cert might be a better idea 😃. Also it is better to use the <code>os.Getenv(&quot;TCP_SERVER_ENDPOINT&quot;)</code> and <code>os.Getenv(&quot;PORT&quot;)</code>.</p>
-
+</code></pre></div><p>N.B. SocketClient is easy for shipping the data. But maybe not the most secured way. Adding a tls cert might be a better idea 😃. Also it is better to use the <code>os.Getenv(&quot;TCP_SERVER_ENDPOINT&quot;)</code> and <code>os.Getenv(&quot;PORT&quot;)</code>.</p>
 <p>You will also need a go client for Cloudwatch to recieve and parse the incoming messages.</p>
-
-<pre><code class="language-go">import (
-    ...
-	&quot;github.com/aws/aws-lambda-go/events&quot;
-	&quot;github.com/aws/aws-lambda-go/lambda&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
+    <span style="color:#f92672">...</span>
+	<span style="color:#e6db74">&#34;github.com/aws/aws-lambda-go/events&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/aws/aws-lambda-go/lambda&#34;</span>
 )
 
-func Handler(request events.CloudwatchLogsEvent) error {
-	cloudwatchLogsData, err := request.AWSLogs.Parse()
-	if err != nil {
-		fmt.Println(err)
-		return nil
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Handler</span>(<span style="color:#a6e22e">request</span> <span style="color:#a6e22e">events</span>.<span style="color:#a6e22e">CloudwatchLogsEvent</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">cloudwatchLogsData</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">AWSLogs</span>.<span style="color:#a6e22e">Parse</span>()
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 	}
 
-	fmt.Println(&quot;cloudwatchLogsData.LogEvents:&quot;, cloudwatchLogsData.LogEvents)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;cloudwatchLogsData.LogEvents:&#34;</span>, <span style="color:#a6e22e">cloudwatchLogsData</span>.<span style="color:#a6e22e">LogEvents</span>)
 
-	// Remove the prefix to get to the name of the Lambda.
-	logGroup := strings.Replace(cloudwatchLogsData.LogGroup, &quot;/aws/lambda/&quot;, &quot;&quot;, 1)
+	<span style="color:#75715e">// Remove the prefix to get to the name of the Lambda.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">logGroup</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Replace</span>(<span style="color:#a6e22e">cloudwatchLogsData</span>.<span style="color:#a6e22e">LogGroup</span>, <span style="color:#e6db74">&#34;/aws/lambda/&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#ae81ff">1</span>)
 
-	// What you want to capture is up to you. BUT, for example:
-	type LogEntry struct {
-		LogGroup  string `json:&quot;log_group&quot;`
-		Timestamp int64  `json:&quot;timestamp&quot;`
-		Message   string `json:&quot;message&quot;`
+	<span style="color:#75715e">// What you want to capture is up to you. BUT, for example:
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">LogEntry</span> <span style="color:#66d9ef">struct</span> {
+		<span style="color:#a6e22e">LogGroup</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">json:&#34;log_group&#34;</span><span style="color:#e6db74">`</span>
+		<span style="color:#a6e22e">Timestamp</span> <span style="color:#66d9ef">int64</span>  <span style="color:#e6db74">`</span><span style="color:#e6db74">json:&#34;timestamp&#34;</span><span style="color:#e6db74">`</span>
+		<span style="color:#a6e22e">Message</span>   <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">json:&#34;message&#34;</span><span style="color:#e6db74">`</span>
 	}
 
-	// Stuff the incoming log lines into the datastructure to serialize to Log Entries.
-	for _, event := range cloudwatchLogsData.LogEvents {
-		logEntry := LogEntry{LogGroup: logGroup, Timestamp: event.Timestamp, Message: event.Message}
-	//	logEntry := LogEntry{Timestamp: event.Timestamp, Message: event.Message}
-		j, err := json.Marshal(logEntry)
-		if err != nil {
-			fmt.Println(err)
-			return nil
+	<span style="color:#75715e">// Stuff the incoming log lines into the datastructure to serialize to Log Entries.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">event</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">cloudwatchLogsData</span>.<span style="color:#a6e22e">LogEvents</span> {
+		<span style="color:#a6e22e">logEntry</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">LogEntry</span>{<span style="color:#a6e22e">LogGroup</span>: <span style="color:#a6e22e">logGroup</span>, <span style="color:#a6e22e">Timestamp</span>: <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">Timestamp</span>, <span style="color:#a6e22e">Message</span>: <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">Message</span>}
+	<span style="color:#75715e">//	logEntry := LogEntry{Timestamp: event.Timestamp, Message: event.Message}
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">j</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">logEntry</span>)
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 		}
 		
-		// Send to syslog-ng over tcp, basically.
-		SocketClient(j)
-		fmt.Println(j)
+		<span style="color:#75715e">// Send to syslog-ng over tcp, basically.
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">SocketClient</span>(<span style="color:#a6e22e">j</span>)
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">j</span>)
 	}
 
-	return nil
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 }
-</code></pre>
-
-<p>Please feel free to 👉📱message my twilio bot <a href="/posts/twilio-message-bot/">+447479275693</a>. I will come back to you shortly 😃. You can find the <a href="https://github.com/applegreengrape/go-aws-lambda-logshipper">source code here</a></p>
+</code></pre></div><p>Please feel free to 👉📱message my twilio bot <a href="/posts/twilio-message-bot/">+447479275693</a>. I will come back to you shortly 😃. You can find the <a href="https://github.com/applegreengrape/go-aws-lambda-logshipper">source code here</a></p>
 
       
       <div align="center">

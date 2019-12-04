@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jq on DevOps | Golang | Python | Travel</title>
@@ -18,8 +18,8 @@
       
       <guid>/posts/useful-jq-commands/</guid>
       <description>jq is a command-line JSON processor to parse json format data. You can find the detailed documentation here. And you can try to play it online at jqplay.org. I am listing out few jq command line examples that I found quite useful for day-to-day work 😃.
-Let&amp;rsquo;s try jq with AWS resources api.
-// to parse and extract json data $ curl -s \ https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json \ | jq .offers.AmazonEC2 { &amp;quot;offerCode&amp;quot;: &amp;quot;AmazonEC2&amp;quot;, &amp;quot;versionIndexUrl&amp;quot;: &amp;quot;/offers/v1.</description>
+Let&#39;s try jq with AWS resources api.
+// to parse and extract json data $ curl -s \ https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json \ | jq .offers.AmazonEC2 { &amp;#34;offerCode&amp;#34;: &amp;#34;AmazonEC2&amp;#34;, &amp;#34;versionIndexUrl&amp;#34;: &amp;#34;/offers/v1.</description>
     </item>
     
   </channel>
