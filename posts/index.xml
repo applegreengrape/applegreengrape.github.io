@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on DevOps | Golang | Python | Travel</title>
+    <title>Posts on DevOps | AWS | GCP | Golang | Python </title>
     <link>/posts/</link>
-    <description>Recent content in Posts on DevOps | Golang | Python | Travel</description>
+    <description>Recent content in Posts on DevOps | AWS | GCP | Golang | Python </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -162,15 +163,6 @@ func SocketClient(m []byte) { conn, err := net.Dial(&amp;#34;tcp&amp;#34;, &amp;
       <guid>/posts/web-scraper/</guid>
       <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&amp;#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;#34;http://feeds.reuters.com/reuters/UKTopNews&amp;#34;) if err != nil { panic(err) } for _, item := range feed.</description>
-    </item>
-    
-    <item>
-      <title>Cagliari, Sardinia</title>
-      <link>/posts/cagliari/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/cagliari/</guid>
-      <description></description>
     </item>
     
   </channel>

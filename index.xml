@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps | Golang | Python | Travel</title>
+    <title>DevOps | AWS | GCP | Golang | Python </title>
     <link>/</link>
-    <description>Recent content on DevOps | Golang | Python | Travel</description>
+    <description>Recent content on DevOps | AWS | GCP | Golang | Python </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -180,17 +181,9 @@ package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>👋 Hello World 🌍 👋Get in touch 👉🤖(07479275693)
-Learn more about me on GitHub.</description>
-    </item>
-    
-    <item>
-      <title>Cagliari, Sardinia</title>
-      <link>/posts/cagliari/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/cagliari/</guid>
-      <description></description>
+      <description>  👋Get in touch 👉📱+44 747 927 5693
+Learn more about me on GitHub.
+ </description>
     </item>
     
     <item>
