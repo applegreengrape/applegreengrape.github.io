@@ -197,7 +197,7 @@
 </ul>
 <p>This is a very popular and trustworthy platform for tracking the real-time status of total confirmed cases over the world.</p>
 <h3 id="the-setup">The setup</h3>
-<p>I built a small and light ETL lambda function to parse all the data and write them to the dynamodb tables and scheduled them with AWS cloudwatch. It will run every day at 3:30 am. And there is one aws api gateway with 2 paths invoke 2 lambda functions to retrieve the data from dynamodb tables. I will make another post about how to terraform them up in 5 mins. Yep! It took 5 mins to spin up but It will take a much longer time to understand it.</p>
+<p>I built a small and light ETL lambda function to parse all the data and write them to the dynamodb tables. They are scheduled by AWS cloudwatch events. It will run every day at 3:30 am. And there is one aws api gateway with 2 paths invoke 2 lambda functions to retrieve the data from the tables. I will make another post about how to terraform them up in 5 mins. Yep! It only took 5 mins to spin up but it will take a much longer time to understand.</p>
 <h2 id="okie-dokie-now-lets-look-at-the-api">Okie Dokie, now let&rsquo;s look at the API.</h2>
 <h4 id="the-api-endpoint-https4mmhkv7z9eexecute-apieu-west-1amazonawscomv1">The API endpoint: <code>https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/</code></h4>
 <h4 id="path-dxy">Path: /dxy</h4>
