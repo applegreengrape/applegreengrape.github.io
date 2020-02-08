@@ -18,8 +18,8 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/nltk-grammar-tag/</guid>
-      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&#39;s break the sentence down and let your code to define how will it read 🤓
+      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made.</description>
     </item>
     
@@ -29,8 +29,8 @@ How about let the code understand your emotions and 👉 you to the grammar mist
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/google-nlp-python/</guid>
-      <description>So I have complained about the Google&#39;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&#39;s NLP API, Ha! I know I won&#39;t like it but why not?
-1. let&#39;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
+      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
+1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
     </item>
     
   </channel>

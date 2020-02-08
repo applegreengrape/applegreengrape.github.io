@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
+<meta name="description" content="So you want a personal chatbot to handle your messages. Let&amp;rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&amp;rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
 <meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/twilio-message-bot/" />
@@ -26,12 +26,12 @@
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Twilio Message Bot 📟"/>
-<meta name="twitter:description" content="So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
+<meta name="twitter:description" content="So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers."/>
 
 
 
 <meta property="og:title" content="Twilio Message Bot 📟" />
-<meta property="og:description" content="So you want a personal chatbot to handle your messages. Let&#39;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&#39;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers." />
+<meta property="og:description" content="So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/twilio-message-bot/" />
 <meta property="og:image" content="/"/>
@@ -179,16 +179,16 @@
     
 
     <div class="post-content">
-      <p>So you want a personal chatbot to handle your messages. Let's build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let's start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</p>
-<h3 id="1--get-a-twilio-number">1 - Get a twilio number</h3>
+      <p>So you want a personal chatbot to handle your messages. Let&rsquo;s build a easy twilio bot to handle and filter your incoming messages and calls - your personal virtual assistant 📟. Let&rsquo;s start with a simple user case. I want to have a 📟 to recieve the SMS messages and send me a summary about who are contacting me, what messages have them sent and what are their contact numbers.</p>
+<h3 id="1---get-a-twilio-number">1 - Get a twilio number</h3>
 <p>You can register <a href="https://www.twilio.com/sms">a twilio number here</a>.</p>
-<h3 id="2--create-your-own-flow-in-twilio-flow-studio">2 - Create your own flow in twilio flow studio</h3>
+<h3 id="2---create-your-own-flow-in-twilio-flow-studio">2 - Create your own flow in twilio flow studio</h3>
 <p>It is a simple drag and click tools for doing something rather simple. For details you can check <a href="https://www.twilio.com/docs/studio/user-guide">user guide</a>. For this usecase, we can set our flow like this:
 
   <img src="/static/img/twilio.png"  alt="twilio"  class="left"  />
 
 </p>
-<h3 id="3--start-your-own-backend-server-to-handle-requests-from-twilio">3 - Start your own backend server to handle requests from twilio</h3>
+<h3 id="3---start-your-own-backend-server-to-handle-requests-from-twilio">3 - Start your own backend server to handle requests from twilio</h3>
 <p>However, you also need your twilio bot to message you about the message summaries. Then how to do it? Similar to the <a href="https://www.twilio.com/docs/studio/tutorials/how-to-post-sms-to-slack">guide here</a>. You will need a small backend function to handle the POST request. So now it is clear - we need a tiny little backend server to handle the POST request.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
 <span style="color:#75715e">// PostHandler converts post request body to string
@@ -220,7 +220,7 @@
 	 <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Status</span>)
 	}
  }
-</code></pre></div><p>That's pretty much it 😃. 👉📱message my twilio bot (+447479275693) to check out this twilio flow. Message me or leave a comment to let me know more interesting user cases. And you can find the <a href="https://github.com/applegreengrape/twilio-backend">source code here</a></p>
+</code></pre></div><p>That&rsquo;s pretty much it 😃. 👉📱message my twilio bot (+447479275693) to check out this twilio flow. Message me or leave a comment to let me know more interesting user cases. And you can find the <a href="https://github.com/applegreengrape/twilio-backend">source code here</a></p>
 
       
       <div align="center">

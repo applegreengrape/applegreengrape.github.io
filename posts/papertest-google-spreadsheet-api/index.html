@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&#39;s Spreadsheets API to track your paper test result. How to do it?
-1. Connect to Google&#39;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
+<meta name="description" content="I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&amp;rsquo;s Spreadsheets API to track your paper test result. How to do it?
+1. Connect to Google&amp;rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
 package main import ( &amp;#34;time&amp;#34; &amp;#34;encoding/json&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;golang.org/x/net/context&amp;#34; &amp;#34;golang.org/x/oauth2&amp;#34; &amp;#34;golang.org/x/oauth2/google&amp;#34; &amp;#34;google.golang.org/api/sheets/v4&amp;#34; ) // Retrieve a token, saves the token, then returns the generated client."/>
 <meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
 <meta name="robots" content="noodp"/>
@@ -28,15 +28,15 @@ package main import ( &amp;#34;time&amp;#34; &amp;#34;encoding/json&amp;#34; &am
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API"/>
-<meta name="twitter:description" content="I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&#39;s Spreadsheets API to track your paper test result. How to do it?
-1. Connect to Google&#39;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
+<meta name="twitter:description" content="I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?
+1. Connect to Google&rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
 package main import ( &#34;time&#34; &#34;encoding/json&#34; &#34;fmt&#34; &#34;io/ioutil&#34; &#34;log&#34; &#34;net/http&#34; &#34;os&#34; &#34;golang.org/x/net/context&#34; &#34;golang.org/x/oauth2&#34; &#34;golang.org/x/oauth2/google&#34; &#34;google.golang.org/api/sheets/v4&#34; ) // Retrieve a token, saves the token, then returns the generated client."/>
 
 
 
 <meta property="og:title" content="Google Spreadsheets Paper Test By Calling Google&#39;s Spreadsheets API" />
-<meta property="og:description" content="I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&#39;s Spreadsheets API to track your paper test result. How to do it?
-1. Connect to Google&#39;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
+<meta property="og:description" content="I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?
+1. Connect to Google&rsquo;s Spreadsheets API There is a quickstart documentation. And I have posted mine:
 package main import ( &#34;time&#34; &#34;encoding/json&#34; &#34;fmt&#34; &#34;io/ioutil&#34; &#34;log&#34; &#34;net/http&#34; &#34;os&#34; &#34;golang.org/x/net/context&#34; &#34;golang.org/x/oauth2&#34; &#34;golang.org/x/oauth2/google&#34; &#34;google.golang.org/api/sheets/v4&#34; ) // Retrieve a token, saves the token, then returns the generated client." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/papertest-google-spreadsheet-api/" />
@@ -155,7 +155,7 @@ package main import ( &#34;time&#34; &#34;encoding/json&#34; &#34;fmt&#34; &#34;
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/papertest-google-spreadsheet-api/">Google Spreadsheets Paper Test By Calling Google's Spreadsheets API</a></h2>
+    <h2 class="post-title"><a href="/posts/papertest-google-spreadsheet-api/">Google Spreadsheets Paper Test By Calling Google&rsquo;s Spreadsheets API</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
@@ -181,8 +181,8 @@ package main import ( &#34;time&#34; &#34;encoding/json&#34; &#34;fmt&#34; &#34;
     
 
     <div class="post-content">
-      <p>I have made one post about doing paper test by using <a href="/posts/papertest/">google app script</a>. For a fully automated paper testing, you can use Google's Spreadsheets API to track your paper test result. How to do it?</p>
-<h3 id="1-connect-to-googles-spreadsheets-api">1. Connect to Google's Spreadsheets API</h3>
+      <p>I have made one post about doing paper test by using <a href="/posts/papertest/">google app script</a>. For a fully automated paper testing, you can use Google&rsquo;s Spreadsheets API to track your paper test result. How to do it?</p>
+<h3 id="1-connect-to-googles-spreadsheets-api">1. Connect to Google&rsquo;s Spreadsheets API</h3>
 <p>There is a <a href="https://developers.google.com/sheets/api/guides/concepts">quickstart documentation</a>. And I have posted mine:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
@@ -253,7 +253,7 @@ package main import ( &#34;time&#34; &#34;encoding/json&#34; &#34;fmt&#34; &#34;
 	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">Close</span>()
 	<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">NewEncoder</span>(<span style="color:#a6e22e">f</span>).<span style="color:#a6e22e">Encode</span>(<span style="color:#a6e22e">token</span>)
 }
-</code></pre></div><h3 id="2-okie-dokie-now-lets-create-a-function-to-call-googles-spreadsheets-api">2. okie dokie now, let's create a function to call Google's Spreadsheets API</h3>
+</code></pre></div><h3 id="2-okie-dokie-now-lets-create-a-function-to-call-googles-spreadsheets-api">2. okie dokie now, let&rsquo;s create a function to call Google&rsquo;s Spreadsheets API</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">callGoogle</span>(<span style="color:#a6e22e">r</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">value</span> [][]<span style="color:#66d9ef">interface</span>{} ) {
 
 	<span style="color:#a6e22e">ctx</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
@@ -303,8 +303,8 @@ package main import ( &#34;time&#34; &#34;encoding/json&#34; &#34;fmt&#34; &#34;
 
         <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%#v\n&#34;</span>, <span style="color:#a6e22e">resp</span>)
 }
-</code></pre></div><h3 id="3-finally-we-are-here-lets-actually-do-something">3. finally we are here! Let's actually do something.</h3>
-<p>How about let's update the btc spot price? Yes, I know I can just use the <a href="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app"><code>Class UrlFetchApp</code></a> instead of creating my own function&hellip;But why not 🤓🤓🤓?</p>
+</code></pre></div><h3 id="3-finally-we-are-here-lets-actually-do-something">3. finally we are here! Let&rsquo;s actually do something.</h3>
+<p>How about let&rsquo;s update the btc spot price? Yes, I know I can just use the <a href="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app"><code>Class UrlFetchApp</code></a> instead of creating my own function&hellip;But why not 🤓🤓🤓?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">jsonData</span> <span style="color:#66d9ef">struct</span> {
 		<span style="color:#a6e22e">Data</span> <span style="color:#66d9ef">struct</span> {
 			<span style="color:#a6e22e">Base</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">json:&#34;base&#34;</span><span style="color:#e6db74">`</span>

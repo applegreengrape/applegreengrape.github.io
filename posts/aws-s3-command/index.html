@@ -215,7 +215,7 @@ find .  -type file -name <span style="color:#e6db74">&#34;*&#34;</span> -print0 
     aws s3api put-object --bucket your_s3_bucket --key <span style="color:#e6db74">&#39;&#34;&#39;</span>$KEY<span style="color:#e6db74">&#39;&#34;&#39;</span> --body $file
 <span style="color:#66d9ef">done</span>
 </code></pre></div><h3 id="delete-all-versions-of-all-files-in-a-versioned-s3-bucket">delete all versions of all files in a versioned s3 bucket</h3>
-<p>When it comes to delete a versioned s3 bucket, you will need to delete all versions of s3 bucket objects before you can delete the s3 bucket. So let's wrap a simple script to do it. You will use <code>aws s3</code> command and <code>jq</code>. If you don't know anything about jq. You can check my last post on <a href="/posts/useful-jq-commands">jq</a>.</p>
+<p>When it comes to delete a versioned s3 bucket, you will need to delete all versions of s3 bucket objects before you can delete the s3 bucket. So let&rsquo;s wrap a simple script to do it. You will use <code>aws s3</code> command and <code>jq</code>. If you don&rsquo;t know anything about jq. You can check my last post on <a href="/posts/useful-jq-commands">jq</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 bucket<span style="color:#f92672">=</span>$1

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/api/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2019nCov-API</title>
+      <link>/posts/2019ncov-api/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019ncov-api/</guid>
+      <description>The beginning of the rat year is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have contacted him.</description>
+    </item>
     
     <item>
       <title>Payment Gateway | Go | Stripe | Vault</title>
@@ -28,7 +37,7 @@
       
       <guid>/posts/go-nlp-api/</guid>
       <description>In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&#39;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;#34;gopkg.</description>
+Let&amp;rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;#34;gopkg.</description>
     </item>
     
   </channel>

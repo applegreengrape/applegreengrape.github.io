@@ -7,17 +7,62 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>2019nCov</title>
+      <link>/tags/2019ncov/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/2019ncov/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>API</title>
       <link>/tags/api/</link>
-      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamodb</title>
+      <link>/tags/dynamodb/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/dynamodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>/tags/lambda/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverless</title>
+      <link>/tags/serverless/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/serverless/</guid>
       <description></description>
     </item>
     
@@ -108,15 +153,6 @@
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/text-mining/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/tags/aws/</link>
-      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -315,15 +351,6 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/cloudwatch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lambda</title>
-      <link>/tags/lambda/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/lambda/</guid>
       <description></description>
     </item>
     

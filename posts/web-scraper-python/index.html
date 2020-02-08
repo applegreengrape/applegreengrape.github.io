@@ -281,14 +281,14 @@ Brexit talks ongoing as PM Johnson seeks to reach a deal - spokesman
 </span><span style="color:#e6db74">Brexit minister says would not countenance short &#39;</span>technical<span style="color:#960050;background-color:#1e0010">&#39;</span> delay
 <span style="color:#ae81ff">12</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
 <span style="color:#ae81ff">13</span> no new feeds yet, sleep <span style="color:#ae81ff">60</span> seconds
-</code></pre></div><p>Good! Now we have the RSS feed and the link, Let's grab the content off the internet with the HTML attribute. We will need the <code>BeautifulSoup</code>.</p>
+</code></pre></div><p>Good! Now we have the RSS feed and the link, Let&rsquo;s grab the content off the internet with the HTML attribute. We will need the <code>BeautifulSoup</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">
 </span><span style="color:#e6db74"></span><span style="color:#e6db74">Let</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">s get those python modules </span><span style="color:#e6db74">
 </span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;&#39;</span>
 
 <span style="color:#f92672">import</span> requests
 <span style="color:#f92672">from</span> bs4 <span style="color:#f92672">import</span> BeautifulSoup
-</code></pre></div><p>Now let's create a class to capture those texts by parsing with the HTML attribute like <code>{'class': 'StandardArticleBody_container'}</code>.</p>
+</code></pre></div><p>Now let&rsquo;s create a class to capture those texts by parsing with the HTML attribute like <code>{'class': 'StandardArticleBody_container'}</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">html_class</span>:
     <span style="color:#66d9ef">def</span> __init__(req, url):
         req<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> url
@@ -307,7 +307,7 @@ Brexit talks ongoing as PM Johnson seeks to reach a deal - spokesman
         
         <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
             <span style="color:#66d9ef">print</span>(e)
-</code></pre></div><p>Let's hit the button and give it go 😎😎😎!</p>
+</code></pre></div><p>Let&rsquo;s hit the button and give it go 😎😎😎!</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 nltk_token_tag.py 
 title_init: U.S. CDC reports <span style="color:#e6db74">&#39;breakthrough&#39;</span> in vaping lung injury probe as cases top 2,000
 U.S. CDC reports <span style="color:#e6db74">&#39;breakthrough&#39;</span> in vaping lung injury probe as cases top 2,000 http://feeds.reuters.com/~r/reuters/topNews/~3/4TXTCbJEx_g/u-s-cdc-reports-breakthrough-in-vaping-lung-injury-probe-as-cases-top-2000-idUSKBN1XI26R

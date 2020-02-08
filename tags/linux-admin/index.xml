@@ -29,7 +29,7 @@
       
       <guid>/posts/useful-jq-commands/</guid>
       <description>jq is a command-line JSON processor to parse json format data. You can find the detailed documentation here. And you can try to play it online at jqplay.org. I am listing out few jq command line examples that I found quite useful for day-to-day work 😃.
-Let&#39;s try jq with AWS resources api.
+Let&amp;rsquo;s try jq with AWS resources api.
 // to parse and extract json data $ curl -s \ https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json \ | jq .offers.AmazonEC2 { &amp;#34;offerCode&amp;#34;: &amp;#34;AmazonEC2&amp;#34;, &amp;#34;versionIndexUrl&amp;#34;: &amp;#34;/offers/v1.</description>
     </item>
     

@@ -19,7 +19,7 @@
       
       <guid>/posts/go-nlp-api/</guid>
       <description>In my previous posts, I have talked about building a small backend server to handle HTTP POST request. We also have tried out the Google NLP and we dived into the topic of NLTK. Well, now we know how to create a Go function to handle HTTP request and we understand the idea of Natural language Processing. Why not building your own Google NLP API?
-Let&#39;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;#34;gopkg.</description>
+Let&amp;rsquo;s now look at the key functions // Now we need to create a function to parse and tag all the data // There is a pre-built lib you can use - &amp;#34;gopkg.</description>
     </item>
     
     <item>
@@ -28,8 +28,8 @@ Let&#39;s now look at the key functions // Now we need to create a function to p
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/nltk-grammar-tag/</guid>
-      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&#39;s break the sentence down and let your code to define how will it read 🤓
+      <description>In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made.</description>
     </item>
     
@@ -39,8 +39,8 @@ How about let the code understand your emotions and 👉 you to the grammar mist
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/google-nlp-python/</guid>
-      <description>So I have complained about the Google&#39;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&#39;s NLP API, Ha! I know I won&#39;t like it but why not?
-1. let&#39;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
+      <description>So I have complained about the Google&amp;rsquo;s Spreadsheets API. After I crawled the news, I feel like I should do some text mining to break the sentences down and teach my algo to read the news. And I came across Google&amp;rsquo;s NLP API, Ha! I know I won&amp;rsquo;t like it but why not?
+1. let&amp;rsquo;s create a google-nlp class # Imports the Google Cloud client library from google.cloud import language from google.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@ And here is a python version:
       <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/web-scraper/</guid>
-      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&amp;rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&amp;#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;#34;http://feeds.reuters.com/reuters/UKTopNews&amp;#34;) if err != nil { panic(err) } for _, item := range feed.</description>
     </item>
     

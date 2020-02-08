@@ -29,7 +29,7 @@ And here is a python version:
       <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/web-scraper/</guid>
-      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&#39;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
+      <description>So you are interested in news and events and you want to track the latest news and headlines. And I guess you are familiar with the concept of RSS Rich Site Summary. Okay,😃Let&amp;rsquo;s start to build a simple Golang application to fetch the latest news and headlines with in a second.
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/mmcdole/gofeed&amp;#34; ) func feed(){ fp := gofeed.NewParser() feed, err := fp.ParseURL(&amp;#34;http://feeds.reuters.com/reuters/UKTopNews&amp;#34;) if err != nil { panic(err) } for _, item := range feed.</description>
     </item>
     

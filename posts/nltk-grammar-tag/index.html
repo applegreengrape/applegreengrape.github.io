@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&#39;s break the sentence down and let your code to define how will it read 🤓
+<meta name="description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&amp;rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&amp;rsquo;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made."/>
 <meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
 <meta name="robots" content="noodp"/>
@@ -28,15 +28,15 @@ How about let the code understand your emotions and 👉 you to the grammar mist
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Text Mining | NLTK | Python"/>
-<meta name="twitter:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&#39;s break the sentence down and let your code to define how will it read 🤓
+<meta name="twitter:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&rsquo;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made."/>
 
 
 
 <meta property="og:title" content="Text Mining | NLTK | Python" />
-<meta property="og:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&#39;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
-Let&#39;s break the sentence down and let your code to define how will it read 🤓
+<meta property="og:description" content="In my previous posts, we have crawled some articles and news through RSS feed and HTML tags. We played with google&rsquo;s nlp api and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).
+Let&rsquo;s break the sentence down and let your code to define how will it read 🤓
 How about let the code understand your emotions and 👉 you to the grammar mistake you made." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/nltk-grammar-tag/" />
@@ -183,8 +183,8 @@ How about let the code understand your emotions and 👉 you to the grammar mist
     
 
     <div class="post-content">
-      <p>In my previous posts, we have <a href="/posts/web-scraper-python/">crawled some articles and news through RSS feed and HTML tags</a>. We played with <a href="/posts/google-nlp-python/">google's nlp api</a> and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).</p>
-<p>Let's break the sentence down and let your code to define how will it read 🤓</p>
+      <p>In my previous posts, we have <a href="/posts/web-scraper-python/">crawled some articles and news through RSS feed and HTML tags</a>. We played with <a href="/posts/google-nlp-python/">google&rsquo;s nlp api</a> and then as a developer without too much pocket money to play with. You end up looking for cheaper and better alternatives 👉nltk (natual language toolkit).</p>
+<p>Let&rsquo;s break the sentence down and let your code to define how will it read 🤓</p>
 
   <img src="https://media.giphy.com/media/vMEjhlxsBR7Fe/giphy.gif"  class="center"  />
 
@@ -192,7 +192,7 @@ How about let the code understand your emotions and 👉 you to the grammar mist
 <h3 id="how-about-let-the-code-understand-your-emotions-and--you-to-the-grammar-mistake-you-made">How about let the code understand your emotions and 👉 you to the grammar mistake you made.</h3>
 <p>Take this sentence as an example:</p>
 <pre><code>My english is bad and I will got the grammar wrong but I am still happy !
-</code></pre><p>Let's import all the python modules needed.</p>
+</code></pre><p>Let&rsquo;s import all the python modules needed.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> nltk.tokenize <span style="color:#f92672">import</span> sent_tokenize
 <span style="color:#f92672">from</span> nltk.tokenize <span style="color:#f92672">import</span> word_tokenize
 <span style="color:#f92672">from</span> nltk <span style="color:#f92672">import</span> pos_tag
@@ -210,7 +210,7 @@ How about let the code understand your emotions and 👉 you to the grammar mist
     <span style="color:#66d9ef">return</span> [(token, rtag) <span style="color:#66d9ef">if</span> rtag <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">😞</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">or</span> rtag <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">😃</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">else</span> (token, ttag) <span style="color:#66d9ef">for</span> (token, rtag), (token, ttag) <span style="color:#f92672">in</span> zip(reg_out, tag_out)]
 
 tag <span style="color:#f92672">=</span> rule_based_tag(sent)
-</code></pre></div><p>Now let's add some grammar here.</p>
+</code></pre></div><p>Now let&rsquo;s add some grammar here.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">grammar <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
 </span><span style="color:#e6db74"></span><span style="color:#e6db74">  bag_grammar : {&lt;MD&gt;+&lt;VBG&gt;}</span><span style="color:#e6db74">
 </span><span style="color:#e6db74"></span><span style="color:#e6db74">  my_emotions : {&lt;😞&gt;|&lt;😃&gt;}</span><span style="color:#e6db74">
@@ -229,7 +229,7 @@ tree<span style="color:#f92672">.</span>draw()
   <img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif"  class="center"  />
 
 </p>
-<p>Oops&hellip;This <code>tree.draw()</code> doesn't support emojis 😞😞😞.</p>
+<p>Oops&hellip;This <code>tree.draw()</code> doesn&rsquo;t support emojis 😞😞😞.</p>
 <h3 id="and-there-are-more-nltk-pos-tag-you-can-play-with">and there are more nltk pos tag you can play with</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nltk<span style="color:#f92672">.</span>help<span style="color:#f92672">.</span>upenn_tagset()
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$: dollar
