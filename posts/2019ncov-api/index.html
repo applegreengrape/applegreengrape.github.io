@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="The beginning of the rat year is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have contacted him."/>
+<meta name="description" content="The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him."/>
 <meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/2019ncov-api/" />
@@ -26,12 +26,12 @@
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="2019nCov-API"/>
-<meta name="twitter:description" content="The beginning of the rat year is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have contacted him."/>
+<meta name="twitter:description" content="The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him."/>
 
 
 
 <meta property="og:title" content="2019nCov-API" />
-<meta property="og:description" content="The beginning of the rat year is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have contacted him." />
+<meta property="og:description" content="The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2019ncov-api/" />
 <meta property="og:image" content="/"/>
@@ -181,7 +181,7 @@
     
 
     <div class="post-content">
-      <p>The beginning of the rat year is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have contacted him. Aha-ha! The DATA! I was excited, sit down and built this API so people can get the 2019nCov related data.</p>
+      <p>The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him. Aha-ha! The DATA! I was excited, sit down and built this API so people can get the 2019nCov related data.</p>
 <p>This API is free to use for <code>research</code>, <code>study</code> and <code>unbiased and factual</code> reporting. Otherwise the karma will find you 🙈 🙉 🙊.</p>
 
   <img src="https://media.giphy.com/media/13L85sw7Tr9luw/giphy.gif"  class="center"  style="width: 35%"  />
@@ -200,8 +200,58 @@
 <p>I built a small and light ETL lambda function to parse all the data and write them to the dynamodb tables. They are scheduled by AWS cloudwatch events. It will run every day at 3:30 am. And there is one aws api gateway with 2 paths invoke 2 lambda functions to retrieve the data from the tables. I will make another post about how to terraform them up in 5 mins. Yep! It only took 5 mins to spin up but it will take a much longer time to understand.</p>
 <h2 id="okie-dokie-now-lets-look-at-the-api">Okie Dokie, now let&rsquo;s look at the API.</h2>
 <h4 id="the-api-endpoint-https4mmhkv7z9eexecute-apieu-west-1amazonawscomv1">The API Endpoint: <code>https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/</code></h4>
-<h4 id="path-dxy">Path: /dxy</h4>
-<p>Required URL parameters are <code>date</code> OR <code>country</code> OR <code>cityName</code> OR <code>provincName</code> OR <code>all</code></p>
+<h4 id="path-dxy"><code>path</code>: <code>/dxy</code></h4>
+<p>You can use this path to retrieve the stats of coronavirus including <code>id</code>, <code>date</code>, <code>country</code>, <code>provinceName</code>, <code>cityName</code>, <code>confirmedCount</code>, <code>suspectedCount</code>, <code>curedCount</code>, <code>deadCount</code>. Please be aware this ETL lambda function is scheduled from 2020-02-08. The latest data you can retrieve is from 2020-02-08.</p>
+<p>Required URL parameters are <code>date</code> OR <code>country</code> OR <code>provincName</code> OR <code>cityName</code> OR <code>all</code>.</p>
+<table>
+<thead>
+<tr>
+<th>path</th>
+<th>/dxy</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url parameter</td>
+<td>description</td>
+<td>returned result</td>
+<td>example</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Retrieve the coronavirus stats of a specific date. Accepted format is %Y-%m-%d (i.e. 2020-02-08).</td>
+<td>all fields from that date</td>
+<td><code>/dxy?date=2020-02-08</code></td>
+</tr>
+<tr>
+<td>country</td>
+<td>Retrieve the coronavirus stats of a specific country. Accepted format is urllib encoded strings.</td>
+<td>all fields from that country</td>
+<td><code>/dxy?country=''</code></td>
+</tr>
+<tr>
+<td>provincName</td>
+<td>Retrieve the coronavirus stats of a specific provincName. Accepted format is urllib encoded strings.</td>
+<td>all fields from that provincName</td>
+<td><code>/dxy?provincName=''</code></td>
+</tr>
+<tr>
+<td>cityName</td>
+<td>Retrieve the coronavirus stats of a specific country. Accepted format is urllib encoded strings.</td>
+<td>all fields from that cityName</td>
+<td><code>/dxy?cityName=''</code></td>
+</tr>
+<tr>
+<td>all</td>
+<td>Set as &lsquo;yes&rsquo; to retrieve all data</td>
+<td>all fields including id, date, country, provinceName, cityName, confirmedCount, suspectedCount, curedCount, deadCount</td>
+<td><code>/dxy?all='yes'</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples">examples</h4>
 <ul>
 <li>search by the date:</li>
 </ul>
@@ -255,8 +305,52 @@ $ curl -s https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/dxy?cityName
   <span style="color:#e6db74">&#34;msg&#34;</span>: <span style="color:#e6db74">&#34; No Man is an Island  🏝  没有人是一座孤岛 @pingzhou| 平舟 ⛵&#34;</span>
 <span style="color:#f92672">}</span>
 
-</code></pre></div><h4 id="path-travel">Path: /travel</h4>
+</code></pre></div><h4 id="path-travel"><code>path</code>: <code>/travel</code></h4>
+<p>This path is to retrieve the confirmed cases&rsquo; travel paths including <code>id</code>, <code>date</code>, <code>start</code>, <code>stop</code>, <code>t_type</code>, <code>t_no</code>, <code>t_no_sub</code>.</p>
 <p>Required URL parameters are <code>date</code> OR <code>start</code> OR <code>stop</code> OR <code>all</code></p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>/travel</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url parameter</td>
+<td>description</td>
+<td>returned result</td>
+<td>example</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Retrieve the coronavirus cases&rsquo; travel paths of a specific date. Accepted format is %Y-%m-%d (i.e. 2020-02-08).</td>
+<td>all fields from that date</td>
+<td><code>/dxy?date=2020-02-08</code></td>
+</tr>
+<tr>
+<td>start</td>
+<td>Retrieve the coronavirus cases&rsquo; travel paths of a specific starting point. Accepted format is urllib encoded strings.</td>
+<td>all fields from that starting point</td>
+<td><code>/dxy?start=''</code></td>
+</tr>
+<tr>
+<td>end</td>
+<td>Retrieve the coronavirus cases&rsquo; travel paths of a specific ending point. Accepted format is urllib encoded strings.</td>
+<td>all fields from that end point</td>
+<td><code>/dxy?end=''</code></td>
+</tr>
+<tr>
+<td>all</td>
+<td>Set as &lsquo;yes&rsquo; to retrieve all data</td>
+<td>all fields</td>
+<td><code>/dxy?all='yes'</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples-1">examples</h4>
 <ul>
 <li>search by date</li>
 </ul>
