@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Map Data Visualization :: DevOps | AWS | GCP | Golang | Python — test</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
+This post is from what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02."/>
+<meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/data-map-visualization/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Map Data Visualization"/>
+<meta name="twitter:description" content="This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
+This post is from what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02."/>
+
+
+
+<meta property="og:title" content="Map Data Visualization" />
+<meta property="og:description" content="This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
+This post is from what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/data-map-visualization/" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2020-02-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-09T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | AWS | GCP | Golang | Python" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand" type="text/css" media="all" />
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
+
+
+<style>
+  body {
+  font-family: 'Quicksand';
+  }
+  code {
+  font-family: 'Source Code Pro'; 
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1HV0FGVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1HV0FGVY3');
+</script>
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags/project">Topics</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/tags/project">Topics</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/data-map-visualization/">Map Data Visualization</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2020-02-09
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/python/">python</a>&nbsp;
+        
+          #<a href="/tags/geodata/">geodata</a>&nbsp;
+        
+          #<a href="/tags/data-visualization/">data visualization</a>&nbsp;
+        
+          #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
+        
+          #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
+        
+          #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.</p>
+
+  <img src="https://media.giphy.com/media/KMy8xezIx8N4Q/giphy.gif"  class="center"  style="border-radius: 50%; width: 45%"  />
+
+
+<p>This post is from what I have learned about visualizing data from <a href="/posts/2019nCov-api">2019nCov-api</a>. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using <a href="https://en.wikipedia.org/wiki/Restrictions_on_geographic_data_in_China#GCJ-02">GCJ-02</a>. And the rest of the world is using WGS-84. The picture below showed the difference between those 3 coordinates systems.</p>
+
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Baidu_map_with_BD-09%2C_WGS-84_and_GCJ-02_markers.png/800px-Baidu_map_with_BD-09%2C_WGS-84_and_GCJ-02_markers.png"  class="center"  style="width: 85%"  />
+
+
+<h4 id="okie-dokie-lets-look-at-some-code">okie dokie let&rsquo;s look at some code</h4>
+<ul>
+<li>
+<h4 id="lets-call-baidu-map-apihttpapimapbaiducom-to-get-the-directions">Let&rsquo;s call <a href="http://api.map.baidu.com/">Baidu Map API</a> to get the directions</h4>
+</li>
+</ul>
+<p><code>api endpoint</code>: <code>http://api.map.baidu.com/direction/v2</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">geoPath</span>(o_lat, o_lng, d_lat, d_lng):
+
+    ak <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span> <span style="color:#75715e"># your api key</span>
+    headers <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Upgrade-Insecure-Requests</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">1</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">User-Agent</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36</span><span style="color:#e6db74">&#39;</span>,
+    }
+    
+    url <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">http://api.map.baidu.com/direction/v2/transit?origin={0},{1}&amp;destination={2},{3}&amp;ak={4}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(o_lat, o_lng, d_lat, d_lng, ak)
+    response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
+    data <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>json()
+        
+    lng_list <span style="color:#f92672">=</span> []
+    lat_list <span style="color:#f92672">=</span> []
+    
+    <span style="color:#66d9ef">if</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>keys():
+      <span style="color:#66d9ef">if</span> data[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span>][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span>]:
+          <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> data[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span>][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span>]:
+              <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(len(r[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>])):
+                  <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> r[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>][s]:
+                      path <span style="color:#f92672">=</span> p[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">path</span><span style="color:#e6db74">&#39;</span>]
+                      p2 <span style="color:#f92672">=</span> path<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">;</span><span style="color:#e6db74">&#39;</span>)
+                      <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(len(p2)):
+                          p3 <span style="color:#f92672">=</span> p2[x]<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#39;</span>)
+                          lng_list<span style="color:#f92672">.</span>append(p3[<span style="color:#ae81ff">0</span>])
+                          lat_list<span style="color:#f92672">.</span>append(p3[<span style="color:#ae81ff">1</span>])
+        polygon_geom <span style="color:#f92672">=</span> zip(lng_list, lat_list)
+        <span style="color:#66d9ef">print</span>(polygon_geom)           
+    <span style="color:#66d9ef">return</span> points_result
+</code></pre></div><p>Now Let&rsquo;s create the basemap and adding the path on the top of map</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> folium
+
+<span style="color:#75715e"># (o_lat, o_lng) original point&#39;s (latitude, longtitude)</span>
+<span style="color:#75715e"># (d_lat, d_lng) destination point&#39;s (latitude, longtitude)</span>
+
+points<span style="color:#f92672">=</span>geoPath(o_lat, o_lng, d_lat, d_lng)
+center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">32.413750664010415</span>, <span style="color:#ae81ff">114.10064798730232</span>]
+m <span style="color:#f92672">=</span> folium<span style="color:#f92672">.</span>Map(location<span style="color:#f92672">=</span>center, zoom_start<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+folium<span style="color:#f92672">.</span>PolyLine(points, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#8b0000</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)<span style="color:#f92672">.</span>add_to(m)
+m<span style="color:#f92672">.</span>save(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">example.html</span><span style="color:#e6db74">&#39;</span>)
+</code></pre></div><ul>
+<li>
+<h4 id="lets-call-google-map-apihttpapimapbaiducom-to-get-the-directions">Let&rsquo;s call <a href="http://api.map.baidu.com/">Google Map API</a> to get the directions</h4>
+</li>
+</ul>
+<p><code>api endpoint</code>: <code>https://maps.googleapis.com/maps/api/directions/</code></p>
+<p>Google API returned encode polyline strings. We will need to decode before adding them on the map</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_polyline</span>(polyline_str):
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">Pass a Google Maps encoded polyline string; returns list of lat/lon pairs</span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+    index, lat, lng <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+    coordinates <span style="color:#f92672">=</span> []
+    changes <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">latitude</span><span style="color:#e6db74">&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">longitude</span><span style="color:#e6db74">&#39;</span>: <span style="color:#ae81ff">0</span>}
+
+    <span style="color:#66d9ef">while</span> index <span style="color:#f92672">&lt;</span> len(polyline_str):
+        <span style="color:#66d9ef">for</span> unit <span style="color:#f92672">in</span> [<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">latitude</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">longitude</span><span style="color:#e6db74">&#39;</span>]: 
+            shift, result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+
+            <span style="color:#66d9ef">while</span> True:
+                byte <span style="color:#f92672">=</span> ord(polyline_str[index]) <span style="color:#f92672">-</span> <span style="color:#ae81ff">63</span>
+                index <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                result <span style="color:#f92672">|</span><span style="color:#f92672">=</span> (byte <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x1f</span>) <span style="color:#f92672">&lt;&lt;</span> shift
+                shift <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> byte <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0x20</span>:
+                    <span style="color:#66d9ef">break</span>
+
+            <span style="color:#66d9ef">if</span> (result <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>):
+                changes[unit] <span style="color:#f92672">=</span> <span style="color:#f92672">~</span>(result <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>)
+            <span style="color:#66d9ef">else</span>:
+                changes[unit] <span style="color:#f92672">=</span> (result <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>)
+
+        lat <span style="color:#f92672">+</span><span style="color:#f92672">=</span> changes[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">latitude</span><span style="color:#e6db74">&#39;</span>]
+        lng <span style="color:#f92672">+</span><span style="color:#f92672">=</span> changes[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">longitude</span><span style="color:#e6db74">&#39;</span>]
+
+        coordinates<span style="color:#f92672">.</span>append((lat <span style="color:#f92672">/</span> <span style="color:#ae81ff">100000.0</span>, lng <span style="color:#f92672">/</span> <span style="color:#ae81ff">100000.0</span>))
+
+    <span style="color:#66d9ef">return</span> coordinates
+</code></pre></div><p>Now Let&rsquo;s get the polyline strings from Google map api.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">geoPath</span>(type, s_city, e_city):
+    
+    ak <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span> <span style="color:#75715e"># your api key</span>
+    s <span style="color:#f92672">=</span> quote(s_city)
+    e <span style="color:#f92672">=</span> quote(e_city)
+    
+    headers <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Upgrade-Insecure-Requests</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">1</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">User-Agent</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36</span><span style="color:#e6db74">&#39;</span>,
+    }
+    
+    url <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">https://maps.googleapis.com/maps/api/directions/json?origin={0}&amp;destination={1}&amp;key={2}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(s,e,ak)
+    
+    response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
+    data <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>json()
+
+     result <span style="color:#f92672">=</span> []
+      <span style="color:#66d9ef">if</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>keys():
+          <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> data[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span>]:
+             <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> r[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">legs</span><span style="color:#e6db74">&#39;</span>]:
+                  <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(len(l[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>])):
+                      <span style="color:#75715e"># lat , lng</span>
+                        d_polyline<span style="color:#f92672">=</span>decode_polyline(l[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>][s][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">polyline</span><span style="color:#e6db74">&#39;</span>][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">points</span><span style="color:#e6db74">&#39;</span>])
+                        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(d_polyline)):
+                            result<span style="color:#f92672">.</span>append([d_polyline[i][<span style="color:#ae81ff">0</span>], d_polyline[i][<span style="color:#ae81ff">1</span>]])        
+    <span style="color:#66d9ef">return</span> result
+</code></pre></div><p>Then let&rsquo;s add them on the map</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">32.413750664010415</span>, <span style="color:#ae81ff">114.10064798730232</span>]
+m <span style="color:#f92672">=</span> folium<span style="color:#f92672">.</span>Map(location<span style="color:#f92672">=</span>center, zoom_start<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+folium<span style="color:#f92672">.</span>PolyLine(points, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#8b0000</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)<span style="color:#f92672">.</span>add_to(m)
+m<span style="color:#f92672">.</span>save(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">example.html</span><span style="color:#e6db74">&#39;</span>)
+</code></pre></div><p>Once you loaded all the geo data in, you might see something like this:</p>
+
+<div class="embed iframe">
+    <iframe src="https://applegreengrape.github.io/travel-path.html"  position="center" height="600px" width="100%">
+    </iframe>
+</div>
+<ul>
+<li>
+<h4 id="lets-look-at-another-question---how-to-draw-a-curved-flight-path">Let&rsquo;s look at another question - how to draw a curved flight path</h4>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
+<span style="color:#f92672">from</span> geographiclib.geodesic <span style="color:#f92672">import</span> Geodesic
+
+ points <span style="color:#f92672">=</span> []
+    <span style="color:#75715e"># travel by flight</span>
+    <span style="color:#66d9ef">if</span> type <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+        geod <span style="color:#f92672">=</span> Geodesic<span style="color:#f92672">.</span>WGS84
+        lat_0, lng_0 <span style="color:#f92672">=</span> geoLocation(s_city)
+        lat_1, lng_1 <span style="color:#f92672">=</span> geoLocation(e_city)
+        l <span style="color:#f92672">=</span> geod<span style="color:#f92672">.</span>InverseLine(lat_0, lng_0, lat_1, lng_1)
+        ds <span style="color:#f92672">=</span> <span style="color:#ae81ff">100e3</span>; n <span style="color:#f92672">=</span> int(math<span style="color:#f92672">.</span>ceil(l<span style="color:#f92672">.</span>s13 <span style="color:#f92672">/</span> ds))
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">distance latitude longitude azimuth</span><span style="color:#e6db74">&#34;</span>)
+            s <span style="color:#f92672">=</span> min(ds <span style="color:#f92672">*</span> i, l<span style="color:#f92672">.</span>s13)
+            g <span style="color:#f92672">=</span> l<span style="color:#f92672">.</span>Position(s, Geodesic<span style="color:#f92672">.</span>STANDARD <span style="color:#f92672">|</span> Geodesic<span style="color:#f92672">.</span>LONG_UNROLL)
+            points<span style="color:#f92672">.</span>append([g[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">lat2</span><span style="color:#e6db74">&#39;</span>],g[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">lon2</span><span style="color:#e6db74">&#39;</span>]])
+</code></pre></div><p>Please feel free to leave some comments if you have any questions or have any other interesting use cases. If you have enjoyed reading this post, please feel free to buy me a <code>(r'virtual|physical', 'coffee')</code>. All the coffee from <code>#2019nCov</code> posts will be donated (if there are any).</p>
+
+      
+      <div align="center">
+      <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
+      
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      
+      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/3k2CeYTrb"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:10px;">Buy me a coffee</span></a>
+    </div>
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="/posts/2019ncov-api/">
+                <span class="button__text">2019nCov-API</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-applegreengrape-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+<script data-ad-client="ca-pub-2753999921028307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    </div>
+
+    
+  </body>
+</html>

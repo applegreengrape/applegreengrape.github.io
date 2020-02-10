@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>Posts :: DevOps | AWS | GCP | Golang | Python  — test</title>
+      <title>Posts :: DevOps | AWS | GCP | Golang | Python — test</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -35,23 +35,23 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
 <meta property="og:image" content="/"/>
-<meta property="og:updated_time" content="2020-02-08T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | AWS | GCP | Golang | Python " />
+<meta property="og:updated_time" content="2020-02-09T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | AWS | GCP | Golang | Python" />
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="DevOps | AWS | GCP | Golang | Python " />
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="DevOps | AWS | GCP | Golang | Python" />
 
 
 
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cutive Mono" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand" type="text/css" media="all" />
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
 
 
 <style>
   body {
-  font-family: 'Cutive Mono';
+  font-family: 'Quicksand';
   }
   code {
   font-family: 'Source Code Pro'; 
@@ -155,7 +155,49 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/2019ncov-api/">2019nCov-API [新冠疫情爬虫数据接口]</a></h1>
+      <h1 class="post-title"><a href="/posts/data-map-visualization/">Map Data Visualization</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2020-02-09
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/python/">python</a>&nbsp;
+          
+            #<a href="/tags/geodata/">geodata</a>&nbsp;
+          
+            #<a href="/tags/data-visualization/">data visualization</a>&nbsp;
+          
+            #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
+          
+            #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
+          
+            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
+This post is from what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/data-map-visualization/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/2019ncov-api/">2019nCov-API</a></h1>
       <div class="post-meta">
         <span class="post-date">
           2020-02-08
@@ -522,45 +564,6 @@ import boto3 import os &quot;&quot;&quot;how to use this classimport aws_modules
         
       </div>
       <div><a class="read-more button" href="/posts/boto3-python/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/papertest-google-spreadsheet-api/">Google Spreadsheets Paper Test By Calling Google&rsquo;s Spreadsheets API</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2019-08-13
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/google-apps-script/">Google Apps Script</a>&nbsp;
-          
-            #<a href="/tags/google-spreadsheets/">Google Spreadsheets</a>&nbsp;
-          
-            #<a href="/tags/paper-test/">Paper Test</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google’s Spreadsheets API to track your paper test result. How to do it?</p>
-<ol>
-<li>Connect to Google’s Spreadsheets API There is a quickstart documentation. And I have posted mine:
-package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang.org/x/net/context&quot; &quot;golang.org/x/oauth2&quot; &quot;golang.org/x/oauth2/google&quot; &quot;google.golang.org/api/sheets/v4&quot; ) // Retrieve a token, saves the token, then returns the generated client.</li>
-</ol>
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/papertest-google-spreadsheet-api/">Read more →</a></div>
     </div>
     
     <div class="pagination">

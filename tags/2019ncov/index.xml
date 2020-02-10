@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2019nCov on DevOps | AWS | GCP | Golang | Python </title>
+    <title>2019nCov on DevOps | AWS | GCP | Golang | Python</title>
     <link>/tags/2019ncov/</link>
-    <description>Recent content in 2019nCov on DevOps | AWS | GCP | Golang | Python </description>
+    <description>Recent content in 2019nCov on DevOps | AWS | GCP | Golang | Python</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/2019ncov/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>2019nCov-API [新冠疫情爬虫数据接口]</title>
+      <title>Map Data Visualization</title>
+      <link>/posts/data-map-visualization/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/data-map-visualization/</guid>
+      <description>This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
+This post is from what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02.</description>
+    </item>
+    
+    <item>
+      <title>2019nCov-API</title>
       <link>/posts/2019ncov-api/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       

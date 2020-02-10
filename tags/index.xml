@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on DevOps | AWS | GCP | Golang | Python </title>
+    <title>Tags on DevOps | AWS | GCP | Golang | Python</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on DevOps | AWS | GCP | Golang | Python </description>
+    <description>Recent content in Tags on DevOps | AWS | GCP | Golang | Python</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,54 @@
     <item>
       <title>2019nCov</title>
       <link>/tags/2019ncov/</link>
-      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/2019ncov/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coronavirus</title>
+      <link>/tags/coronavirus/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/coronavirus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coronavirus-tracking</title>
+      <link>/tags/coronavirus-tracking/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/coronavirus-tracking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data visualization</title>
+      <link>/tags/data-visualization/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geodata</title>
+      <link>/tags/geodata/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geodata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
@@ -189,15 +234,6 @@
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/machine-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
