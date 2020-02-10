@@ -19,7 +19,7 @@
       
       <guid>/posts/data-map-visualization/</guid>
       <description>This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
-This post is from what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02.</description>
+This post is about what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02.</description>
     </item>
     
     <item>
