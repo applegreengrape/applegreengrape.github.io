@@ -6,8 +6,8 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
-This post is about what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02."/>
+<meta name="description" content="This post is about what I have learned about visualizing data from 2019nCov-api. In order to visualizing the data I will need to get the latitude-longitude reference. And I found two interesting APIs. Baidu Map vs Google Map.
+The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the Chinese government is using GCJ-02."/>
 <meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/data-map-visualization/" />
@@ -27,14 +27,14 @@ This post is about what I have learned about visualizing data from 2019nCov-api.
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Map Data Visualization"/>
-<meta name="twitter:description" content="This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
-This post is about what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02."/>
+<meta name="twitter:description" content="This post is about what I have learned about visualizing data from 2019nCov-api. In order to visualizing the data I will need to get the latitude-longitude reference. And I found two interesting APIs. Baidu Map vs Google Map.
+The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the Chinese government is using GCJ-02."/>
 
 
 
 <meta property="og:title" content="Map Data Visualization" />
-<meta property="og:description" content="This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
-This post is about what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02." />
+<meta property="og:description" content="This post is about what I have learned about visualizing data from 2019nCov-api. In order to visualizing the data I will need to get the latitude-longitude reference. And I found two interesting APIs. Baidu Map vs Google Map.
+The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the Chinese government is using GCJ-02." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/data-map-visualization/" />
 <meta property="og:image" content="/"/>
@@ -47,14 +47,14 @@ This post is about what I have learned about visualizing data from 2019nCov-api.
 
 
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei" type="text/css" media="all" />
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
 
 
 <style>
   body {
-  font-family: 'Quicksand';
+  font-family: 'ZCOOL XiaoWei';
   }
   code {
   font-family: 'Source Code Pro'; 
@@ -172,7 +172,11 @@ This post is about what I have learned about visualizing data from 2019nCov-api.
         
           #<a href="/tags/data-visualization/">data visualization</a>&nbsp;
         
-          #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
+          #<a href="/tags/baidu-map-api/">Baidu Map API</a>&nbsp;
+        
+          #<a href="/tags/google-map-api/">Google Map API</a>&nbsp;
+        
+          #<a href="/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/">百度地图API</a>&nbsp;
         
           #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
         
@@ -184,143 +188,63 @@ This post is about what I have learned about visualizing data from 2019nCov-api.
     
 
     <div class="post-content">
-      <p>This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.</p>
+      <p>This post is about what I have learned about visualizing data from <a href="/posts/2019ncov-api/">2019nCov-api</a>. In order to visualizing the data I will need to get the latitude-longitude reference. And I found two interesting APIs. Baidu Map vs Google Map.</p>
 
   <img src="https://media.giphy.com/media/KMy8xezIx8N4Q/giphy.gif"  class="center"  style="border-radius: 50%; width: 45%"  />
 
 
-<p>This post is about what I have learned about visualizing data from <a href="/posts/2019nCov-api">2019nCov-api</a>. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using <a href="https://en.wikipedia.org/wiki/Restrictions_on_geographic_data_in_China#GCJ-02">GCJ-02</a>. And the rest of the world is using WGS-84. The picture below showed the difference between those 3 coordinates systems.</p>
+<p>The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the Chinese government is using <a href="https://en.wikipedia.org/wiki/Restrictions_on_geographic_data_in_China#GCJ-02">GCJ-02</a>. And the rest of the world is using WGS-84. The picture below showed the difference between those 3 coordinates systems.</p>
+<p>为了把<a href="/posts/2019ncov-api/">新冠疫情爬虫数据可视化</a>，我去研究了一下如何把数据加在地图上。然后发现了神奇的坐标体系<a href="http://cntchen.github.io/2016/05/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/">百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系</a>。👇这张图就是把同一个坐标下的三个坐标的区别。不过看到国测局的坐标系被称为火星坐标，还是忍不住笑出来了😂。</p>
 
   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Baidu_map_with_BD-09%2C_WGS-84_and_GCJ-02_markers.png/800px-Baidu_map_with_BD-09%2C_WGS-84_and_GCJ-02_markers.png"  class="center"  style="width: 85%"  />
 
 
-<h4 id="okie-dokie-lets-look-at-some-code">okie dokie let&rsquo;s look at some code</h4>
-<ul>
-<li>
-<h4 id="lets-call-baidu-map-apihttpapimapbaiducom-to-get-the-directions">Let&rsquo;s call <a href="http://api.map.baidu.com/">Baidu Map API</a> to get the directions</h4>
-</li>
-</ul>
-<p><code>api endpoint</code>: <code>http://api.map.baidu.com/direction/v2</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">geoPath</span>(o_lat, o_lng, d_lat, d_lng):
-
-    ak <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span> <span style="color:#75715e"># your api key</span>
-    headers <span style="color:#f92672">=</span> {
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Upgrade-Insecure-Requests</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">1</span><span style="color:#e6db74">&#39;</span>,
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">User-Agent</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36</span><span style="color:#e6db74">&#39;</span>,
-    }
-    
-    url <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">http://api.map.baidu.com/direction/v2/transit?origin={0},{1}&amp;destination={2},{3}&amp;ak={4}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(o_lat, o_lng, d_lat, d_lng, ak)
-    response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
-    data <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>json()
-        
-    lng_list <span style="color:#f92672">=</span> []
-    lat_list <span style="color:#f92672">=</span> []
-    
-    <span style="color:#66d9ef">if</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>keys():
-      <span style="color:#66d9ef">if</span> data[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span>][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span>]:
-          <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> data[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span>][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span>]:
-              <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(len(r[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>])):
-                  <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> r[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>][s]:
-                      path <span style="color:#f92672">=</span> p[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">path</span><span style="color:#e6db74">&#39;</span>]
-                      p2 <span style="color:#f92672">=</span> path<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">;</span><span style="color:#e6db74">&#39;</span>)
-                      <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(len(p2)):
-                          p3 <span style="color:#f92672">=</span> p2[x]<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#39;</span>)
-                          lng_list<span style="color:#f92672">.</span>append(p3[<span style="color:#ae81ff">0</span>])
-                          lat_list<span style="color:#f92672">.</span>append(p3[<span style="color:#ae81ff">1</span>])
-        polygon_geom <span style="color:#f92672">=</span> zip(lng_list, lat_list)
-        <span style="color:#66d9ef">print</span>(polygon_geom)           
-    <span style="color:#66d9ef">return</span> points_result
-</code></pre></div><p>Now Let&rsquo;s create the basemap and adding the path on the top of map</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> folium
-
-<span style="color:#75715e"># (o_lat, o_lng) original point&#39;s (latitude, longtitude)</span>
-<span style="color:#75715e"># (d_lat, d_lng) destination point&#39;s (latitude, longtitude)</span>
-
-points<span style="color:#f92672">=</span>geoPath(o_lat, o_lng, d_lat, d_lng)
-center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">32.413750664010415</span>, <span style="color:#ae81ff">114.10064798730232</span>]
-m <span style="color:#f92672">=</span> folium<span style="color:#f92672">.</span>Map(location<span style="color:#f92672">=</span>center, zoom_start<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
-folium<span style="color:#f92672">.</span>PolyLine(points, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#8b0000</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)<span style="color:#f92672">.</span>add_to(m)
-m<span style="color:#f92672">.</span>save(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">example.html</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><ul>
-<li>
-<h4 id="lets-call-google-map-apihttpapimapbaiducom-to-get-the-directions">Let&rsquo;s call <a href="http://api.map.baidu.com/">Google Map API</a> to get the directions</h4>
-</li>
-</ul>
+<p>👆This picture makes me want to compare Google Direction API with Baidu Direction API by drawing the same direction line on a map. 我灵机一动准备用同样的方法来比较一下谷歌地图API和百度API.</p>
+<h4 id="-baidu-direction-api-vs-google-direction-api-----百度地图api-vs-谷歌地图api-">[ Baidu Direction API vs Google Direction API ] - [ 百度地图API vs 谷歌地图API ]</h4>
+<p>百度地图API接口：</p>
+<p><code>api endpoint</code>: <code>http://api.map.baidu.com/directionlite/v1/driving</code></p>
+<p>谷歌地图API接口：</p>
 <p><code>api endpoint</code>: <code>https://maps.googleapis.com/maps/api/directions/</code></p>
-<p>Google API returned encode polyline strings. We will need to decode before adding them on the map</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_polyline</span>(polyline_str):
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">Pass a Google Maps encoded polyline string; returns list of lat/lon pairs</span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-    index, lat, lng <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
-    coordinates <span style="color:#f92672">=</span> []
-    changes <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">latitude</span><span style="color:#e6db74">&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">longitude</span><span style="color:#e6db74">&#39;</span>: <span style="color:#ae81ff">0</span>}
+<p>You can retrieve GCJ-02 coordinate from baidu api by setting <code>ret_coordtype=gcj02</code>. 百度地图的接口也可以将坐标系设为GCJ-02.</p>
+<p>Let&rsquo;s check the path from Chongqing to Beijing.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
+<span style="color:#f92672">from</span> urllib.request <span style="color:#f92672">import</span> quote
+<span style="color:#f92672">import</span> folium
+<span style="color:#f92672">import</span> numpy
 
-    <span style="color:#66d9ef">while</span> index <span style="color:#f92672">&lt;</span> len(polyline_str):
-        <span style="color:#66d9ef">for</span> unit <span style="color:#f92672">in</span> [<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">latitude</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">longitude</span><span style="color:#e6db74">&#39;</span>]: 
-            shift, result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iam_gcj02</span>(o_lat, o_lng, d_lat, d_lng):
 
-            <span style="color:#66d9ef">while</span> True:
-                byte <span style="color:#f92672">=</span> ord(polyline_str[index]) <span style="color:#f92672">-</span> <span style="color:#ae81ff">63</span>
-                index <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-                result <span style="color:#f92672">|</span><span style="color:#f92672">=</span> (byte <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x1f</span>) <span style="color:#f92672">&lt;&lt;</span> shift
-                shift <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> byte <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0x20</span>:
-                    <span style="color:#66d9ef">break</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iam_baidu</span>(o_lat, o_lng, d_lat, d_lng):
 
-            <span style="color:#66d9ef">if</span> (result <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>):
-                changes[unit] <span style="color:#f92672">=</span> <span style="color:#f92672">~</span>(result <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>)
-            <span style="color:#66d9ef">else</span>:
-                changes[unit] <span style="color:#f92672">=</span> (result <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># you will need to decode google polyline strings</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_polyline</span>(polyline_str):
 
-        lat <span style="color:#f92672">+</span><span style="color:#f92672">=</span> changes[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">latitude</span><span style="color:#e6db74">&#39;</span>]
-        lng <span style="color:#f92672">+</span><span style="color:#f92672">=</span> changes[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">longitude</span><span style="color:#e6db74">&#39;</span>]
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iam_google</span>(o_city, d_city):
 
-        coordinates<span style="color:#f92672">.</span>append((lat <span style="color:#f92672">/</span> <span style="color:#ae81ff">100000.0</span>, lng <span style="color:#f92672">/</span> <span style="color:#ae81ff">100000.0</span>))
+<span style="color:#75715e"># 重庆 - 北京 ｜ chongqing - beijing</span>
 
-    <span style="color:#66d9ef">return</span> coordinates
-</code></pre></div><p>Now Let&rsquo;s get the polyline strings from Google map api.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">geoPath</span>(type, s_city, e_city):
-    
-    ak <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span> <span style="color:#75715e"># your api key</span>
-    s <span style="color:#f92672">=</span> quote(s_city)
-    e <span style="color:#f92672">=</span> quote(e_city)
-    
-    headers <span style="color:#f92672">=</span> {
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Upgrade-Insecure-Requests</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">1</span><span style="color:#e6db74">&#39;</span>,
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">User-Agent</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36</span><span style="color:#e6db74">&#39;</span>,
-    }
-    
-    url <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">https://maps.googleapis.com/maps/api/directions/json?origin={0}&amp;destination={1}&amp;key={2}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(s,e,ak)
-    
-    response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
-    data <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>json()
+gcj02<span style="color:#f92672">=</span>iam_gcj02(<span style="color:#ae81ff">29.4316</span>, <span style="color:#ae81ff">106.9123</span>, <span style="color:#ae81ff">39.9042</span>, <span style="color:#ae81ff">116.4074</span>)
+baidu<span style="color:#f92672">=</span>iam_baidu(<span style="color:#ae81ff">29.4316</span>, <span style="color:#ae81ff">106.9123</span>, <span style="color:#ae81ff">39.9042</span>, <span style="color:#ae81ff">116.4074</span>) <span style="color:#75715e"># example output: [39.904084845903, 116.40720694844]</span>
+google<span style="color:#f92672">=</span>iam_google(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">重庆</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">北京</span><span style="color:#e6db74">&#39;</span>) <span style="color:#75715e"># example output: [39.90417, 116.40772]</span>
 
-     result <span style="color:#f92672">=</span> []
-      <span style="color:#66d9ef">if</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>keys():
-          <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> data[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">routes</span><span style="color:#e6db74">&#39;</span>]:
-             <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> r[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">legs</span><span style="color:#e6db74">&#39;</span>]:
-                  <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(len(l[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>])):
-                      <span style="color:#75715e"># lat , lng</span>
-                        d_polyline<span style="color:#f92672">=</span>decode_polyline(l[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">steps</span><span style="color:#e6db74">&#39;</span>][s][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">polyline</span><span style="color:#e6db74">&#39;</span>][<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">points</span><span style="color:#e6db74">&#39;</span>])
-                        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(d_polyline)):
-                            result<span style="color:#f92672">.</span>append([d_polyline[i][<span style="color:#ae81ff">0</span>], d_polyline[i][<span style="color:#ae81ff">1</span>]])        
-    <span style="color:#66d9ef">return</span> result
-</code></pre></div><p>Then let&rsquo;s add them on the map</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">32.413750664010415</span>, <span style="color:#ae81ff">114.10064798730232</span>]
-m <span style="color:#f92672">=</span> folium<span style="color:#f92672">.</span>Map(location<span style="color:#f92672">=</span>center, zoom_start<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
-folium<span style="color:#f92672">.</span>PolyLine(points, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#8b0000</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)<span style="color:#f92672">.</span>add_to(m)
-m<span style="color:#f92672">.</span>save(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">example.html</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><p>Once you loaded all the geo data in, you might see something like this:</p>
+center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">37.2426</span>, <span style="color:#ae81ff">111.8569</span>]
+m <span style="color:#f92672">=</span> folium<span style="color:#f92672">.</span>Map(location<span style="color:#f92672">=</span>center, zoom_start<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>)
+folium<span style="color:#f92672">.</span>TileLayer(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">cartodbpositron</span><span style="color:#e6db74">&#39;</span>)<span style="color:#f92672">.</span>add_to(m)
+
+folium<span style="color:#f92672">.</span>PolyLine(gcj02, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#8b0000</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)<span style="color:#f92672">.</span>add_to(m)
+folium<span style="color:#f92672">.</span>PolyLine(baidu, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#ffdf00</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)<span style="color:#f92672">.</span>add_to(m)
+folium<span style="color:#f92672">.</span>PolyLine(google, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#1B3FAB</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)<span style="color:#f92672">.</span>add_to(m)
+
+m<span style="color:#f92672">.</span>save(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">baidu_gcj_vs_google.html</span><span style="color:#e6db74">&#39;</span>)
+
+</code></pre></div><p>👉 You can find the <a href="https://gist.github.com/applegreengrape/eaf10982cbc32278b7b2955a33e08c44">source code here</a></p>
+<p>👉 代码代码看这边 <a href="https://gist.github.com/applegreengrape/eaf10982cbc32278b7b2955a33e08c44">source code here</a></p>
 
 <div class="embed iframe">
-    <iframe src="https://applegreengrape.github.io/travel-path.html"  position="center" height="600px" width="100%">
+    <iframe src="https://applegreengrape.github.io/baidu_gcj_vs_google.html"  position="center" height="600px" width="100%">
     </iframe>
 </div>
-<ul>
-<li>
 <h4 id="lets-look-at-another-question---how-to-draw-a-curved-flight-path">Let&rsquo;s look at another question - how to draw a curved flight path</h4>
-</li>
-</ul>
 
   <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEhIVFRUXGBcVFhgVFxcZFxUXGhYXGBoYGBgaHSggGholHRcXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0mHyUtLTUtMzAtLS0tLS0tLS01LS01LS0vLS0yLS0tLS0tLS0tLS0tLS0tLS0tLS8tLS0tLf/AABEIAKEBOQMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAQIDBAUGB//EAEgQAAEDAgMEBgcEBwUIAwAAAAEAAgMEESExQQUSUWETInGBkaEGMkKxwdHwFFJi4QcVIzNyc4JDY5Ki8RYkRFNUk8LSNIOy/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAMREAAgIBAwIDBgUFAQAAAAAAAAECEQMSITEEQRNRYSIycZGhsUKBwdHwM1KS4eIU/9oADAMBAAIRAxEAPwD3FCEIAQhCAEKptTaUNPG6aeRkUbc3PIAHAcydBmVyr9uV1ZhRx/ZYD/xFSwmV4xxhpzawyIdJa/3UB11ZWRxMMksjI2DNz3BrR2lxsFzMn6QKV2FLHUVhvb/doXOZfnK7djtz3lXpvQ6m3xLUb9ZMMRJVO6Qtxv1GEdHGP4WjILfDbYDJAYp9ItpP/d7NZGNDUVTAf8MTH&#43;9RnaG2T7GzmDTrVD/Pdat4hNIQGGNp7ZGcWz3jlJUMPmxyePSquZ&#43;&#43;2WXDjTVEUn&#43;WQRn3rXITCEBSpv0gUJIbO6SkefZq43Q/53fsz3OK6eKVrgHNIcDiCDcEciM1gTRNcC1zQ5pzDgCD2g4Fc&#43;70XbES&#43;hlkon52hxgcfx07uoe4NPNAehIXE0/pjNTHd2nCGsyFVAHOg5dKzF8JyxN245hdlBO17Q9jg5rgC1zSC1wORBGBCAkQhCAEIQgBCEIAQhCAEKKedrBdxACzJtpvdhEzD7x&#43;GnvQ43RrlwGaqybRiHtA/wANz7lkvpnHrSPJ1tfDxUYrWtFmN&#43;uPEpTk6huR1V72xpP2zGNHeAHxSN2004BrvJYc0pcb2A7PrNIyRwyJHyWhYJafUpebc6H9aNHrMeO7D3qSLacR9sDtw9&#43;C5&#43;KseNb8j881dZURuwNgTmCPiqMkZQe6LYTUjea4HEG/YlWEKWxuxxYeWIVqnqpBg8B3MYHwy9yhqRNX3NNCigna/wBU3tnxHaNFKpHQQhCAEIQgBCEIAWF6S&#43;kjabdjYwz1Ml&#43;hgYQHP/E45RxjV5wHM4I9KvSD7M1kcTOlqZiW08V7bzhm959mNgxc7uzKp&#43;j2w&#43;g3pZX9NUy2M8zhi46MYPYibk1o96AqbO9HXPkbVV7xPUDFjBf7PTcoWHN3GR3WNtF0dk4BODUBHupCFNupC1AQEJpCmITCEBEQmEKUhMIQERCY4KUphQELgufbs6aicZtnWLDjJRuNopNS6E/2MnZ1TqBmuicmFAaPo5t&#43;Gsi6WIkEHdkjeN2SF4zZIz2XDwOYuFqrz/amz5WSfbKOzalos5pNmVUY/spOf3X5tPJdX6N7dirIBNFcYlj2OwfFI3B8bxo5p&#43;BGBQGqhCEAIQhACp1dXu4NFzlyB&#43;fJLVT&#43;y3vPDkOaptHgMB8SoSlXAIxBc7zzvO55DsCkkeGi5yChlrGtNsTxtooaipa5tsjgbHD4YqMlLlnE12Iqme4BJvkd0ZDtOqqE3P18VK8AW1uASLafD4qSkgLgbWtliTj4FThKUFqXBCSUnTIAEvRKeopnNubC3L5FQdIV6OLLHItjHkxyixCERtxAuBzOXekLki7ktqkdhtuzciJtiLHVOVGjrCeqQSdMuXmrwK8lqnTN6dqxhZjvDPz7vkVbpK4OO67A5cifgVXUUjATa2YPlb68ETo6bSFRo6k&#43;o7PQ8eR&#43;fxV5Wp2cBCELoBUttbUipYJKiZ27HG0ucfcBxcTYAakhXVxO2X/bNoNps6ej3Z5uElS4XhjPEMbeQjiWIB3ovs2Rzn19W0CqnAG7n9mgBuyBp5es7i4ngF0rQmNUrUA5oTw1I0KVoQDN1NIUxamOCAgcFG4KZyicgIimFPeQBcmwGZOQXOVnpbDvGOna&#43;pk4RDqD&#43;KQ9UDmLqMpqPJdi6fJldQV/ZfF8I3SqtbWRxDelkYwcXuDfeufkbXz/ALyZtMz7kI3pLWyMjsAebUyPYNNGd9zOkf8AelJke46ethfsCreV9l8zXHo8cf6k7flHf67L5WM2t6aRNb/uzTO7etg14YBYk9bdxPIfBa7a9xDD0RG81pdvOALCRi22pCjijtic9AMmjgPnr2YJSoqU&#43;WyWWPT6VGEOO7d39uCRtW/eN2N3cbEPNzwuN2w8SsOpr3UU/wBvaxzY3FsdbGBvb7MmVDN3249bjFtxmAthI5oIsRcHAg5EKWplHhwfY7WKUOAc0gggEEYggi4IOoT1xP6P64xPk2a8n9iBLTEm5dTOJG7cm5Mb7tPJzF2ytTtGWcdMmgVasn3QAPWOXLie74hWHG2JWSHlxLzrlyboPj3rknRER7w0Z27dSmVEm4znaw5lRPcXv3DkMSOzK5&#43;CndAC7eOOgByHcqlVhmVFTucC7QXNynRtYAC65J9kcOatbSwaMbDhx/ILEdXRA7vSNJysCCfAYrWm8qtukVaGnUYtlw3ceJK2YIg0WH&#43;pWXBXRRjBspJ16KQX1wLwBZEu2zY7sEvI/svcZFTKbybRWyLo4JR3lz6tL7lvaNRZthmfILNv8lWdUSE36Hn67U3p5P8AlHue2614IqEd&#43;X6Mz5YSk9mv8l&#43;5augFVo53k26CXuMR8g9WRKwYvEzP/pkcPFgcPNHnxQ9hhdLml7SXyaf2LFI0l26DgcTgD5LUhj3bjS9xyWZsuvgxHTMu42AJ3XG2u67HFa6xZJqcrRescoKpKhE2QYdmPglcbC6buE5nXLC1vBQOiEgkWxzGHzWhST3wOY8xoVRZgbeHZw8bp28QQ4ZjzGo&#43;uS7F0DVQmscCLjI4pyuOFPbG0GU8EtRJ6kTHSO7GtJsOZtZcz6F0L46Vrpf385dUz/zZesR/SN1nYwKT9Irt9lNR/wDU1MbHjjFFeeTxEQb/AFLYCAkapGqB8jWgucQ1oxJJAAHEk5KtLteNtwLuIvkLC40ubDHiLoDVapGlc8/bb79VjQL6kuJG7wFt073bgNL4QHaUxzkt6vqtaBcZ5gmx1F9MEB1RKY8rknTOOb3nC2L3cb8c769yxtq7XiY7ow3ppjvWjaLnrW3t45NBwvfNRlJRVstxYZ5ZaYK2d9LM0ZuA7SBpf3Yrla70yY5xio2iokFgXXDYWEmwu8&#43;tfQDOxsVzZ2bJMd6qcLXuIY8GA5Avdm82t4LSZG1oDWtAAyAAAHcqnOUuNl9TdHDgw&#43;97cvL8K/Pl/lS9WK7ZhnO9XVIl9roo3bkDbEDIG77OwuVswRsY3djDWtGFm2AFs8AsQhRSBtrkDXS&#43;efj5qKiluJ555PZfHZLZfJHQSvAFz/rwAUTGG&#43;87PID7o&#43;Z17uCwGMx3iLG9wBobboOHtWwvoMApGyOGTnDIesdDca&#43;PHVdog3WyN0qMrJ&#43;2yD2r5&#43;sAcze&#43;FsslINpnVgOeRseQscD23CURs0kyWQNBcTYAEnsCgjr4zrbTEW0vnlb5K3BGXOxaDHYOBOO864I3eQte/MW1XasWlu&#43;DK20z7L9nrmk3p5S6Y2xNPO7dmBH4bscP5S9KBXJ19I2aKSF4u2RjmO7HNLT71a/R7XOl2fTmQ3kY0wSY3PSQuMTieZLL96uSoxSk5O2aO3Kjdj3Rm7Du1&#43;A71CxwDQScAAST2ZlVduSb0ltALfE&#43;/wAlTmqnOG7p8FPwXNLSU&#43;Iot2FPtiN4vTEygnTBjTjm51rY42FzbG2ISmadzg2SRsY1EQuQc7F7wbjsaCqkELWANY1rWjINAAvnkMFMySzrkA8QuPpJLd7/AALX1ULrGq&#43;O7/b6EVdQxFw/tOG&#43;58ljfg8kA9lksfVsG4WythbsslKFtxYoxhpMmXNOcrbY6R5cbk3KRtri&#43;Xw1TQlBVmhadPYqt3ZJM5pPVBA5lRJbpz22wIsopqPso67e5d2cy13Hh7lNTP6hcTqSL6cvrimUtQCWt03bXOpsLjsVanbd5Fha5w07sV5jTk5N8mxNKkjUMTS3d3Wlp0sCD3ZKr&#43;qYR6jeiPGImPxDbA94KsxvwF&#43;y/HTuupVVSZdGco8MzpKaZo6s&#43;9raZjTljbeYG27SChu0i0ftonx/iAL4&#43;3eaLtHN4arhtc3yAGuGpv8AXBMllPVLMRr2LleRLxE/eX6fz5CmQODXNIIPWBBBBGGR4G6mIusmq2a395G4RuuS4sAs4nPfbk7twdYnFEVc9h3Juq7ENdf9k84mwccWutY2dnoTiUvzO&#43;GnvB36dzb2PJ1Swm5afLH8/JaCxKIFkrTo&#43;478we/DxW0r4cFJxu3nh21qdpygpKiYk5AySRxgn&#43;lknmpKva&#43;bYuY38M8LFoxDhnieGqx/SF5/W02P/CU4wJGBlqDbmPkE4FSBNI8uO84knGxJva5BIF8hgMBwCUFRApwKAlBSTTtY0ue4NaMSSbAKjtLabIWguuScGMbi554AfFZkdE&#43;ZwkqrYYshGLGc3ffd5KuWSnS5NuDpNUfEyuo/V&#43;iX68IkfXzVOEN4YdZSP2jx/dj2R&#43;Iq5Q0McLd2Ntr4knFzjxcdVNdF1Wo72&#43;S&#43;ef2dGNaY&#43;Xn8X3f08kKSmlBKhqahrGl73BrRmT4LvBTGLk6XI97rYnJQtF&#43;se4cOZ5&#43;5EZ3rO9nNvO/tHuy&#43;rPKckn7O3cQppSlNK6QGlNKUqMde4aSLYFwHPEDmOOiD1YesS0XGGLhpwGOv1wVylcY7CM7oFsBkbCwuNfyTWiwtwSqxRozZMmrZcGvRbTDrNfZpyBF7Hq3JP3cb4EnTFTfo9duybQhv6lWZAOAmhilNuW8XnvKwXAHA4haH6O5XGu2gHEnqUjrnO5bM33MaO5SKzRrH3e88XFQlKfz&#43;vFIFtwqk/wCdjFkdgEJClurysRKSiyQIBSEEJAlugHsDbG5x0HFTVcXVa7C5ztqVWJWnQRMI3szz0WLPeOWtfz0NGOpLSR01FcdYm3Lz&#43;uSsU8UYGl7Y8e3sTr2JaBfkSdcSb2yx4qJsoOpNhj28eQ5jHFYXJu7NKikTNxA3iLd2Nkk5DRfHMAC59yAwWtY3y7L8DlZZbGucSG43x/O6njx679CM5Ua1Uy7SMORKowzkbrHAAcfrBTUtK4XLjy4o&#43;yh4F3YjgLYcuXNdWlNxe68xu90WXHLDUY4cVV2rQRzxvhlbdjty4BIN94WsRlkFdDBa2mSrzTBgO9jkBzzt3qvTexZGbg9SdNDXxtjZGGizYywNGOQFgFvLnny78bscrHuwPwK2bq6KpUyF22zzP01qXw7XfIW3h&#43;xwmUgElg6aYCTmxpwdwDr5Aq8x4IBBBBxBGII4grT9JGiPatJIcpqeop&#43;Rcx0czQe4Seaz6v0ZdGS&#43;ie1gOJgkv0JP92R1oSeQLfw6rp0AVR2ntMRWa0b8rvUYP/07g3mqW09uGBu7NC&#43;KU&#43;q19tx2NriVp3C0XF7kHHIJdm04ZeR7w&#43;V&#43;LnDG/JtvZFtOCpnPfSj0Om6aKj4uVWuy/u/5Xfz4XpJs/Z5a4yyu35nZu0aPusGg960LqHpCcm97sPLPxsjcJzcewYfn56qKSXBPLOWSWqb/ANeiXYldIBmQO1M6UnJp7TgPPHyQxgGQ&#43;finXXSu4oYQ45ut/D2cT8gmvp2EEOaHXz3ut3Y9gUl0hKUNbXGwJCglNJXSIFMc6wuUkjjo0uN7WHHmdAnths7euScgNBxw17SiVnJSUVuRMYXgG7mi97WsTw7Byz7FZQhWpUZpzcgQo552saXPc1jRmXEADtJVWGskm/8Aiwul/vHXjgHPpHC7x/A1y6QLNTUMjaXvcGtGJJ&#43;sTyVv9FQlNXtGSVu5vCkDWH1mNDJXtD&#43;Dt17SRoTbRSbM9HA17Zql/TStN2Dd3YojxjZc3d&#43;NxJztu3stT9Hbd4189v3lY9rTxbDHHDf/ABMegGvbu&#43;Xgmq/XQdXAYtNu4dX/AMfNUFs6eepGPLGmASWSlAWgqEKW6SyVyAAkshCAu0lK1w6178jwty5qyQImmxzva&#43;d7clBRVBFwGk2Gnb&#43;aJY3ym9t0DAX815s1Jzam9rNcaUU4rch&#43;1PJvlYaYA24oe8G7m9V2o0PG35qYbOIIu7Xhyv8ABUSdMO381ao45uoEG5R94tOm6mBzwd4e7NWaapYG3yJz1N1nMYTgAT2JzKd59k8MlB9PFS3e31JLK2uDRiqQ/evgB59vyU5OGeIGlvrRU6an3HWJBJw7Nb456rQIWWSV&#43;zwXRutyi7aFrgtIOn5qrV75sX8MOzsWrLE02JGWqzdoOxA5E&#43;JuPrmr&#43;na8RUivKnpdsrxyEXtqC09hFl1C5eFlyG8SAuv3ArupitVkcDdHKfpKjLYIqsZ0lRFO7&#43;USYpe7ckc7&#43;lW3yhoLiQGgEk6AAXv4Lb2hRsmikhkF2SMdG4cWuBafIrzv0fq39AKSYb0tO91LMTfERAbkmOe&#43;0xO57x4LO3SNUI6pJCU2wz9qkqZJTI14IY1wILWuINjfIAYW4ZqST0Zpc42GE8YHGPxa3qu7wVqgpbrOklwejlzzytanwkvyRgu2HUt/d1QeOE8QJP8AVEWW/wAJURgrW&#43;tTxP8A5U2J/pkY23iukulupWU0cr9rlHr0lS3sY2Tw6J7lH&#43;uI/abM3&#43;OCdvvYuuujeSxRx8m3qZvrTsb/ABHd99kz/aGj/wCqg/7rPmuvknaCATicANT2DMp7IHkuBG42xANwXX4gWIA7fBFuGqVs4x3pDSWJ&#43;0wm2JtI0&#43;QKI9tQOJImY5n4N55OH4Rh59y7yngDBYXOt3G5J7fgMFJvKxQ8ymWbtE4SLaUQAbHFUO/gpqg35k9HnzKnE05tuUVS6&#43;rhFGB29JID5Ls7oUyhtt2zkmUFe44RQRjjJK57h/Qxlj/iU8fo1M63TVjhxFPG2MHleTpHW7CCumQhwx6P0ZpI3B/RB7xk&#43;YuleOx0hJb3WWwhCAqbVrmwQyzu9WNjpDz3Wk278u9aXoHs51Ps&#43;njfcSbnSSXz6WQmWS/9T3LmtvxfaZ6agGIleJ5&#43;VPCQ4g8nydGzvK9EQGLWgte/C7SL&#43;IN/MLFkbYkcDZdTXsydwwPYfz96wa2C2PjwIU&#43;nnoyU&#43;5VmjcbXYpkoISFKV6JjECLpQksgFSxsJNhclKxlyB71rwwgDdGmZsMThxWbPn8PZcluPHqHRNDRZo&#43;uJOqka1MFxgMQAO3uUgN15ptEcPHRRfZmEYtGON7Y481OomOsMibajVLo4NgpmsJtfHipW5nx&#43;vBIH8j70l7nDhjh4Z96Ntu2EkuCOshDm45jI8&#43;ChpakglkmBFgD8z9Zq4GhVKqm3ybYHAX0tbX60U4yXEuDjT5RYlkFuQxPPl4rFLrm51KusaXbrX4Nb/mOSpON3E8/itXSJWyjO9i5sWO8o5Y/XfZdMsr0fgs0vPtYDsC1UzyuZLDGoirg/TKk&#43;zVLK8YRS7lPU8GuBIhmPYXGMng5q7xV6&#43;jZNG&#43;KVocx7Sx7TkWkWIVDVqjTCWmVnIApbrI2VTOp5v1fO9&#43;/E3eppLgCqpwcLi1jKz1X4A2s7W63BRdYnfdb7tm2Hfa/mqtDNPiQ8yO6ZLM1ou5waOJIHvU7KBu6Wuc997Yl26cOBYG2U8cDW2AaML21IvnicV3QzjywXqVG3Lt3ddzcRZowvmc&#43;66fFSPIPSODb2t0ZOHHrEY35AK5dCkoIred9thsMTWgBoyFsSSe8nEp90iFMpbb3YXQhCHAQhCAEIQgBR1E7WNc97g1jQXOccA1oFyTyAUiwHwfrGpNK3GkgcDVu0mkHWbSg6gYOfbSzdSgNX9H1E54l2jM0tkqt3omuzipWX6JvIuuZD/GOC7BIAlQDZGAgg5HBZE8ZIc0&#43;sMPke9bKqVkPtDMZ8x8x81GS7g5VzSM0OWvWU2&#43;LjP3rKkYQSDnwW/DmWRepiyY3FjbYJEqS6vKyzRAl4tjbHyWu0jRYbH2Nx9d61YjexFnXGotlz4rzerT132NeBrTRPr3e7/VDm6jA/Wai6QYWsL6kfV&#43;xI52VrknQ3APfkFlLyQXOflr3p97JjL2ww7uaSQYZnu4/WKAfGMAkacT4fXikZJgNTr&#43;fBMc22ueYyv2WQEj3WytdEZwvxx&#43;u5NDuDTjx4874posGknmeXcEBDXz2bhrl2ZX7MwqNNCXvDRqfopkkhcbn65Lf2LRbjd5w6zvIfNejBLDj9WZHeSfoaEUYaA0ZDBPQhZjUCEIQGP6T7AZWRbhcY5GHfhlb68Mgyc3iNC3IgkLmNj7VkMjqSraIquMXLR6kzMhNAT6zDqM2m4K79ZPpH6Pw1kYbJdr2HeilYd2WF/3mO05jI6hAZ6Fz7tpzUThDtK26cGVjG7sEnASj&#43;wkPA9U42Oi3wb4hAKhCEAIQhACEIQAhCEAIUdROyNpfI5rGNF3OcQGtHEk4BYlO6p2j1aYvp6Q&#43;tVEWlmGopWOyB/5rhr1QbXQD6yqlqZTRUTrOGFRUZtpmn2W6OnIybpmV2mxdkxUsLIIW7rGCw1JOZc46uJuSdSUbG2TDSxNhgYGMbkBmSc3OJxc45knEq8gBCEIAQhCAoVMG71h6uvLn2e73Zu0o2kXJs7TnyXQrJ2nswuF2aY7v/r8kgqmndEZ&#43;6zAukT3NIuCMuOiYvUMApCkgmLTxHA&#43;8cDzUbggFRlBSVM6pNbovt2iALBp4XuE2WuvazbWwxPZ8lRuluqf/AC4/Is8aZfi2lh1m9lvzVmGYEb2N/d9WWNdX6WpJszlbDC/aqOowKK1RRbiytumXGXwGXvI44HDGyla0D6v70xlxpj5fNDZeWWZwssRoEd62OAA96r7Qtu2AGYy9yJnm2IxJw1J4Aaj8ldpdnEkOl0yboO35KzHH8RCT7EGydnYh7stBxPHs963EIVrbe7EYpcAhCFwkCEIQAhCEBHUQNe0se1r2uBDmuALXA5gg4EclxtT6GS093bNmEbcSaafefTn&#43;WfXh/pu38K7ZCA86l9JDBhX08tIcukI6SnJJsLTx3Av&#43;MNOK2KOrjlbvxSMkafaY4OHiF1hC5zaHoJs&#43;V/SGmbHJn0kBdA&#43;/EuiLSe&#43;6AahVD6Dvb&#43;52lWs4CQxTAf8AdjLvEqL/AGU2kMtqsI/HRMJ7y2Vo8kBoIVAeie0T621QB/d0cbT4ve8eSlb6Cb37&#43;vrZeLRI2Fp7oWNPmgG7R2pBA3enmjiH43Bt&#43;wHE9yzYds1FThQUj5Acp6gOgpxfUbw6SQfwt7102yPQ6gpnb8NLGH59I8GSW5/vJCXea3kBx&#43;z/AEIDntm2hL9rkB3mxlu5TRHiyG53iL&#43;s8uPYuvASoQAhCEAIQhACEIQAhCEBVq6FknrDHiM1iVmyXtxA3hyz8F0qFZDLKJXPFGRxbm2zw7UC66&#43;ana/BzQfriqMuxYzkS3z960R6iPcoeCXY53H6CXu8lsu2Dwf5fmmfqJ33h5qfjQ8yHhT8jIx4eSt0DRvY56C9sVfbsHi/y/NWItixjElx77e5V5ckZRaTJwxyUrohkkIww8LpYqR7uIA1cf8Ax&#43;u1acNO1vqtA9/jmpVgUPM1lWlomsxxLuJz/JWkIVgBCEIAQhCAEIQgBCEIAQhCAEIQgBCEIAQhCAEIQgBCEIAQhCAEIQgBCEIAQhCAEIQgBCEIBEIQgAJUIXEAQhC6AQhCAEIQgBCEID//2Q=="  class="center"  style="width: 50%"  />
 

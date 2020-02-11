@@ -44,14 +44,14 @@
 
 
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei" type="text/css" media="all" />
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
 
 
 <style>
   body {
-  font-family: 'Quicksand';
+  font-family: 'ZCOOL XiaoWei';
   }
   code {
   font-family: 'Source Code Pro'; 
@@ -201,6 +201,7 @@
 <h3 id="the-aws-setup">The AWS Setup</h3>
 <p>I built a small and light ETL lambda function to parse all the data and write them to the dynamodb tables. They are scheduled by AWS cloudwatch events. It will run every day at 3:30 am. And there is one aws api gateway with 2 paths invoke 2 lambda functions to retrieve the data from the tables. I will make another post about how to terraform them up in 5 mins. Yep! It only took 5 mins to spin up but it will take a much longer time to understand.</p>
 <h3 id="okie-dokie-now-lets-look-at-the-api">Okie Dokie, now let&rsquo;s look at the API.</h3>
+<h4 id="新冠疫情爬虫数据接口">新冠疫情爬虫数据接口：</h4>
 <h4 id="the-api-endpoint-https4mmhkv7z9eexecute-apieu-west-1amazonawscomv1">The API Endpoint: <code>https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/</code></h4>
 <h4 id="path-dxy"><code>path</code>: <code>/dxy</code></h4>
 <p>You can use this path to retrieve the stats of coronavirus including <code>id</code>, <code>date</code>, <code>country</code>, <code>provinceName</code>, <code>cityName</code>, <code>confirmedCount</code>, <code>suspectedCount</code>, <code>curedCount</code>, <code>deadCount</code>. Please be aware this ETL lambda function is scheduled from 2020-02-08. The latest data you can retrieve is from 2020-02-08.</p>

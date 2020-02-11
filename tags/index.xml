@@ -22,11 +22,11 @@
     </item>
     
     <item>
-      <title>coronavirus</title>
-      <link>/tags/coronavirus/</link>
+      <title>Baidu Map API</title>
+      <link>/tags/baidu-map-api/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/coronavirus/</guid>
+      <guid>/tags/baidu-map-api/</guid>
       <description></description>
     </item>
     
@@ -58,11 +58,29 @@
     </item>
     
     <item>
+      <title>Google Map API</title>
+      <link>/tags/google-map-api/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/google-map-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Python</title>
       <link>/tags/python/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>百度地图API</title>
+      <link>/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/</guid>
       <description></description>
     </item>
     
