@@ -403,16 +403,16 @@ Here you go! Your own payment Gateway Page looks pretty good!</p>
   }
   <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
 }
-</code></pre></div><p>If the payment go through, your customer will get a <code>payment complete page</code>. Like this 👇:
+</code></pre></div><p>If the payment go through, your customer will get a <code>payment complete page</code>. Like this 👇:</p>
 
   <img src="/static/img/pg-2.png"  alt="payment gateway page"  class="center"  />
 
-</p>
-<p>If the payment went wrong, your customer will get a <code>payment failed page</code>. Like this 👇:
+
+<p>If the payment went wrong, your customer will get a <code>payment failed page</code>. Like this 👇:</p>
 
   <img src="/static/img/pg-3.png"  alt="payment gateway page"  class="center"  />
 
-</p>
+
 <p>And you have all the records in your Vault KV:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/ <span style="color:#75715e"># vault kv list secret</span>
 Keys
