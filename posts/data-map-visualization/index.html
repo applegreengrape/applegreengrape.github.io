@@ -207,38 +207,9 @@ The coordinate systems is actually quite interesting. Baidu Maps uses a variant 
 <p><code>api endpoint</code>: <code>https://maps.googleapis.com/maps/api/directions/</code></p>
 <p>You can retrieve GCJ-02 coordinate from baidu api by setting <code>ret_coordtype=gcj02</code>. 百度地图的接口也可以将坐标系设为GCJ-02.</p>
 <p>Let&rsquo;s check the path from Chongqing to Beijing.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-<span style="color:#f92672">from</span> urllib.request <span style="color:#f92672">import</span> quote
-<span style="color:#f92672">import</span> folium
-<span style="color:#f92672">import</span> numpy
+<script type="application/javascript" src="https://gist.github.com/applegreengrape/eaf10982cbc32278b7b2955a33e08c44.js"></script>
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iam_gcj02</span>(o_lat, o_lng, d_lat, d_lng):
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iam_baidu</span>(o_lat, o_lng, d_lat, d_lng):
-
-<span style="color:#75715e"># you will need to decode google polyline strings</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_polyline</span>(polyline_str):
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iam_google</span>(o_city, d_city):
-
-<span style="color:#75715e"># 重庆 - 北京 ｜ chongqing - beijing</span>
-
-gcj02<span style="color:#f92672">=</span>iam_gcj02(<span style="color:#ae81ff">29.4316</span>, <span style="color:#ae81ff">106.9123</span>, <span style="color:#ae81ff">39.9042</span>, <span style="color:#ae81ff">116.4074</span>)
-baidu<span style="color:#f92672">=</span>iam_baidu(<span style="color:#ae81ff">29.4316</span>, <span style="color:#ae81ff">106.9123</span>, <span style="color:#ae81ff">39.9042</span>, <span style="color:#ae81ff">116.4074</span>) <span style="color:#75715e"># example output: [39.904084845903, 116.40720694844]</span>
-google<span style="color:#f92672">=</span>iam_google(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">重庆</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">北京</span><span style="color:#e6db74">&#39;</span>) <span style="color:#75715e"># example output: [39.90417, 116.40772]</span>
-
-center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">37.2426</span>, <span style="color:#ae81ff">111.8569</span>]
-m <span style="color:#f92672">=</span> folium<span style="color:#f92672">.</span>Map(location<span style="color:#f92672">=</span>center, zoom_start<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>)
-folium<span style="color:#f92672">.</span>TileLayer(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">cartodbpositron</span><span style="color:#e6db74">&#39;</span>)<span style="color:#f92672">.</span>add_to(m)
-
-folium<span style="color:#f92672">.</span>PolyLine(gcj02, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#8b0000</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)<span style="color:#f92672">.</span>add_to(m)
-folium<span style="color:#f92672">.</span>PolyLine(baidu, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#ffdf00</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)<span style="color:#f92672">.</span>add_to(m)
-folium<span style="color:#f92672">.</span>PolyLine(google, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#1B3FAB</span><span style="color:#e6db74">&#34;</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.85</span>)<span style="color:#f92672">.</span>add_to(m)
-
-m<span style="color:#f92672">.</span>save(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">baidu_gcj_vs_google.html</span><span style="color:#e6db74">&#39;</span>)
-
-</code></pre></div><p>👉 You can find the <a href="https://gist.github.com/applegreengrape/eaf10982cbc32278b7b2955a33e08c44">source code here</a></p>
-<p>👉 代码代码看这边 <a href="https://gist.github.com/applegreengrape/eaf10982cbc32278b7b2955a33e08c44">source code here</a></p>
+<p>Google and Baidu recommended different paths. If you zoom in you will find GCJ-02 is a little bit different from BD-09. 百度和谷歌建议的路线不一样， 火星坐标和百度坐标又不一样👇</p>
 
 <div class="embed iframe">
     <iframe src="https://applegreengrape.github.io/baidu_gcj_vs_google.html"  position="center" height="600px" width="100%">
