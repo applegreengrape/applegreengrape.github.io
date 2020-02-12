@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>coronavirus :: DevOps | AWS | GCP | Golang | Python — test</title>
+      <title>coronavirus :: DevOps | Cloud | Golang | Python | API</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -35,23 +35,23 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/coronavirus/" />
 <meta property="og:image" content="/"/>
-<meta property="og:updated_time" content="2020-02-09T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | AWS | GCP | Golang | Python" />
+<meta property="og:updated_time" content="2020-02-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Cloud | Golang | Python | API" />
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/tags/coronavirus/index.xml" title="DevOps | AWS | GCP | Golang | Python" />
+<link rel="alternate" type="application/rss+xml" href="/tags/coronavirus/index.xml" title="DevOps | Cloud | Golang | Python | API" />
 
 
 
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei" type="text/css" media="all" />
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
 
 
 <style>
   body {
-  font-family: 'Quicksand';
+  font-family: 'ZCOOL XiaoWei';
   }
   code {
   font-family: 'Source Code Pro'; 
@@ -155,10 +155,10 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/data-map-visualization/">Map Data Visualization</a></h1>
+      <h1 class="post-title"><a href="/posts/serverless-lambda-dynamodb-api/">Serverless Lambda Dynamodb API</a></h1>
       <div class="post-meta">
         <span class="post-date">
-          2020-02-09
+          2020-02-12
         </span>
         
         
@@ -168,17 +168,25 @@
       
         <span class="post-tags">
           
-            #<a href="/tags/python/">python</a>&nbsp;
+            #<a href="/tags/python3/">python3</a>&nbsp;
           
-            #<a href="/tags/geodata/">geodata</a>&nbsp;
+            #<a href="/tags/serverless/">serverless</a>&nbsp;
           
-            #<a href="/tags/data-visualization/">data visualization</a>&nbsp;
+            #<a href="/tags/lambda/">lambda</a>&nbsp;
+          
+            #<a href="/tags/dynamodb/">dynamodb</a>&nbsp;
+          
+            #<a href="/tags/api/">api</a>&nbsp;
+          
+            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
           
             #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
           
             #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
           
-            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
+            #<a href="/tags/aws-api-gateway/">aws-api-gateway</a>&nbsp;
+          
+            #<a href="/tags/%E5%87%BD%E6%95%B0%E5%8D%B3%E5%BA%94%E7%94%A8/">函数即应用</a>&nbsp;
           
         </span>
       
@@ -188,12 +196,60 @@
       <div class="post-content">
         
           
-            This is post all about geo data visualization. We will have a look about Baidu map api, Google map api and create maps with folium.
-This post is about what I have learned about visualizing data from 2019nCov-api. To get the direction data, there are two apis you can call - Baidu map api and Google map api. The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the chinese gov is using GCJ-02.
+            This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform’s built-in functions to make a more reusable modules for api gateway and lambdas.
+前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
+Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data.
           
         
       </div>
-      <div><a class="read-more button" href="/posts/data-map-visualization/">Read more →</a></div>
+      <div><a class="read-more button" href="/posts/serverless-lambda-dynamodb-api/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/2019ncov-api/">2019nCov-API</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2020-02-08
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/api/">API</a>&nbsp;
+          
+            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
+          
+            #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
+          
+            #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
+          
+            #<a href="/tags/aws/">AWS</a>&nbsp;
+          
+            #<a href="/tags/serverless/">serverless</a>&nbsp;
+          
+            #<a href="/tags/lambda/">lambda</a>&nbsp;
+          
+            #<a href="/tags/dynamodb/">dynamodb</a>&nbsp;
+          
+            #<a href="/tags/%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E7%88%AC%E8%99%AB%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/">新冠疫情爬虫数据接口</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/2019ncov-api/">Read more →</a></div>
     </div>
     
     <div class="pagination">

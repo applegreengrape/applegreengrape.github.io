@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on DevOps | AWS | GCP | Golang | Python</title>
+    <title>Posts on DevOps | Cloud | Golang | Python | API</title>
     <link>/posts/</link>
-    <description>Recent content in Posts on DevOps | AWS | GCP | Golang | Python</description>
+    <description>Recent content in Posts on DevOps | Cloud | Golang | Python | API</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Serverless Lambda Dynamodb API</title>
+      <link>/posts/serverless-lambda-dynamodb-api/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/serverless-lambda-dynamodb-api/</guid>
+      <description>This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform&amp;rsquo;s built-in functions to make a more reusable modules for api gateway and lambdas.
+前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
+Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data.</description>
+    </item>
     
     <item>
       <title>Map Data Visualization</title>

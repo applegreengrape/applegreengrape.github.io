@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Serverless Lambda Dynamodb API :: DevOps | Cloud | Golang | Python | API</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform&amp;rsquo;s built-in functions to make a more reusable modules for api gateway and lambdas.
+前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
+Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data."/>
+<meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/serverless-lambda-dynamodb-api/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Serverless Lambda Dynamodb API"/>
+<meta name="twitter:description" content="This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform&rsquo;s built-in functions to make a more reusable modules for api gateway and lambdas.
+前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
+Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data."/>
+
+
+
+<meta property="og:title" content="Serverless Lambda Dynamodb API" />
+<meta property="og:description" content="This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform&rsquo;s built-in functions to make a more reusable modules for api gateway and lambdas.
+前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
+Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/serverless-lambda-dynamodb-api/" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2020-02-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Cloud | Golang | Python | API" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei" type="text/css" media="all" />
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
+
+
+<style>
+  body {
+  font-family: 'ZCOOL XiaoWei';
+  }
+  code {
+  font-family: 'Source Code Pro'; 
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1HV0FGVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1HV0FGVY3');
+</script>
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/about" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Pingzhou | 平舟 ⛵️</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags/project">Topics</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/tags/project">Topics</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/serverless-lambda-dynamodb-api/">Serverless Lambda Dynamodb API</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2020-02-12
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/python3/">python3</a>&nbsp;
+        
+          #<a href="/tags/serverless/">serverless</a>&nbsp;
+        
+          #<a href="/tags/lambda/">lambda</a>&nbsp;
+        
+          #<a href="/tags/dynamodb/">dynamodb</a>&nbsp;
+        
+          #<a href="/tags/api/">api</a>&nbsp;
+        
+          #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
+        
+          #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
+        
+          #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
+        
+          #<a href="/tags/aws-api-gateway/">aws-api-gateway</a>&nbsp;
+        
+          #<a href="/tags/%E5%87%BD%E6%95%B0%E5%8D%B3%E5%BA%94%E7%94%A8/">函数即应用</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the <a href="/posts/2019ncov-api/">2019nCov-api</a> as an example. In addition, we will have a look at terraform&rsquo;s built-in functions to make a more reusable modules for api gateway and lambdas.</p>
+<p>前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)</p>
+
+  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif"  class="center"  style="width: 35%"  />
+
+
+<h3 id="use-case-用例">Use Case 用例</h3>
+<p>The use case is I want to build a simple API to allow user to retrieve <a href="/posts/2019ncov-api/">coronavirus data</a>. There are two major tables. One is <a href="https://ncov.dxy.cn/ncovh5/view/pneumonia">DXY stats</a>, another one is people&rsquo;s <a href="http://2019ncov.nosugartech.com/">travel data</a>. And I want to allow people to query specific fields via url query parameters. Also I want to schedule the coronavirus data injection daily to dynamodb.</p>
+<p>这个数据接口是用来提取新冠疫情的相关数据， 主要的数据是来源于<a href="https://ncov.dxy.cn/ncovh5/view/pneumonia">丁香医生实时数据</a>和<a href="http://2019ncov.nosugartech.com/">同程软件查询工具</a>。同时用户可通过设置参数来获取特定数据。丁香医生的数据是实时更新的，为了得到历史数据，我需要设定一个定时任务把数据录入
+dynamodb。</p>
+<h3 id="architecture-diagram-架构图">Architecture Diagram ☁️架构图</h3>
+<p>Okie dokie, now let&rsquo;s look at the tools we can use from AWS.</p>
+<ul>
+<li>AWS API Gateway [☁️云网关]</li>
+<li>AWS Cloudwatch Event [☁️云监控]</li>
+<li>AWS Lambda [☁️云计算服务]</li>
+<li>AWS Dynamodb [NoSQL☁️键/值和文档数据库]</li>
+</ul>
+
+  <img src="https://raw.githubusercontent.com/applegreengrape/2019nCov-API/master/img/serverless-backend-api-diagram.png"  class="center"  style="width: 125%"  />
+
+
+<p>👉 <a href="https://raw.githubusercontent.com/applegreengrape/2019nCov-API/master/img/serverless-backend-api-diagram.png">click here for the diagram</a></p>
+<h3 id="lets-terraform-it-up">Let&rsquo;s terraform it up</h3>
+<p>Terraform 是一个 IT 基础架构自动化编排工具，它的口号是 &ldquo;Write, Plan, and create Infrastructure as Code&rdquo;, 基础架构即代码。具体的说就是可以用代码来管理维护 IT 资源. 这个API比较难写的地方主要是这个AWS API Gateway [☁️云网关]， 这篇文章将着重于如何用terraform自带的function，用<code>for each</code>的方式来写。</p>
+<p>As we can see from the diagram, the difficult part is the AWS API Gateway [☁️云网关]. We will need one API Gateway with two pathes, each path is using <code>GET</code> methods. Let&rsquo;s use terraform&rsquo;s functions to make a more reusable api gateway module. To create an AWS API gateway, you will need:</p>
+<ul>
+<li><code>aws_api_gateway_rest_api</code></li>
+<li><code>aws_api_gateway_resource</code></li>
+<li><code>aws_api_gateway_method</code></li>
+<li><code>aws_api_gateway_integration</code></li>
+<li><code>aws_api_gateway_integration_response</code></li>
+<li><code>aws_api_gateway_deployment</code></li>
+</ul>
+<p>Okie, dokie Let&rsquo;s look at the code. The key to make this more reusable is to pair the endpoints. 要用for each， 就得把他弄成个数列，这玩意只可意会不可言传， 看code吧:</p>
+<script type="application/javascript" src="https://gist.github.com/applegreengrape/22097bf6e2e3b4d0c155590aa84ececf.js"></script>
+
+<p>Here is the output of the pairing 👇:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">(</span>base<span style="color:#f92672">)</span> pingzhous-MBP:lambda-tf-v12 pingzhouliu$ terraform state list module.api-gw
+module.api-gw.aws_api_gateway_deployment.api-gw-module
+module.api-gw.aws_api_gateway_integration.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET dxy&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_integration.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET travel&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_integration_response.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET dxy 200&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_integration_response.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET travel 200&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_method.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET dxy&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_method.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET travel&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_resource.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;dxy&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_resource.api-gw-module<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;travel&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_api_gateway_rest_api.api-gw-module
+module.api-gw.aws_lambda_permission.apigw_lambda<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET dxy&#34;</span><span style="color:#f92672">]</span>
+module.api-gw.aws_lambda_permission.apigw_lambda<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;GET travel&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div><p>You can find the module&rsquo;s <code>main.tf</code> and <code>variables.tf</code> here 👇</p>
+<script type="application/javascript" src="https://gist.github.com/applegreengrape/4388e4507d788f162156aa41a7df7656.js"></script>
+
+<p>Now let&rsquo;s call the api-gw module:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">module <span style="color:#e6db74">&#34;api-gw&#34;</span> <span style="color:#f92672">{</span>
+  source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./api-gw&#34;</span>
+
+  api-gw-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2019-nCov-API-GW&#34;</span>
+  stage_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+  endpoints <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>
+    <span style="color:#f92672">{</span>
+      path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dxy&#34;</span>
+      method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GET&#34;</span>
+      lambda <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dxy&#34;</span>
+      request_parameters <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 
+        <span style="color:#e6db74">&#34;method.request.querystring.date&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.country&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.cityName&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.provinceName&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.all&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>,
+    <span style="color:#f92672">{</span>
+      path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;travel&#34;</span>
+      method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GET&#34;</span>
+      lambda <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;travel&#34;</span>
+      request_parameters <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 
+        <span style="color:#e6db74">&#34;method.request.querystring.date&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.start&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.stop&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#e6db74">&#34;method.request.querystring.all&#34;</span> <span style="color:#f92672">=</span> true
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>🥳 🥳 🥳 Here you go! Your API is up 🤗 🤗 🤗</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pingzhous-MBP:lambda-tf-v12 pingzhouliu$ terraform output
+endpoint_id <span style="color:#f92672">=</span> https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/
+execution_arn <span style="color:#f92672">=</span> arn:aws:execute-api:eu-west-1:900665556514:4mmhkv7z9e
+
+$ curl -s https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/dxy?all<span style="color:#f92672">=</span>yes | jq -r .<span style="color:#f92672">[</span><span style="color:#f92672">]</span>.date | sort | uniq
+2020-02-08
+2020-02-09
+2020-02-10
+2020-02-11
+2020-02-12
+
+$ curl -s https://4mmhkv7z9e.execute-api.eu-west-1.amazonaws.com/v1/dxy?date<span style="color:#f92672">=</span>2020-02-12 | jq .<span style="color:#f92672">[</span>78<span style="color:#f92672">]</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;3275&#34;</span>,
+  <span style="color:#e6db74">&#34;date&#34;</span>: <span style="color:#e6db74">&#34;2020-02-12&#34;</span>,
+  <span style="color:#e6db74">&#34;country&#34;</span>: <span style="color:#e6db74">&#34;中国&#34;</span>,
+  <span style="color:#e6db74">&#34;provinceName&#34;</span>: <span style="color:#e6db74">&#34;重庆市&#34;</span>,
+  <span style="color:#e6db74">&#34;cityName&#34;</span>: <span style="color:#e6db74">&#34;忠县&#34;</span>,
+  <span style="color:#e6db74">&#34;confirmedCount&#34;</span>: <span style="color:#e6db74">&#34;19&#34;</span>,
+  <span style="color:#e6db74">&#34;suspectedCount&#34;</span>: <span style="color:#e6db74">&#34;NULL&#34;</span>,
+  <span style="color:#e6db74">&#34;curedCount&#34;</span>: <span style="color:#e6db74">&#34;6&#34;</span>,
+  <span style="color:#e6db74">&#34;deadCount&#34;</span>: <span style="color:#e6db74">&#34;NULL&#34;</span>,
+  <span style="color:#e6db74">&#34;msg&#34;</span>: <span style="color:#e6db74">&#34; No Man is an Island  🏝  没有人是一座孤岛 @pingzhou| 平舟 ⛵&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>👉 <a href="/posts/2019ncov-api/">click here to see more examples of this API</a></p>
+<h3 id="next-topics">Next Topics:</h3>
+<ul>
+<li>Dynamodb Attribute [NoSQL☁️键/值和文档数据库如何设计属性]</li>
+<li>AWS Cloudwatch Scheduler [用☁️云监控来做定时任务]</li>
+<li>Run Python in Lambda with Boto3 [☁️云计算服务来跑python和AWS的python工具包]</li>
+</ul>
+
+  <img src="https://media.giphy.com/media/9eM1SWnqjrc40/giphy.gif"  class="center"  style="width: 35%"  />
+
+
+<p>Please feel free to leave some comments if you have any questions or have any other interesting use cases. If you have enjoyed reading this post, please feel free to buy me a <code>(r'virtual|physical', 'coffee')</code>. All the coffee from <code>#2019nCov</code> posts will be donated (if there are any).</p>
+
+      
+      <div align="center">
+      <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style>
+      
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      
+      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/3k2CeYTrb"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:10px;">Buy me a coffee</span></a>
+    </div>
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="/posts/data-map-visualization/">
+                <span class="button__text">Map Data Visualization</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+    
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-applegreengrape-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+<script data-ad-client="ca-pub-2753999921028307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    </div>
+
+    
+  </body>
+</html>
