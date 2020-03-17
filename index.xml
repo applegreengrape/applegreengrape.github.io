@@ -34,7 +34,7 @@ The coordinate systems is actually quite interesting. Baidu Maps uses a variant 
     </item>
     
     <item>
-      <title>2019nCov-API</title>
+      <title>COVID-19 API</title>
       <link>/posts/2019ncov-api/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
@@ -171,7 +171,7 @@ Let&amp;rsquo;s try jq with AWS resources api.
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/cv/</guid>
-      <description>Pingzhou Liu  👉📱message my twilio bot (+447479275693) applegreengrapeintherain@gmail.com https://github.com/applegreengrape  Professional Summary  I am interested in IT automation, especially creating my own tools. I am a DevOps Engineer and AWS certified (AWS Certified Solutions Architect - Associate 2018). I am keen to learn more about cloud native and IT automation.
+      <description>Pingzhou Liu  👉📱message my twilio bot (+447479275693) applegreengrapeintherain@gmail.com https://github.com/applegreengrape  Professional Summary  I like to code and create my own tools. I am a DevOps Engineer and AWS certified (AWS Certified Solutions Architect - Associate 2018). I am keen to learn more about cloud-native, serverless and IT automation.
 I am also interested in Data analytics. I used to be a Splunk Lead Developer where I developed a network intelligence tool with a supervised decision tree algorithm for virtual network optimization, which has been selected by Splunk .</description>
     </item>
     

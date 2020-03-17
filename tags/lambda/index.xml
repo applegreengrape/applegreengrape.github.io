@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lambda on DevOps | Cloud | Golang | Python | API</title>
+    <title>Lambda on DevOps | Cloud | Golang | Python | API</title>
     <link>/tags/lambda/</link>
-    <description>Recent content in lambda on DevOps | Cloud | Golang | Python | API</description>
+    <description>Recent content in Lambda on DevOps | Cloud | Golang | Python | API</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
@@ -24,7 +24,7 @@ Use Case 用例 The use case is I want to build a simple API to allow user to re
     </item>
     
     <item>
-      <title>2019nCov-API</title>
+      <title>COVID-19 API</title>
       <link>/posts/2019ncov-api/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       

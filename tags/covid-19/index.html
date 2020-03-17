@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     
-      <title>Lambda :: DevOps | Cloud | Golang | Python | API</title>
+      <title>COVID-19 :: DevOps | Cloud | Golang | Python | API</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content=""/>
 <meta name="keywords" content="Pingzhou | 平舟 ⛵️"/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="/tags/lambda/" />
+<link rel="canonical" href="/tags/covid-19/" />
 
 
 <link rel="stylesheet" href="/assets/style.css">
@@ -25,21 +25,21 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
-<meta name="twitter:title" content="Lambda"/>
+<meta name="twitter:title" content="COVID-19"/>
 <meta name="twitter:description" content="Pingzhou | 平舟"/>
 
 
 
-<meta property="og:title" content="Lambda" />
+<meta property="og:title" content="COVID-19" />
 <meta property="og:description" content="Pingzhou | 平舟" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/tags/lambda/" />
+<meta property="og:url" content="/tags/covid-19/" />
 <meta property="og:image" content="/"/>
-<meta property="og:updated_time" content="2020-02-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Cloud | Golang | Python | API" />
+<meta property="og:updated_time" content="2020-02-08T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Cloud | Golang | Python | API" />
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/tags/lambda/index.xml" title="DevOps | Cloud | Golang | Python | API" />
+<link rel="alternate" type="application/rss+xml" href="/tags/covid-19/index.xml" title="DevOps | Cloud | Golang | Python | API" />
 
 
 
@@ -155,57 +155,6 @@
 
     
     <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/serverless-lambda-dynamodb-api/">Serverless Lambda Dynamodb API</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2020-02-12
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/python3/">python3</a>&nbsp;
-          
-            #<a href="/tags/serverless/">serverless</a>&nbsp;
-          
-            #<a href="/tags/lambda/">lambda</a>&nbsp;
-          
-            #<a href="/tags/dynamodb/">dynamodb</a>&nbsp;
-          
-            #<a href="/tags/api/">api</a>&nbsp;
-          
-            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
-          
-            #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
-          
-            #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
-          
-            #<a href="/tags/aws-api-gateway/">aws-api-gateway</a>&nbsp;
-          
-            #<a href="/tags/%E5%87%BD%E6%95%B0%E5%8D%B3%E5%BA%94%E7%94%A8/">函数即应用</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform’s built-in functions to make a more reusable modules for api gateway and lambdas.
-前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
-Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/serverless-lambda-dynamodb-api/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
       <h1 class="post-title"><a href="/posts/2019ncov-api/">COVID-19 API</a></h1>
       <div class="post-meta">
         <span class="post-date">
@@ -250,47 +199,6 @@ Use Case 用例 The use case is I want to build a simple API to allow user to re
         
       </div>
       <div><a class="read-more button" href="/posts/2019ncov-api/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/lambda-logshipper/">Lambda Logshipper</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2019-07-11
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/golang/">Golang</a>&nbsp;
-          
-            #<a href="/tags/lambda/">Lambda</a>&nbsp;
-          
-            #<a href="/tags/aws/">AWS</a>&nbsp;
-          
-            #<a href="/tags/cloudwatch/">Cloudwatch</a>&nbsp;
-          
-            #<a href="/tags/cloud-admin/">cloud admin</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            How can you easily move your Cloudwatch logstream to another platform or log collector endpoints? The easiest way is to ship the Cloudwatch logstream through a socket client. This is an example of a small Golang lambda function to ship aws cloudwatch log stream to a tcp endpoint.
-you will need a socket client:
-func SocketClient(m []byte) { conn, err := net.Dial(&quot;tcp&quot;, &quot;your_tcp_endpoint:your_port&quot;) defer conn.Close() if err != nil { fmt.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/lambda-logshipper/">Read more →</a></div>
     </div>
     
     <div class="pagination">

@@ -67,7 +67,7 @@
     </item>
     
     <item>
-      <title>lambda</title>
+      <title>Lambda</title>
       <link>/tags/lambda/</link>
       <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
       
@@ -162,6 +162,15 @@
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COVID-19</title>
+      <link>/tags/covid-19/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/covid-19/</guid>
       <description></description>
     </item>
     
