@@ -13,7 +13,6 @@
     --dark-border-color:#4a4b50;
     --phoneWidth:(max-width: 375px);
     --tabletWidth:(max-width:900px)
-    .gist-data {max-height: 320px; max-width: 580px;}
 }
 
 .posts{
@@ -81,9 +80,3 @@ a.read-more, a.read-more:active, a.read-more:hover {
 .footer {
     color: #999;
 }
-
-.gist {
-    max-height:450px;
-    overflow:scroll;
- }
- 

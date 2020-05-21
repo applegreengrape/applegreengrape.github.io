@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>Payment Gateway | Go | Stripe | Vault :: DevOps | Cloud | Golang | Python | API</title>
+      <title>Payment Gateway | Go | Stripe | Vault :: DevOps | AWS | GCP | Golang | Python  — test</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -36,7 +36,7 @@
 <meta property="og:url" content="/posts/go-payment-gateway-with-stripe-and-vault/" />
 <meta property="og:image" content="/"/>
 <meta property="article:published_time" content="2019-12-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-03T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Cloud | Golang | Python | API" />
+<meta property="article:modified_time" content="2019-12-03T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | AWS | GCP | Golang | Python " />
 
 
 
@@ -44,17 +44,17 @@
 
 
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT Sans" type="text/css" media="all" />
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu" type="text/css" media="all" />
 
 
 <style>
   body {
-  font-family: 'ZCOOL XiaoWei';
+  font-family: 'PT Sans';
   }
   code {
-  font-family: 'Source Code Pro'; 
+  font-family: 'Ubuntu'; 
   }
 </style>
 
@@ -286,11 +286,11 @@
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">submit</span>();
 }
 </code></pre></div><p>Now Let&rsquo;s just make it prettier. There are quite a lot free html templates on line you can just download 😃.
-Here you go! Your own payment Gateway Page looks pretty good!</p>
+Here you go! Your own payment Gateway Page looks pretty good!
 
   <img src="/static/img/pg-1.png"  alt="payment gateway page"  class="center"  />
 
-
+</p>
 <h3 id="now-lets-look-at-the-backend">Now let&rsquo;s look at the backend</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// This quick win/demo is using stripe&#39;s charge API. It is a good way to get you started but not really the best practice
 </span><span style="color:#75715e"></span><span style="color:#75715e">// In this demo, we are using the Vault as the backend KV storage. I like it because: 
@@ -403,16 +403,16 @@ Here you go! Your own payment Gateway Page looks pretty good!</p>
   }
   <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
 }
-</code></pre></div><p>If the payment go through, your customer will get a <code>payment complete page</code>. Like this 👇:</p>
+</code></pre></div><p>If the payment go through, your customer will get a <code>payment complete page</code>. Like this 👇:
 
   <img src="/static/img/pg-2.png"  alt="payment gateway page"  class="center"  />
 
-
-<p>If the payment went wrong, your customer will get a <code>payment failed page</code>. Like this 👇:</p>
+</p>
+<p>If the payment went wrong, your customer will get a <code>payment failed page</code>. Like this 👇:
 
   <img src="/static/img/pg-3.png"  alt="payment gateway page"  class="center"  />
 
-
+</p>
 <p>And you have all the records in your Vault KV:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/ <span style="color:#75715e"># vault kv list secret</span>
 Keys
@@ -469,13 +469,6 @@ user      993bcc1a-2d1a-4bb9-95b4-129652bd3f5a
           <hr />
         </div>
         <div class="pagination__buttons">
-          
-            <span class="button previous">
-              <a href="/posts/2019ncov-api/">
-                <span class="button__icon">←</span>
-                <span class="button__text">COVID-19 API</span>
-              </a>
-            </span>
           
           
             <span class="button next">

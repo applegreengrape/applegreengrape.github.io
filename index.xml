@@ -1,46 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps | Cloud | Golang | Python | API</title>
+    <title>DevOps | AWS | GCP | Golang | Python </title>
     <link>/</link>
-    <description>Recent content on DevOps | Cloud | Golang | Python | API</description>
+    <description>Recent content on DevOps | AWS | GCP | Golang | Python </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Serverless Lambda Dynamodb API</title>
-      <link>/posts/serverless-lambda-dynamodb-api/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/serverless-lambda-dynamodb-api/</guid>
-      <description>This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform&amp;rsquo;s built-in functions to make a more reusable modules for api gateway and lambdas.
-前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
-Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data.</description>
-    </item>
-    
-    <item>
-      <title>Map Data Visualization</title>
-      <link>/posts/data-map-visualization/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/data-map-visualization/</guid>
-      <description>This post is about what I have learned about visualizing data from 2019nCov-api. In order to visualize the data I will need to get the latitude-longitude reference. And I found two interesting APIs. Baidu Map vs Google Map.
-The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the Chinese government is using GCJ-02.</description>
-    </item>
-    
-    <item>
-      <title>COVID-19 API</title>
-      <link>/posts/2019ncov-api/</link>
-      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019ncov-api/</guid>
-      <description>The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him.</description>
-    </item>
     
     <item>
       <title>Payment Gateway | Go | Stripe | Vault</title>
@@ -171,8 +141,8 @@ Let&amp;rsquo;s try jq with AWS resources api.
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/cv/</guid>
-      <description>Pingzhou Liu  👉📱message my twilio bot (+447479275693) applegreengrapeintherain@gmail.com https://github.com/applegreengrape  Professional Summary  I like to code and create my own tools. I am a DevOps Engineer and AWS certified (AWS Certified Solutions Architect - Associate 2018). I am keen to learn more about cloud-native, serverless and IT automation.
-I am also interested in Data analytics. I used to be a Splunk Lead Developer where I developed a network intelligence tool with a supervised decision tree algorithm for virtual network optimization, which has been selected by Splunk .</description>
+      <description>Pingzhou Liu  👉📱message my twilio bot (+447479275693) applegreengrapeintherain@gmail.com https://github.com/applegreengrape  Professional Summary  I am interested in IT automation, especially creating my own tools. I am a DevOps Engineer and AWS certified (AWS Certified Solutions Architect - Associate 2018). I am keen to learn more about cloud native and IT automation.
+  I am also interested in Data analytics. I used to be a Splunk Lead Developer where I developed a network intelligence tool with a supervised decision tree algorithm for virtual network optimization, which has been selected by Splunk .</description>
     </item>
     
     <item>

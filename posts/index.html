@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>Posts :: DevOps | Cloud | Golang | Python | API</title>
+      <title>Posts :: DevOps | AWS | GCP | Golang | Python  — test</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -35,26 +35,26 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
 <meta property="og:image" content="/"/>
-<meta property="og:updated_time" content="2020-02-12T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | Cloud | Golang | Python | API" />
+<meta property="og:updated_time" content="2019-12-03T00:00:00+00:00" /><meta property="og:site_name" content="DevOps | AWS | GCP | Golang | Python " />
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="DevOps | Cloud | Golang | Python | API" />
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="DevOps | AWS | GCP | Golang | Python " />
 
 
 
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=ZCOOL XiaoWei" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT Sans" type="text/css" media="all" />
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Code Pro" type="text/css" media="all" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu" type="text/css" media="all" />
 
 
 <style>
   body {
-  font-family: 'ZCOOL XiaoWei';
+  font-family: 'PT Sans';
   }
   code {
-  font-family: 'Source Code Pro'; 
+  font-family: 'Ubuntu'; 
   }
 </style>
 
@@ -153,150 +153,6 @@
     
     
 
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/serverless-lambda-dynamodb-api/">Serverless Lambda Dynamodb API</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2020-02-12
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/python3/">python3</a>&nbsp;
-          
-            #<a href="/tags/serverless/">serverless</a>&nbsp;
-          
-            #<a href="/tags/lambda/">lambda</a>&nbsp;
-          
-            #<a href="/tags/dynamodb/">dynamodb</a>&nbsp;
-          
-            #<a href="/tags/api/">api</a>&nbsp;
-          
-            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
-          
-            #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
-          
-            #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
-          
-            #<a href="/tags/aws-api-gateway/">aws-api-gateway</a>&nbsp;
-          
-            #<a href="/tags/%E5%87%BD%E6%95%B0%E5%8D%B3%E5%BA%94%E7%94%A8/">函数即应用</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            This post is about how to terraform up a serverless, scalable and resilient lambda API. I am using the 2019nCov-api as an example. In addition, we will have a look at terraform’s built-in functions to make a more reusable modules for api gateway and lambdas.
-前面几篇都是写dev的, 今天这篇来写云架构和terraform. 如何用AWS api gateway，lambda和dynamodb做一个轻巧，可扩展的适应性强的数据接口（p.s. serverless, scalable and resilient 这个我不知道该怎么翻， 反正就是这个☁️云架构精致，小巧且耐用)
-Use Case 用例 The use case is I want to build a simple API to allow user to retrieve coronavirus data.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/serverless-lambda-dynamodb-api/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/data-map-visualization/">Map Data Visualization</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2020-02-09
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/python/">python</a>&nbsp;
-          
-            #<a href="/tags/geodata/">geodata</a>&nbsp;
-          
-            #<a href="/tags/data-visualization/">data visualization</a>&nbsp;
-          
-            #<a href="/tags/baidu-map-api/">Baidu Map API</a>&nbsp;
-          
-            #<a href="/tags/google-map-api/">Google Map API</a>&nbsp;
-          
-            #<a href="/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/">百度地图API</a>&nbsp;
-          
-            #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
-          
-            #<a href="/tags/2019ncov/">2019nCov</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            This post is about what I have learned about visualizing data from 2019nCov-api. In order to visualize the data I will need to get the latitude-longitude reference. And I found two interesting APIs. Baidu Map vs Google Map.
-The coordinate systems is actually quite interesting. Baidu Maps uses a variant of web Mercator projection for slicing map data into tiles with an underlying latitude-longitude reference - BD-09 coordinate system while the Chinese government is using GCJ-02.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/data-map-visualization/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/2019ncov-api/">COVID-19 API</a></h1>
-      <div class="post-meta">
-        <span class="post-date">
-          2020-02-08
-        </span>
-        
-        
-      </div>
-
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/api/">API</a>&nbsp;
-          
-            #<a href="/tags/covid-19/">COVID-19</a>&nbsp;
-          
-            #<a href="/tags/coronavirus/">coronavirus</a>&nbsp;
-          
-            #<a href="/tags/coronavirus-tracking/">coronavirus-tracking</a>&nbsp;
-          
-            #<a href="/tags/aws/">AWS</a>&nbsp;
-          
-            #<a href="/tags/serverless/">serverless</a>&nbsp;
-          
-            #<a href="/tags/lambda/">lambda</a>&nbsp;
-          
-            #<a href="/tags/dynamodb/">dynamodb</a>&nbsp;
-          
-            #<a href="/tags/%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E7%88%AC%E8%99%AB%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/">新冠疫情爬虫数据接口</a>&nbsp;
-          
-        </span>
-      
-
-      
-
-      <div class="post-content">
-        
-          
-            The beginning of the year of rat is quite difficult for most Chinese people since the coronavirus outbreak. I have been checking the news about the progress of this outbreak. One day I watched the interview of a Chinese health official. She mentioned that there was one patient who has no idea that he has met anyone from Wuhan,the center of the outbreak. However, they used big data and found 3 people from Wuhan that have been in contact with him.
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/2019ncov-api/">Read more →</a></div>
-    </div>
     
     <div class="post on-list">
       <h1 class="post-title"><a href="/posts/go-payment-gateway-with-stripe-and-vault/">Payment Gateway | Go | Stripe | Vault</a></h1>
@@ -585,6 +441,121 @@ And here is a python version:
         
       </div>
       <div><a class="read-more button" href="/posts/export-gcp-stackdriver-log-with-filebeat/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/boto3-python/">AWS | Boto3 | Python</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2019-08-13
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/python/">Python</a>&nbsp;
+          
+            #<a href="/tags/boto3/">Boto3</a>&nbsp;
+          
+            #<a href="/tags/aws/">AWS</a>&nbsp;
+          
+            #<a href="/tags/cloud-admin/">cloud admin</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            This is an example about how to create your own python boto3 class and use it in your day-to-day work 😃. Please feel free to 👉📱message my twilio bot +447479275693. I will come back to you shortly 😃.
+import boto3 import os &quot;&quot;&quot;how to use this classimport aws_modules.get_all_sg_rulessg_rule = aws_modules.get_all_sg_rules.sg(aws_account) # passing aws_account value to retrive all sg rulessg_rule_result = sg_rule.getSgRules()&quot;&quot;&quot; class sg: def <strong>init</strong>(req, aws_account): req.aws_account = aws_account def getSgRules(req): try: os.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/boto3-python/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/papertest-google-spreadsheet-api/">Google Spreadsheets Paper Test By Calling Google&rsquo;s Spreadsheets API</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2019-08-13
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/google-apps-script/">Google Apps Script</a>&nbsp;
+          
+            #<a href="/tags/google-spreadsheets/">Google Spreadsheets</a>&nbsp;
+          
+            #<a href="/tags/paper-test/">Paper Test</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            I have made one post about doing paper test by using google app script. For a fully automated paper testing, you can use Google’s Spreadsheets API to track your paper test result. How to do it?</p>
+<ol>
+<li>Connect to Google’s Spreadsheets API There is a quickstart documentation. And I have posted mine:
+package main import ( &quot;time&quot; &quot;encoding/json&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;golang.org/x/net/context&quot; &quot;golang.org/x/oauth2&quot; &quot;golang.org/x/oauth2/google&quot; &quot;google.golang.org/api/sheets/v4&quot; ) // Retrieve a token, saves the token, then returns the generated client.</li>
+</ol>
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/papertest-google-spreadsheet-api/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/aws-s3-command/">amazon s3</a></h1>
+      <div class="post-meta">
+        <span class="post-date">
+          2019-08-12
+        </span>
+        
+        
+      </div>
+
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/bash/">bash</a>&nbsp;
+          
+            #<a href="/tags/aws/">AWS</a>&nbsp;
+          
+            #<a href="/tags/amazon-s3/">amazon-s3</a>&nbsp;
+          
+            #<a href="/tags/cloud-admin/">cloud admin</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            aws s3 cli is great! You can easily move your local files to your aws s3 buckets. However, sometimes it is not that easy to do simple tasks - like copy files where there is a whitespace in the file name, delete all versions of all files in a versioned s3 bucket and the difference between aws s3 sync and aws s3 cp &ndash;recursive .
+escape the whitespace in your file name When you have a long list of files that you need to upload to s3 bucket, it will be easy for you to loop it through if you have nice filenames that there are no whitespace.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/aws-s3-command/">Read more →</a></div>
     </div>
     
     <div class="pagination">

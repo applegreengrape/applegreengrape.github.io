@@ -1,185 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on DevOps | Cloud | Golang | Python | API</title>
+    <title>Tags on DevOps | AWS | GCP | Golang | Python </title>
     <link>/tags/</link>
-    <description>Recent content in Tags on DevOps | Cloud | Golang | Python | API</description>
+    <description>Recent content in Tags on DevOps | AWS | GCP | Golang | Python </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>2019nCov</title>
-      <link>/tags/2019ncov/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/2019ncov/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>API</title>
       <link>/tags/api/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws-api-gateway</title>
-      <link>/tags/aws-api-gateway/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/aws-api-gateway/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coronavirus</title>
-      <link>/tags/coronavirus/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/coronavirus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coronavirus-tracking</title>
-      <link>/tags/coronavirus-tracking/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/coronavirus-tracking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dynamodb</title>
-      <link>/tags/dynamodb/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/dynamodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lambda</title>
-      <link>/tags/lambda/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/lambda/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python3</title>
-      <link>/tags/python3/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/python3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>serverless</title>
-      <link>/tags/serverless/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/serverless/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>函数即应用</title>
-      <link>/tags/%E5%87%BD%E6%95%B0%E5%8D%B3%E5%BA%94%E7%94%A8/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/%E5%87%BD%E6%95%B0%E5%8D%B3%E5%BA%94%E7%94%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Baidu Map API</title>
-      <link>/tags/baidu-map-api/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/baidu-map-api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data visualization</title>
-      <link>/tags/data-visualization/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/data-visualization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>geodata</title>
-      <link>/tags/geodata/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/geodata/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google Map API</title>
-      <link>/tags/google-map-api/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/google-map-api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>百度地图API</title>
-      <link>/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/tags/aws/</link>
-      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>COVID-19</title>
-      <link>/tags/covid-19/</link>
-      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/covid-19/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>新冠疫情爬虫数据接口</title>
-      <link>/tags/%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E7%88%AC%E8%99%AB%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/</link>
-      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E7%88%AC%E8%99%AB%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/</guid>
       <description></description>
     </item>
     
@@ -274,6 +112,15 @@
     </item>
     
     <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>big data visualization</title>
       <link>/tags/big-data-visualization/</link>
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
@@ -297,6 +144,15 @@
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/machine-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
@@ -459,6 +315,15 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/cloudwatch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>/tags/lambda/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/lambda/</guid>
       <description></description>
     </item>
     
